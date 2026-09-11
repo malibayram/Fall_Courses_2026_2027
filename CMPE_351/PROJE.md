@@ -83,19 +83,19 @@ Hedef depo yapısı: `migrations/`, `seed/`, `queries/`, `transactions/`, `tests
 
 ### W2 — Bütün sistemin yapısı ve walking skeleton
 
-**Artım:** W1 şemasını sürümlü migration ve seed'e taşı; verilen `setup/check` girişlerini bağla. Migration sahibi ile normal uygulama rolünü ayır. Bağlantı → şema → sorgu → gelecekteki replication/realtime sınırlarını M1–M8 üzerinden yeniden dolaş.
+**Artım:** W1 şemasını sürümlü migration ve seed'e taşı; verilen `setup/check` girişlerini bağla. Migration sahibi ile normal uygulama rolünü ayır. Bu hafta M1–M3'e (DBMS mimarisi/iş yükü, kavramsal model/şema/bütünlük, ilişkisel cebir/SQL) odaklanılır; M4–M8 haritada bekleyen kalır.
 
 **Kanıt:** Boş test veritabanında kurulum, health query, ER taslağı, sahiplik/güven sınırı, sekiz modüllük backlog. Yapılmış migration değiştirilmez; sonraki değişiklik yeni dosyadır. **Sonraki bağ:** Arama ve kayıt akışının davranışı.
 
 ### W3 — Bütün sistemin davranışı ve hata
 
-**Artım:** Gerçek girdiden parametreli SQL'e ve sonuç çıktısına arama dikey dilimi; başarılı kayıt için açık transaction ve iki hata yolu. Aynı M1–M8, state değişimi, plan ve hata bakımından yeniden dolaşılır.
+**Artım:** Gerçek girdiden parametreli SQL'e ve sonuç çıktısına arama dikey dilimi; başarılı kayıt için açık transaction ve iki hata yolu. Bu hafta M4–M6'ya (fonksiyonel bağımlılıklar/normalizasyon, transaction/eşzamanlılık/kurtarma, depolama/indeks/sorgu işleme) odaklanılır; M1–M3 kısaca geri çağrılır, M7–M8 bekleyen kalır.
 
 **Kanıt:** Arama, duplicate, geçersiz FK ve rollback izleri; SQL string birleştirmesi yerine verilen güvenli bağlama yolu; ilk plan gözlemi. **Sınır:** Transaction yazmak tek başına concurrent capacity garantisi değildir. **Sonraki bağ:** `v0.1` sürüm sözleşmesi.
 
 ### W4 — Entegrasyon ve `v0.1`
 
-**Artım:** Kurulum, katalog arama, kayıt, listeleme, kontrollü ret ve testleri birleştir. Tek istemcili capacity kontrolü verilebilir; genel eşzamanlılık garantisi W9'a kadar bilinen eksiktir. M1–M8 haritasında uygulanmış ve gelecekteki parçalar ayrı görünür.
+**Artım:** Kurulum, katalog arama, kayıt, listeleme, kontrollü ret ve testleri birleştir. Tek istemcili capacity kontrolü verilebilir; genel eşzamanlılık garantisi W9'a kadar bilinen eksiktir. Bu hafta M7–M8'e (dağıtık/bulut/dayanıklı veri sistemleri, doküman/realtime modeller ve modern PostgreSQL) odaklanılır; M1–M6 kısaca geri çağrılır ve ikinci tur bu haftayla tamamlanır. M1–M8 haritasında uygulanmış ve gelecekteki parçalar ayrı görünür.
 
 **Kanıt:** Temiz kurulum; normal kayıt; duplicate/FK reddi; en az bir rollback; regression suite; README, değişiklik kaydı, sınırlamalar. **Sonraki bağ:** Aynı çalışan taban sekiz derinleşme artımını taşır.
 

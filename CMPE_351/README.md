@@ -24,7 +24,7 @@ Bu değişiklik yalnızca takvimde iki haftayı silmek değildir. Birbiriyle do�
 
 Temel ilke şöyledir:
 
-> **Öğrenci önce veri sisteminin tamamını görür, aynı sistemi üç farklı mercekle yeniden kurar ve ardından sekiz modülde aynı veri ürününü derinleştirir.**
+> **Öğrenci önce veri sisteminin tamamını görür, sekiz modülü ikinci turda üç haftaya bölerek sistematik biçimde ilk kez inşa eder ve ardından sekiz modülde aynı veri ürününü derinleştirir.**
 
 ## Neden spiral bir sistem kullanıyoruz?
 
@@ -57,15 +57,15 @@ Her yeni ayrıntı bu zincirdeki yerine yerleştirilir. Amaç yalnızca SQL yaza
 | Aşama | Haftalar | Amaç | Ürün sonucu |
 | --- | ---: | --- | --- |
 | **Panorama** | 1 | Sekiz modülün tamamını tek bir uçtan uca veri hikâyesinde görmek | Referans ürün, sistem haritası ve başlangıç tanılaması |
-| **Rehberli inşa** | 2–4 | Bütün modülleri yapı, davranış/hata ve entegrasyon açısından üç kez yeniden dolaşmak | Walking skeleton → vertical slice → çalışan `v0.1` |
+| **Rehberli inşa** | 2–4 | Sekiz modülü üç haftaya bölerek ilk kez sistematik biçimde işlemek | Walking skeleton → vertical slice → çalışan `v0.1` |
 | **Bilinçli derinleşme** | 5–12 | Her hafta bir modülü ayrıntılı işlemek ve aynı ürüne kanıtlı bir artım eklemek | Sekiz modül, sekiz ürün artımı ve bütünleşik `v1.0` |
 
-Buradaki kritik ayrım şudur: **2., 3. ve 4. haftalarda sekiz modül üç haftaya bölünmez.** Her haftada sekiz modülün tamamı aynı Campus Learning Hub hikâyesi içinde yeniden görülür. Değişen şey ele alınan soru ve ayrıntı düzeyidir:
+Buradaki kritik ayrım şudur: **2., 3. ve 4. haftalarda sekiz modülün tamamı her hafta yeniden anlatılmaz; her hafta yalnız kendi modül grubu işlenir.** İkinci tur W2, W3 ve W4'ün toplamında bir kez tamamlanır; bir haftanın konusunu açıklarken önceki bir modüle kısa bağlantı kurmak, dersi baştan sona yeniden anlatmak sayılmaz.
 
-- **1. hafta:** Bir veri sistemi hangi problemleri çözer; hangi parçalar ve seçenekler vardır?
-- **2. hafta:** Verinin, bileşenlerin, sorumlulukların ve güven sınırlarının yapısı nedir?
-- **3. hafta:** Sorgular, kısıtlar ve transaction'lar nasıl davranır; sistem nasıl hata verir?
-- **4. hafta:** Model, şema, sorgular, testler ve belgeler nasıl çalışan bir veri ürününde birleşir?
+- **1. hafta:** Bir veri sistemi hangi problemleri çözer; hangi parçalar ve seçenekler vardır? (M1–M8 panoraması)
+- **2. hafta:** M1–M3 — verinin, bileşenlerin, sorumlulukların ve güven sınırlarının yapısı nedir?
+- **3. hafta:** M4–M6 — sorgular, kısıtlar ve transaction'lar nasıl davranır; sistem nasıl hata verir?
+- **4. hafta:** M7–M8 ve entegrasyon — model, şema, sorgular, testler ve belgeler nasıl çalışan bir veri ürününde birleşir?
 - **5–12. haftalar:** Her modül hangi mekanizmaları içerir ve ürünü nasıl daha doğru, hızlı, güvenli veya uygun hâle getirir?
 
 ## Dönem ürünü: Campus Learning Hub
@@ -170,7 +170,7 @@ MongoDB'nin document/collection modeli, embedding/referencing tercihleri; Firest
 
 Bu geniş modül bir ürün turuna dönüşmez. Campus Learning Hub içindeki sınırlı bir içerik arama veya canlı durum iş yükü seçilir; aynı gereksinim ilişkisel, doküman ve realtime modellerde veri şekli, sorgulanabilirlik, güvenlik, tutarlılık, maliyet ve işletim yükü açısından karşılaştırılır. Uygulama artımı yalnızca seçilen bir çekirdek davranışı gerçekleştirir; diğer teknolojiler kontrollü örnek ve karar matrisiyle değerlendirilir.
 
-## İlk dört hafta: sekiz modülün dört tam geçişi
+## İlk dört hafta: panorama ve modüllerin ilk sistematik turu
 
 ### 1. hafta — Panorama: veri kararlarının tamamı
 
@@ -187,9 +187,9 @@ Eğitmen tamamlanmış referans Campus Learning Hub sürümünü uçtan uca çal
 
 İlk hafta ayrıntılı uygulama sınavı değildir. Amaç öğrencinin gideceği yeri ve veri sistemindeki temel karar zincirini görmesidir.
 
-### 2. hafta — Parçalar, veri sınırları ve walking skeleton
+### 2. hafta — M1–M3: parçalar, veri sınırları ve walking skeleton
 
-Aynı ürün; istemci, veritabanı, şema, migration, veri sahipliği, güven sınırı, sorgu giriş noktası ve gelecekteki teknoloji sınırları üzerinden yeniden incelenir.
+İkinci turun ilk bölümü işlenir: `M1` DBMS mimarisi/iş yükü, `M2` kavramsal model/ilişkisel şema/bütünlük, `M3` ilişkisel cebir/SQL. Aynı ürün; istemci, veritabanı, şema, migration, veri sahipliği, güven sınırı ve sorgu giriş noktası üzerinden kurulur. `M4–M8` yalnız haritada bekleyen başlıklardır; bu hafta yeniden anlatılmaz.
 
 Öğrenci:
 
@@ -200,9 +200,9 @@ Aynı ürün; istemci, veritabanı, şema, migration, veri sahipliği, güven s�
 - `M1–M8` için gelecek artımları backlog'a yazar,
 - bir veri sahipliği veya güven sınırı kararını gerekçelendirir.
 
-### 3. hafta — Davranış, transaction ve hata
+### 3. hafta — M4–M6: davranış, transaction ve hata
 
-Ürün bu kez sorgu akışı, veri değişimi, transaction sınırı ve arıza yollarıyla yeniden dolaşılır. Ders arama senaryosu girdiden SQL'e ve sonuç çıktısına kadar çalışan en küçük dikey dilim olur.
+İkinci turun orta bölümü işlenir: `M4` fonksiyonel bağımlılıklar/normalizasyon, `M5` transaction/eşzamanlılık/kurtarma, `M6` depolama/indeks/sorgu işleme. Ürün bu kez sorgu akışı, veri değişimi, transaction sınırı ve arıza yollarıyla genişletilir; önceki M1–M3 kısaca geri çağrılır. Ders arama senaryosu girdiden SQL'e ve sonuç çıktısına kadar çalışan en küçük dikey dilim olur.
 
 Öğrenci:
 
@@ -213,9 +213,9 @@ Aynı ürün; istemci, veritabanı, şema, migration, veri sahipliği, güven s�
 - ilk sorgu planını okur,
 - en az üç deterministik test veya tekrar üretilebilir iz sunar.
 
-### 4. hafta — Entegrasyon ve `v0.1`
+### 4. hafta — M7–M8 ve entegrasyon: `v0.1`
 
-Model, şema, sorgular, kayıt akışı, hata yönetimi, testler ve belgeler tek sürümde birleştirilir.
+İkinci turun son bölümü işlenir: `M7` dağıtık/bulut/dayanıklı veri sistemleri, `M8` doküman/realtime modeller ve modern PostgreSQL. Bu haftayla ikinci tur tamamlanır; model, şema, sorgular, kayıt akışı, hata yönetimi, testler ve belgeler tek sürümde birleştirilir.
 
 `v0.1` kabul kapısı:
 
@@ -274,7 +274,7 @@ Her yeni mekanizmada mümkün olduğunca **tahmin → çalıştırma → gözlem
 
 ### Ders içi
 
-Dersin 3 saatlik kuramsal ve 2 saatlik uygulamalı yapısı, uzun bir kesintisiz anlatım olarak kullanılmaz. Kuramsal açıklama; canlı SQL/veritabanı gösterimi, tahmin, küçük trace, karşı örnek ve kısa bireysel kontrollerle bölünür. Uygulama kısmında öğrenci kendi ürününde somut kanıt üretir.
+**Ders oturumu 155 dakikadır: 125 dakika etkin çalışma ve üç adet 10 dakikalık ara.** Ayrıca 120 dakikalık laboratuvar tahsisi (110 dakika etkin çalışma) ayrı bir zaman dilimidir ve 155 dakikalık dersin içine gizlenmez. Ders süresi uzun bir kesintisiz anlatım olarak kullanılmaz. Kuramsal açıklama; canlı SQL/veritabanı gösterimi, tahmin, küçük trace, karşı örnek ve kısa bireysel kontrollerle bölünür. Laboratuvarda öğrenci kendi ürününde somut kanıt üretir.
 
 Önerilen akış:
 
@@ -401,7 +401,7 @@ Her haftanın içeriği üç şeritte sunulur:
 
 Takvim kısaldığı için:
 
-- ilk dört haftadaki dört tam sistem geçişinden vazgeçilmez,
+- ilk hafta panoraması ve ikinci turun üç haftaya bölünmüş sistematik işlenişinden vazgeçilmez,
 - temel ilişkisel model, SQL, normalizasyon, transaction ve indeks konuları daraltılmaz,
 - iki haftalık kayıp daha büyük ev ödevleriyle öğrenciye yüklenmez,
 - modern teknolojiler ürün turuna dönüştürülmez,
@@ -422,7 +422,7 @@ CMPE 351, 6 AKTS'lik bir ders olarak toplam iş yükünü koruyabilir; ancak 12 
 
 ilk spiral tamamlanmıştır.
 
- 1. haftanın sonunda öğrenci:
+12. haftanın sonunda öğrenci:
 
 - gerçek dünya gereksinimini kavramsal ve ilişkisel modele dönüştürebiliyor,
 - bütünlüğü veritabanı kısıtlarıyla koruyabiliyor,

@@ -57,25 +57,27 @@ Planlanan ortak komutlar `make host-test`, `make guest-test` ve `make evidence` 
 
 ## Hafta hafta gelişim
 
+İlk dört haftanın ayrıntılı öğretim dosyaları: [W1 — Panorama](HAFTA01.md) · [W2 — Yapı ve iskelet](HAFTA02.md) · [W3 — Davranış ve hata](HAFTA03.md) · [W4 — Entegrasyon ve v0.1](HAFTA04.md). Bu dosyalar hazırlık, ders akışı, öğrenci/öğretmen sorumluluğu, testler ve kabul ölçütlerini ayrıntılandırır; adı geçen starter ve test araçları ayrıca üretilecektir.
+
 ### W1 — Panorama ve Byte Counter
 
 **Amaç/artım:** Yukarıdaki dört durumluk prototip. **Kavram:** A1–A10 panoraması; gerçek uygulama A1/A4/A9/A10. **Kanıt:** Sayı, stderr ve exit ayrımı; her çapaya gözlem/model/gelecek etiketi. **Sonraki bağ:** Dosya okuyan iş, W2–W4 launcher'ının worker'ı olur.
 
 ### W2 — Bütün sistemin yapısı ve çalışan iskelet
 
-**Amaç/artım:** W1 kodunu `host/` içine yerleştir; verilen xv6 tabanını aç, guest bytecount'u derle ve ortak fixture ile çalıştır. CLI → worker → OS sınırını çiz. A1–A10'un tamamına ilgili kod veya gelecekteki genişleme noktasını ekle; yapı turunda on konu bölünmez.
+**Amaç/artım:** W1 kodunu `host/` içine yerleştir; verilen xv6 tabanını aç, guest bytecount'u derle ve ortak fixture ile çalıştır. CLI → worker → OS sınırını çiz. Bu hafta A1–A4'e odaklanılır; A5–A10 haritada bekleyen konu olarak işaretlenir, yeniden anlatılmaz.
 
 **Kanıt:** Host ve guest'te aynı byte sayısı; bir smoke test; monolithic kernel, user/kernel modu, koruma alanı ve veri/kontrol akışı haritası. **Sınır:** Bu hafta syscall veya page table tasarımı yazılmaz. **Sonraki bağ:** Launcher API'si `run(job) → result` olarak tanımlanır.
 
 ### W3 — Bütün sistemin davranışı ve hata yolu
 
-**Amaç/artım:** Linux launcher'ı `fork/exec/waitpid` ile byte counter'ı çalıştırır; `exec` başarısızlığı ve normal tamamlanma görünür olur. xv6'daki karşılıklar izlenir; adres uzayı, descriptor mirası, zamanlama, bellek ve dosya yolu birlikte A1–A10 turuna bağlanır.
+**Amaç/artım:** Linux launcher'ı `fork/exec/waitpid` ile byte counter'ı çalıştırır; `exec` başarısızlığı ve normal tamamlanma görünür olur. Bu hafta A5–A7'ye (senkronizasyon/deadlock, zamanlama, adres uzayı) odaklanılır; xv6'daki karşılıklar kısaca izlenir.
 
 **Kanıt:** Normal, missing executable, worker failure olmak üzere üç iz; parent/child kimlikleri ve doğru wait. **Regresyon:** W1 dört testi. **Sonraki bağ:** Sonucun tek tip raporlanması ve cleanup sözleşmesi.
 
 ### W4 — Entegrasyon: `v0.1`
 
-**Amaç/artım:** Launcher Linux'ta exit ile sinyal sonlanmasını ayırır, çocuklarını toplar ve raporlar. xv6 guest testi ayrı exit sözleşmesiyle çalışır. On çapada gerçek özellikler ve backlog tekrar savunulur.
+**Amaç/artım:** Launcher Linux'ta exit ile sinyal sonlanmasını ayırır, çocuklarını toplar ve raporlar. xv6 guest testi ayrı exit sözleşmesiyle çalışır. Bu hafta A8–A10'a (sanal bellek/izolasyon, dosya sistemi/tutarlılık, depolama/I/O) odaklanılır; ikinci tur bu haftayla tamamlanır, on çapanın tamamı haritada güncel durum ve backlog ile savunulur.
 
 **Kanıt:** Temiz kurulum, başarılı/hatalı/sinyalli host çalıştırma, tekrar sonrası zombie kalmaması, guest boot/bytecount testi, A1–A10 haritası. Bu ilk ürün kapısıdır. **Sonraki bağ:** W5 ölçümü için sürümlü sonuç kaydı.
 

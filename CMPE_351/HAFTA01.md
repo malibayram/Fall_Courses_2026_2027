@@ -2,7 +2,7 @@
 
 **Hafta:** Panorama — tek veri isteği, sekiz modül  
 **Dönem yapısı:** 12 hafta, `1 + 3 + 8`  
-**Süre:** 180 dakika ders + 120 dakika laboratuvar tahsisi; aralarla 140 + 110 dakika etkin çalışma. Resmî ders saati birimi farklıysa dakika planı uyarlanır.  
+**Süre:** 155 dakika ders (125 dakika etkin + üç adet 10 dakikalık ara) + 120 dakika laboratuvar (110 dakika etkin çalışma). Resmî ders saati birimi farklıysa dakika planı uyarlanır.  
 **Dönem ürünü:** Campus Learning Hub  
 **Bu dosyanın sınırı:** Yalnızca 1. haftada anlatılacak, yaptırılacak ve toplanacak işleri içerir.
 
@@ -20,7 +20,7 @@ Bu Türkçe belge eğitmen içindir; öğrenci yönergeleri ve ölçülen içeri
 
 ```text
 1. hafta       : sekiz modülün panoraması
-2–4. haftalar  : aynı sekiz modülü yapı, davranış/hata ve entegrasyon mercekleriyle yeniden kurma
+2–4. haftalar  : sekiz modül üç haftaya bölünerek ilk sistematik tur (W2 M1–M3, W3 M4–M6, W4 M7–M8)
 5–12. haftalar : M1–M8 için sekiz bilinçli derinleşme ve ürün artımı
 ```
 
@@ -75,7 +75,7 @@ Bu Türkçe belge eğitmen içindir; öğrenci yönergeleri ve ölçülen içeri
 | M7 — Distributed/cloud/resilient data | Veri kopyalanır/bölünürse consistency, availability ve failure nasıl değişir? | 11 |
 | M8 — Document, realtime ve modern PostgreSQL | JSONB, RLS/realtime ve vector search hangi iş yükünde anlamlıdır? | 12 |
 
-## 180 dakikalık ders akışı
+## 155 dakikalık ders akışı
 
 | Süre | İçerik ve öğretmen hamlesi | Öğrenci işi / kanıt |
 | --- | --- | --- |
@@ -88,17 +88,14 @@ Bu Türkçe belge eğitmen içindir; öğrenci yönergeleri ve ölçülen içeri
 | 51–61 | **M3:** Selection, projection, join fikrini course search sorgusunda göster; SQL ile eşleştir. | Sonuç tahmini + sorgu okuma |
 | 61–70 | **M4:** Tek geniş tablo üzerinden update/insert/delete anomaly; FD ve normalization’a yalnız amaç düzeyinde giriş. | Bir anomaly açıklaması |
 | 70–80 | **Ara** | |
-| 80–93 | **M5:** Atomicity/isolation/durability, iki oturumlu son koltuk yarışı ve rollback. “Check sonra insert” ayrımının yarışa açık olduğunu göster. | Interleaving çizimi |
-| 93–103 | **M6:** Heap/page/index/query plan panoraması. Önce plan tahmini, sonra `EXPLAIN`; küçük veride zaman genellemesi yapma. | Plan gözlemi |
-| 103–110 | M5–M6 bağlantısı: doğru ama yavaş / hızlı ama yanlış ayrımını tartış. | Trade-off cümlesi |
+| 80–90 | **M5:** Atomicity/isolation/durability, iki oturumlu son koltuk yarışı ve rollback. “Check sonra insert” ayrımının yarışa açık olduğunu göster. | Interleaving çizimi |
+| 90–98 | **M6:** Heap/page/index/query plan panoraması. Önce plan tahmini, sonra `EXPLAIN`; küçük veride zaman genellemesi yapma. | Plan gözlemi |
+| 98–110 | M5–M6 bağlantısı ve trade-off cümlesi; **M7:** replication/partitioning/failure ve cloud managed service sorumlulukları, somut read/write senaryosu. | Trade-off cümlesi + failure senaryosu |
 | 110–120 | **Ara** | |
-| 120–132 | **M7:** Replication, partitioning, failure ve cloud managed service sorumlulukları. CAP sloganı yerine somut read/write senaryosu kullan. | Failure senaryosu |
-| 132–145 | **M8:** Aynı content için relational sütun, JSONB metadata, realtime event ve vector embedding preview. RLS’nin neden gerekli olduğunu sor. | Teknoloji–ihtiyaç eşleştirmesi |
-| 145–150 | Sekiz modülü tek ürün akışında birleştir. | M1–M8 ilk harita |
-| 150–160 | **Ara** | |
-| 160–169 | Takımlar bir tasarım iddiasını savunur; başka takım bir karşı örnek sorar. | İddia–kanıt–sınır kartı |
-| 169–176 | Bireysel panorama tablosu: O/M/F ve her modüle bir kanıt/gelecek soru. | Kişisel harita |
-| 176–180 | Exit ticket ve laboratuvar hedefini açıkla. | Çıkış kaydı |
+| 120–132 | **M8:** Aynı content için relational sütun, JSONB metadata, realtime event ve vector embedding preview. RLS’nin neden gerekli olduğunu sor. | Teknoloji–ihtiyaç eşleştirmesi |
+| 132–142 | Sekiz modülü tek ürün akışında birleştir; takımlar bir tasarım iddiasını savunur, başka takım bir karşı örnek sorar. | M1–M8 ilk harita + iddia–kanıt–sınır kartı |
+| 142–150 | Bireysel panorama tablosu: O/M/F ve her modüle bir kanıt/gelecek soru. | Kişisel harita |
+| 150–155 | Exit ticket ve laboratuvar hedefini açıkla. | Çıkış kaydı |
 
 ## 120 dakikalık laboratuvar akışı
 
@@ -171,6 +168,6 @@ Sabit veri: `S100`, `S101`; `CMPE351` dersi; `2026-FALL` döneminde capacity=`1`
 2. Yalnızca model/preview olarak gördüğün bir özellik nedir?
 3. Son kontenjan probleminde hangi iki operation tek doğruluk sınırına alınmalıdır?
 4. Sekiz modülden hangisinde ilk sezgin değişti?
-5. 1. haftada walking skeleton kurarken ilk hangi veri veya güven sınırını görünür yaparsın?
+5. 2. haftada M1–M3'ü işlerken ilk hangi veri veya güven sınırını görünür yaparsın?
 
-6. haftaya başlangıç cümlesi: **“Panoramada gördüğümüz sekiz modülü; açık şema, bağlantı, sorgu ve güven sınırları olan küçük bir data-product iskeletine dönüştüreceğiz.”**
+2. haftaya başlangıç cümlesi: **“Panoramada gördüğümüz sekiz modülün ilk üçünü; açık şema, bağlantı ve sorgu sınırları olan küçük bir data-product iskeletine dönüştüreceğiz.”**

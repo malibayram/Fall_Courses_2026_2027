@@ -1,11 +1,11 @@
 # CEN 302 Operating Systems — 1. Hafta Öğretim Dosyası
 
 **Hafta:** Panorama — bir programın yaşam döngüsü  
-**Süre:** 180 dakika; 140 dakika etkin öğrenme + 40 dakika ara  
+**Süre:** 155 dakika; 125 dakika etkin öğrenme + üç adet 10 dakikalık ara  
 **Dönem ürünü:** Mini Systems Workbench  
 **Bu dosyanın sınırı:** Yalnızca 1. haftada anlatılacak, yaptırılacak ve toplanacak işleri içerir.
 
-**İlgili belgeler:** [Prototip ve dönem planı](PROJE.md) · [Kaynakça](KAYNAKCA.md)
+**İlgili belgeler:** [Prototip ve dönem planı](PROJE.md) · [Kaynakça](KAYNAKCA.md) · [2. hafta](HAFTA02.md) · [3. hafta](HAFTA03.md) · [4. hafta](HAFTA04.md)
 
 Bu Türkçe belge eğitmen içindir; öğrenci yönergeleri ve ölçülen içerik için İngilizce eşdeğer hazırlanır. W1 tanılayıcıdır; teslimler geri bildirim sağlar ve yeni bir not bileşeni oluşturmaz. Kurulum aksarsa eşli çalışma ve verilen çıktı üzerinden açıklama kabul edilir; kişisel ortam daha sonra tamamlanır.
 
@@ -67,35 +67,32 @@ Her teknik durakta aynı dört soru sorulur:
 3. Bugün neyi gerçekten gözledik?
 4. Bu mekanizmayı dönem içinde hangi haftada derinleştireceğiz?
 
-## 180 dakikalık ders akışı
+## 155 dakikalık ders akışı
 
 | Süre | İçerik ve öğretmen hamlesi | Öğrenci işi / kanıt |
 | --- | --- | --- |
 | 00–05 | Dönem ürünü ve ana soruyu tanıt. “Bir komut verdiğimizde gerçekte ne başlar?” | İlk bireysel tahmin |
-| 05–12 | Referans programı normal, eksik dosya ve yanlış kullanım ile çalıştır. Kodu henüz açma. | Girdi–çıktı–exit tablosu |
-| 12–18 | **A1:** OS sınırı, privilege, syscall, interrupt/trap ayrımı. `strace`ten yalnız seçilmiş satırlar göster. | User/kernel sınırını işaretle |
-| 18–24 | **A2:** Program ve process; PID, address space, açık kaynaklar, process state. | Program/process karşılaştırması |
-| 24–30 | **A4:** File descriptor, standard streams, redirection ve pipe ile gözlenebilir çıktı. | `stdin/stdout/stderr` eşleştirmesi |
+| 05–10 | Referans programı normal, eksik dosya ve yanlış kullanım ile çalıştır. Kodu henüz açma. | Girdi–çıktı–exit tablosu |
+| 10–16 | **A1:** OS sınırı, privilege, syscall, interrupt/trap ayrımı. `strace`ten yalnız seçilmiş satırlar göster. | User/kernel sınırını işaretle |
+| 16–22 | **A2:** Program ve process; PID, address space, açık kaynaklar, process state. | Program/process karşılaştırması |
+| 22–30 | **A4:** File descriptor, standard streams, redirection ve pipe ile gözlenebilir çıktı. | `stdin/stdout/stderr` eşleştirmesi |
 | 30–40 | **Ara** | |
-| 40–47 | Önceki üç çapayı notsuz geri çağır; bir yanlış sezgiyi tahtaya taşı. | 60 saniyelik retrieval |
-| 47–54 | **A3:** Thread, paylaşılan adres uzayı ve nondeterminism. “Aynı sayacı iki thread artırırsa?” | Sonuç tahmini |
-| 54–61 | **A5:** Atomicity, race, lock ve deadlock’a panorama. Kilidin amaç değil invariant koruma aracı olduğunu vurgula. | Güvenlik koşulu yaz |
-| 61–67 | **A6:** Ready/running/blocked, scheduler ve policy/mechanism ayrımı. Küçük timeline çiz. | Sıralama/tamamlama tahmini |
-| 67–70 | A3–A6 bağlantısını tek cümlede kurdur. | Çift paylaşımı |
+| 40–46 | Önceki üç çapayı notsuz geri çağır; bir yanlış sezgiyi tahtaya taşı. | 60 saniyelik retrieval |
+| 46–52 | **A3:** Thread, paylaşılan adres uzayı ve nondeterminism. “Aynı sayacı iki thread artırırsa?” | Sonuç tahmini |
+| 52–59 | **A5:** Atomicity, race, lock ve deadlock’a panorama. Kilidin amaç değil invariant koruma aracı olduğunu vurgula. | Güvenlik koşulu yaz |
+| 59–66 | **A6:** Ready/running/blocked, scheduler ve policy/mechanism ayrımı. Küçük timeline çiz. | Sıralama/tamamlama tahmini |
+| 66–70 | A3–A6 bağlantısını tek cümlede kurdur. | Çift paylaşımı |
 | 70–80 | **Ara** | |
-| 80–86 | **A7:** Virtual address, page, frame ve address translation için küçük sayısal model. | Adres parçalama denemesi |
-| 86–92 | **A8:** Page fault, demand paging, protection ve isolation. “Her fault disk erişimi midir?” | İki karşı örnek |
-| 92–98 | **A9:** Path, file, data/metadata ve crash consistency. Normal kapanmanın durability kanıtı olmadığını göster. | İddia sınırı yaz |
-| 98–104 | **A10:** Library buffer, kernel cache, device; latency/throughput ve ölçüm kapsamı. | Alternatif açıklama üret |
-| 104–110 | On çapayı aynı komutun yaşam döngüsüne yerleştir. | A1–A10 O/M/F haritası |
+| 80–85 | **A7:** Virtual address, page, frame ve address translation için küçük sayısal model. | Adres parçalama denemesi |
+| 85–90 | **A8:** Page fault, demand paging, protection ve isolation. “Her fault disk erişimi midir?” | İki karşı örnek |
+| 90–95 | **A9:** Path, file, data/metadata ve crash consistency. Normal kapanmanın durability kanıtı olmadığını göster. | İddia sınırı yaz |
+| 95–100 | **A10:** Library buffer, kernel cache, device; latency/throughput ve ölçüm kapsamı. | Alternatif açıklama üret |
+| 100–110 | On çapayı aynı komutun yaşam döngüsüne yerleştir; studio starter'ını derlet ve `bytes=0` sonucunun neden eksik olduğunu tahmin ettir. | A1–A10 O/M/F haritası + build çıktısı |
 | 110–120 | **Ara** | |
-| 120–128 | Studio starter’ını derlet; `bytes=0` sonucunun neden eksik olduğunu tahmin ettir. | Build çıktısı + tahmin |
-| 128–140 | `fgetc`/EOF döngüsüyle byte sayacını birlikte tamamla; sonra `wc -c` ile oracle karşılaştırması yap. | Küçük kod değişikliği |
-| 140–150 | Dosya açma, stream error, kullanım hatası ve `stdout/stderr` ayrımını eklet. Roller: driver/predictor; 140’ta değiştir. | Normal + hata çıktısı |
-| 150–160 | **Ara** | |
-| 160–170 | Test matrisi: normal, empty, missing, wrong usage. Önce beklenen exit/output, sonra çalıştırma. | Dört satırlık test tablosu |
-| 170–176 | İkili sözlü savunma: bir öğrenci yaşam döngüsünü anlatır, diğeri O/M/F sınırını sorgular. | 60–90 saniyelik açıklama |
-| 176–180 | Exit ticket ve 2. hafta köprüsü. | Bireysel çıkış kaydı |
+| 120–132 | `fgetc`/EOF döngüsüyle byte sayacını birlikte tamamla; sonra `wc -c` ile oracle karşılaştırması yap. | Küçük kod değişikliği |
+| 132–142 | Dosya açma, stream error, kullanım hatası ve `stdout/stderr` ayrımını eklet. Roller: driver/predictor; 137’de değiştir. | Normal + hata çıktısı |
+| 142–150 | Test matrisi: normal, empty, missing, wrong usage. Önce beklenen exit/output, sonra çalıştırma; ikili hızlı sözlü kontrol. | Dört satırlık test tablosu + kısa açıklama |
+| 150–155 | Exit ticket ve 2. hafta köprüsü. | Bireysel çıkış kaydı |
 
 ## On çapanın ilk hafta için doğru derinliği
 
@@ -161,6 +158,6 @@ Sabit örnekler: LF ile biten `abc` dört byte, boş dosya sıfır byte; eksik d
 1. Bugün doğrudan gözlediğin bir olay nedir?
 2. Yalnızca modellediğin bir mekanizma nedir?
 3. `stdout`, `stderr` ve exit status hangi üç ayrı kanıtı taşır?
-4. 1. haftada walking skeleton kurarken hangi sınırı görünür yapmak istersin?
+4. 2. haftada walking skeleton kurarken hangi sınırı görünür yapmak istersin?
 
-5. haftaya başlangıç cümlesi: **“Panoramada gördüğümüz yaşam döngüsünü, açık bileşen ve sınırlarla derlenebilir küçük bir iskelete dönüştüreceğiz.”**
+2. haftaya başlangıç cümlesi: **“Panoramada gördüğümüz yaşam döngüsünü, açık bileşen ve sınırlarla derlenebilir küçük bir iskelete dönüştüreceğiz.”**

@@ -7,12 +7,13 @@ CEN 302'de dosya okuyan küçük bir C programından **Mini Systems Workbench** 
 | Bilgi | Açıklama |
 | --- | --- |
 | Öğretim elemanı | M. Ali Bayram |
+| Ders oturumu | 155 dakika: 125 dakika etkin çalışma + 30 dakika ara |
 | Dönem | 2026–2027 Güz |
 | Belgenin amacı | Ortak hedefleri, derslerin kapsamını, haftalık çalışma biçimini, teslimleri ve hazırlık sorumluluklarını açıklamak |
 | Belgenin dili | Türkçe; derslerin teknik materyalleri ve değerlendirme dili ilgili İngilizce izlenceyle uyumlu hazırlanır |
 | Mevcut durum | Öğretim ve proje tasarımı. Güncel starter, referans uygulama ve test paketleri henüz bu depoda üretilmiş değildir. |
 
-> **Dönem boyunca yapmak istediğimiz iş:** Öğrenciye önce anlamlı bir bütün göstermek; aynı bütünü yapı, davranış ve entegrasyon açısından yeniden kurdurmak; ardından her hafta bir kavramı, çalışan ürüne yapılan küçük ve kanıtlanabilir bir değişiklik üzerinden derinleştirmek.
+> **Dönem boyunca yapmak istediğimiz iş:** Öğrenciye önce anlamlı bir bütün göstermek; ikinci turda tüm konuları üç haftaya yayarak işlemek; üçüncü turda her konuyu daha ayrıntılı ele alıp çalışan ürüne yapılan küçük ve kanıtlanabilir değişikliklerle derinleştirmek.
 
 ## İçindekiler
 
@@ -94,6 +95,7 @@ CEN 302 kendi iş yükü ve projesi üzerinden ilerler. Dosya, bellek, eşzamanl
 | --- | --- | --- |
 | Genel hedef ve çalışma düzeni | Bu README | Üç dersin ortak öğretim sözleşmesi ve hazırlık planı |
 | CEN 302'nin güncel ürünü | [CEN 302 proje planı](CEN_302/PROJE.md) | Byte Counter, Workbench, xv6 kapsamı, haftalık artımlar ve kabul koşulları |
+| CEN 302'nin ilk dört haftası | [W1](CEN_302/HAFTA01.md) · [W2](CEN_302/HAFTA02.md) · [W3](CEN_302/HAFTA03.md) · [W4](CEN_302/HAFTA04.md) | Ayrıntılı öğretmen akışı, hazırlık, studio, test ve kabul planları |
 | SE 237'nin güncel ürünü | [SE 237 ERP öğrenci rehberi](SE_237/ERP_OGRENCI_REHBERI.md) | Fabrika iş kuralları, nesne modeli, 14 haftalık proje ve test kataloğu |
 | CMPE 351'in güncel ürünü | [CMPE 351 ERP öğrenci rehberi](CMPE_351/ERP_OGRENCI_REHBERI.md) | Veri modeli, SQL, transaction sözleşmesi, 12 haftalık proje ve test kataloğu |
 | CMPE 351'in pedagojik ayrıntıları | [CMPE 351 ders modeli](CMPE_351/README.md) | `1 + 3 + 8`, sekiz modül ve değerlendirme taslağı; proje senaryosunda ERP rehberi esas alınır |
@@ -121,6 +123,9 @@ Belgeler arasında farklılık olduğunda şu ayrım uygulanır:
 ├── CEN_302/
 │   ├── PROJE.md                    Güncel Workbench proje sözleşmesi
 │   ├── HAFTA01.md                  İlk hafta öğretmen akışı
+│   ├── HAFTA02.md                  İkinci tur: A1–A4; çalışan iskelet
+│   ├── HAFTA03.md                  İkinci tur: A5–A7; davranış artımı
+│   ├── HAFTA04.md                  İkinci tur: A8–A10; v0.1 kabulü
 │   └── KAYNAKCA.md                 Teknik kaynaklar
 ├── SE_237/
 │   ├── ERP_OGRENCI_REHBERI.md       Güncel fabrika/OOP proje sözleşmesi
@@ -140,47 +145,41 @@ Bu depoyu bugün klonlamak, tarif edilen yeni uygulamaların çalıştırılabil
 
 <a id="spiral"></a>
 
-## 4. Dönemin spiral yapısı
+## 4. Dönemin spiral yapısı: dersi baştan sona üç kez görmek
 
-**Spiral**, aynı kavramlara her dönüşte yeni bir açıklama ve uygulama derinliği eklememizdir. Öğrenci ilk haftada dersin haritasını görür; sonraki üç haftada haritanın tamamını farklı sorularla yeniden dolaşır; ardından her hafta bir bölümü ayrıntılı işler.
+**Dönem boyunca dersin tamamı üç turda işlenir; her tur bir öncekinden daha ayrıntılıdır.** CEN 302 ve SE 237 için bu turlar sırasıyla **1 hafta + 3 hafta + 10 hafta** sürer. CMPE 351'in mevcut 12 haftalık takviminde üçüncü tur sekiz modüle ayrılır: **1 + 3 + 8**. Takvim farkı, üç tur ilkesini değiştirmez.
 
-| Aşama | CEN 302 / SE 237 | CMPE 351 | Ana soru | Beklenen ürün |
+| Tur | CEN 302 / SE 237 | CMPE 351 | Ayrıntı düzeyi | Dönem ürünündeki karşılığı |
 | --- | --- | --- | --- | --- |
-| Panorama | W1 | W1 | Sistem ne yapıyor ve parçalar neden gerekli? | Referans gösterimi, küçük çalışan prototip ve dönem haritası |
-| Yapı | W2 | W2 | Sınırlar, sorumluluklar ve bağımlılıklar nasıl kuruluyor? | Çalışan iskelet — walking skeleton |
-| Davranış ve hata | W3 | W3 | Durum nasıl değişiyor, hata nerede ve nasıl yönetiliyor? | Uçtan uca dikey dilim — vertical slice |
-| Entegrasyon | W4 | W4 | Parçalar birlikte çalışıyor ve yeniden kurulabiliyor mu? | İlk ürün kapısı: `v0.1` |
-| Derinleşme | W5–W14: on çapa | W5–W12: sekiz modül | Bu mekanizmayı hangi değişiklik ve kanıtla daha iyi anlıyoruz? | Birikimli artımlar ve son sürüm: `v1.0` |
+| **1. tur — Panorama** | W1: on çapanın tamamı | W1: sekiz modülün tamamı | Büyük resim, temel sorular, kavramlar arası ilişkiler | Referans gösterimi, küçük prototip ve ilk harita |
+| **2. tur — Sistematik ilk işleyiş** | W2–W4: on çapa üç haftaya dağıtılır | W2–W4: sekiz modül üç haftaya dağıtılır | Her konu için mekanizma, küçük örnek, hata/karşı örnek ve rehberli uygulama | İskelet → dikey dilim → `v0.1` |
+| **3. tur — Derinleşme** | W5–W14: haftada bir çapa | W5–W12: haftada bir modül | Ayrıntılı tasarım, uygulama, deney, ölçüm ve bağımsız savunma | Birikimli artımlar ve `v1.0` |
 
-**W2, W3 ve W4'te konular üç haftaya paylaştırılmaz.** Her hafta CEN/SE'de on çapanın, CMPE'de sekiz modülün tamamına dönülür. Değişen şey bakış açısıdır. Haritadaki her alanın tamamlanmış olması beklenmez; mevcut davranış, sağlanan altyapı, gösterim ve ileride geliştirilecek kısım ayrı etiketlenir.
+**İkinci turda tüm modüller üç haftanın toplamında bir kez işlenir.** W2, W3 ve W4 ayrı tam tekrarlar değildir. Bir haftanın konusunu açıklarken önceki bir kavrama kısa bağlantı kurmak, dersi baştan sona yeniden anlatmak sayılmaz. İkinci tur W4 sonunda; üçüncü tur CEN/SE'de W14, CMPE'de W12 sonunda tamamlanır.
 
-### W1 — Panorama ve ilk küçük başarı
+### İkinci turun derslere göre konu dağılımı
 
-Eğitmen hedef sistemin anlamlı bir senaryosunu gösterir. Öğrenci ortamını doğrular, verilen iskelette küçük bir prototipi tamamlar ve bir başarı/hata yolunu gözlemler. CEN'de dosyanın byte sayısı; SE ve CMPE'de 100 sandalye için malzeme ihtiyacı hesaplanır.
+| Ders | W2 — İkinci turun ilk bölümü | W3 — İkinci turun orta bölümü | W4 — İkinci turun son bölümü |
+| --- | --- | --- | --- |
+| CEN 302 | **A1–A4:** OS sınırı ve syscall, süreç, thread, IPC/descriptor | **A5–A7:** senkronizasyon/deadlock, CPU zamanlama, adres uzayı/çeviri | **A8–A10:** sanal bellek/izolasyon, dosya sistemi/tutarlılık, depolama/I/O |
+| SE 237 | **A1–A3:** nesne modeli, encapsulation/invariant, ilişkiler/UML | **A4–A6:** kalıtım/yerine kullanılabilirlik, interface/sözleşme, polimorfizm/composition/Strategy | **A7–A10:** kimlik/eşitlik/kopyalama, generics/collections, exception/kaynak, runtime metadata/plugin |
+| CMPE 351 | **M1–M3:** DBMS/iş yükü, model/şema/bütünlük, ilişkisel cebir/SQL | **M4–M6:** bağımlılıklar/normalizasyon, transaction/eşzamanlılık, depolama/indeks/sorgu işleme | **M7–M8:** dağıtık/bulut/dayanıklılık, modern veri modelleri ve platform kararları |
 
-Hafta sonunda bir sayfalık kavram haritası, “bildiğim / emin olmadığım / yeni” envanteri, küçük kod veya SQL farkı ve kısa açıklama bulunur. Başlangıç tanılaması bilgi düzeyini görmek içindir; ilk haftada tüm dönem ürününü bağımsız geliştirme beklentisi yoktur.
+Bu dağılım ikinci turdaki ana öğretim odağını belirler. Her konunun W1'deki kısa tanıtımından daha ileri gidilir; ayrıntılı bağımsız uygulama üçüncü turda tamamlanır. İkinci turda küçük bir model, hazır örnekte değişiklik veya kontrollü test yeterli olabilir. Bir konunun ilk işlenişini yalnız adını söyleyip sonraya bırakmak yeterli değildir.
 
-### W2 — Yapı ve çalışan iskelet
+### Öğretim turu ile ürün geliştirme adımını ayırma
 
-Eğitmen modül yapısını, temel sözleşmeleri, örnek girdiyi ve smoke test desteğini sağlar. Öğrenci ana parçaları birbirine bağlar; başlatılabilen, temel bir isteğe cevap veren ve gelecekteki genişleme noktaları görünen bir iskelet elde eder.
+İskelet, dikey dilim ve entegrasyon ürünün gelişme adımlarıdır; haftanın bütün ders içeriğinin adı değildir. Örneğin CEN W3'te launcher üzerindeki bekleme değişikliği yapılırken esas ders konuları A5–A7'dir. W4'te ürün kabulü yapılması A8–A10 öğretimini ortadan kaldırmaz.
 
-Bu haftanın çıktıları: temiz kurulum, en az bir geçen smoke test, bileşen/nesne/veri haritası, bir sınır kararının gerekçesi ve sonraki on ya da sekiz artımın backlog kaydıdır.
+- **W1:** Küçük prototip çalışır, bütün kavramların ilk haritası çıkarılır; ileri özellikler referans/model olarak etiketlenir.
+- **W2:** İlk konu grubu örnek ve karşı örneklerle işlenir; sağlanan parçalarla çalışan iskelet kurulur. Haritada yalnız bu haftanın ilgili satırları güncellenir.
+- **W3:** İkinci konu grubu işlenir; mevcut ürüne sınırlı dikey dilim veya davranış düzeltmesi eklenir. Önceki konular gerektiği kadar geri çağrılır.
+- **W4:** Son konu grubu işlenir; üç haftanın birikimiyle `v0.1` kapısı değerlendirilir. Son harita tüm konuları kapsar; bu bir belge/kapsam kontrolüdür, yeni tam anlatım turu değildir.
+- **W5 ve sonrası:** Her hafta bir çapa/modül ayrıntılı işlenir ve en az iki önceki/komşu kavramla ilişkilendirilir. Aynı ürün testlerle büyür.
 
-### W3 — Davranış, durum ve hata
+W4'te temel akışın çalışması için henüz öğrencinin bağımsız yazmadığı altyapı öğretim ekibi tarafından sağlanır. Her teslim mevcut davranış, sağlanan kod, model ve gelecekteki öğrenci artımını ayırır. Üçüncü turda aynı hazır örneğin nasıl ve neden çalıştığı daha ayrıntılı incelenir; öğrenci katkısı kademeli artar.
 
-Öğrenci gerçek bir girdinin çekirdek davranıştan geçerek gözlenebilir çıktıya ulaşmasını sağlar. Mutlu yolu adım adım izler; ardından geçersiz girdi, başarısız işlem veya yinelenen isteğin sonucunu gösterir.
-
-En az üç deterministik test veya yeniden üretilebilir iz, güncel akış diyagramı ve W4 entegrasyonuna temel olacak sabitlenmiş bir aday sürüm hazırlanır. Tek kullanıcılı bir başarı deneyi, ileride incelenecek eşzamanlılık veya güvenlik özelliklerinin tamamlandığı anlamına gelmez.
-
-### W4 — İlk bütünleşik ürün
-
-Öğrenci küçük ama gerçek bir ürünü temiz kopyadan kurar, ana akışı ve hata yolunu gösterir, testlerini çalıştırır ve temel kararlarını açıklar. W4, ilk ciddi ürün kapısıdır; sonraki haftaların ortak başlangıç noktasını oluşturur.
-
-### W5 ve sonrası — Aynı ürünü derinleştirme
-
-Her hafta bir ana çapa veya modül seçilir ve en az iki önceki/komşu başlıkla ilişkilendirilir. Öğrenci mevcut sürüme sınırlı bir değişiklik ekler; yeni davranışı ve ilgili regresyonları sınar. Dönem sonu ürünü bu artımların birikimiyle oluşur.
-
-CEN ve SE'deki `A1–A10` etiketleri **ders içinde** sabittir; aynı numara iki derste aynı konuyu ifade etmez. CMPE `M1–M8` kullanır. Ortak kayıtlarda `CEN/A5`, `SE/A5`, `CMPE/M5` biçimi karışıklığı önler.
+CEN ve SE'deki `A1–A10` etiketleri ders içinde sabittir; aynı numara iki derste aynı konuyu ifade etmez. CMPE `M1–M8` kullanır. Ortak kayıtlarda `CEN/A5`, `SE/A5`, `CMPE/M5` biçimi kullanılır.
 
 <a id="fabrika"></a>
 
@@ -423,23 +422,23 @@ CMPE 351'de de kısa video/okuma, ortam kontrolü ve aynı soru türleri kullan�
 
 ### Ders içi
 
-CEN 302 ve SE 237 için 180 dakikalık tahsiste önerilen akış:
+**Ders oturumu 155 dakikadır: 125 dakika etkin çalışma + üç adet 10 dakikalık ara.** İlk iki blok 30'ar, üçüncü blok 30, son blok 35 dakikadır. Konu anlatımı, rehberli örnek ve uygulama aşağıdaki süreyi paylaşır.
 
 | Dakika | Çalışma |
 | --- | --- |
-| 00–30 | Hazırlık doğrulama, geri çağırma, sistem haritası ve kavram tartışması |
+| 00–30 | Geri çağırma, haftanın konu grubunun ilk bölümü ve örnek |
 | 30–40 | Ara |
-| 40–70 | Çalışılmış örnek, trace ve kavram yanılgısı |
+| 40–70 | Konu grubunun devamı, tahmin ve karşı örnek |
 | 70–80 | Ara |
-| 80–110 | Rehberli problem çözme ve değişiklik tahmini |
+| 80–95 | Konu grubunun kalan kısmı veya rehberli çözüm |
+| 95–110 | Studio: bireysel ilk deneme ve küçük uygulama |
 | 110–120 | Ara |
-| 120–150 | Studio/lab ve kısa bireysel sözlü kontroller |
-| 150–160 | Ara |
-| 160–180 | Studio devamı, sonuç tartışması ve bireysel çıkış kaydı |
+| 120–150 | Studio: test, düzeltme, kısa bireysel kontrol |
+| 150–155 | Çıkış kaydı ve sonraki haftaya bağlantı |
 
-Bu düzen 140 dakika etkin öğrenme içerir; son 60 dakikanın 50 dakikası uygulamadır. Tahsis 150 dakika ise dört 30 dakikalık çalışma bloğu ve üç 10 dakikalık ara kullanılır. Zorunlu kapsam süreye göre küçültülür.
+Bu akış 75 dakika konu/rehberli örnek, 45 dakika studio ve 5 dakika çıkış kaydı sağlar. Eski akıştaki süre farkı ek ev ödevine aktarılmaz: kurulum ve yardımcı altyapı önceden hazır verilir, tekrarlayan gösterimler ve öğrenciye bırakılan kod miktarı azaltılır. Haftalık dosyalar aynı toplamı koruyarak blok içi dağılımı değiştirebilir.
 
-CMPE 351'in planındaki 3 saat kuramsal + 2 saat uygulamalı yapı, kendi resmî zaman çizelgesine göre düzenlenir. Kuramsal açıklama canlı SQL, tahmin, karşı örnek ve kısa kontrollerle bölünür; uygulamada bireysel sorgu/model/deney kanıtı üretilir. CEN/SE'nin 180 dakikalık tablosu CMPE'ye doğrudan uygulanmaz.
+CMPE 351'in mevcut ayrı 120 dakikalık laboratuvarı bu 155 dakikanın içine gizlenmez; ayrı tahsis olarak belirtilir ve dersle aynı işi yeniden teslim ettirmez. CMPE'nin hafta/laboratuvar düzeni ayrıca kesinleştirilirse iş yükü tablosu ona göre güncellenir.
 
 Studio kısa bir **bireysel ve AI'sız ilk deneme** ile başlar. Ardından görevin izin verdiği rehberlik, eşli tartışma ve araç kullanımı devreye girer. Katılımın kanıtı öğrencinin kendi trace'i, sorgusu, kod değişikliği, test sonucu veya açıklamasıdır.
 
@@ -639,7 +638,7 @@ Her görev üç şerit taşır:
 
 CEN/SE'de normal haftalık Core artımının kod, test, kısa gerekçe ve katkı açıklamasıyla yaklaşık üç saat ders dışı çalışmaya sığması hedeflenir. Bu süre tüm haftalık ders yükü değildir; hazırlık, video ve sınava çalışma ayrıca toplam iş yükünde yer alır. W3, W6 ve W10'da anonim süre yoklamalarıyla yük izlenir; aşım görüldüğünde sonraki hafta da kontrol edilir. Tipik Core süresi iki hafta üst üste hedefi aşıyorsa görev küçültülür veya destek artırılır.
 
-CEN/SE için 5 AKTS başına yaklaşık 140 saatlik dönem toplamı planlama hedefidir; resmî izlenceyle doğrulanır. CMPE 351'in 6 AKTS ve 12 haftalık takvimine ait iş yükü, gerçek temas saati ve sınav düzenine göre ayrıca hesaplanmalıdır. On dört haftalık eski tablo bu derse doğrudan kopyalanmaz. Uygulama, rapor, video ve proje süreleri mükerrer sayılmaz; son haftaya gizli büyük proje yükü bırakılmaz.
+CEN/SE için 14 oturumun tahsis toplamı 2.170 dakika (36 saat 10 dakika), aralar dışındaki etkin süre 1.750 dakika (29 saat 10 dakika) olur. 5 AKTS başına yaklaşık 140 saatlik dönem toplamı ayrı bir planlama hedefidir; resmî izlenceyle doğrulanır. CMPE 351'de 12 ders oturumu 1.860 dakika tahsis, 1.500 dakika etkin çalışma içerir. Ayrı laboratuvar korunursa 12 × 120 dakika tahsis ve mevcut 110 etkin dakika varsayımıyla 1.320 dakika laboratuvar çalışması ayrıca sayılır. 6 AKTS toplamı, gerçek temas saati ve sınav düzeniyle doğrulanır. On dört haftalık eski tablo bu derse doğrudan kopyalanmaz. Uygulama, rapor, video ve proje süreleri mükerrer sayılmaz; son haftaya gizli büyük proje yükü bırakılmaz.
 
 ### Dil ve erişim
 
@@ -672,7 +671,7 @@ Bu tasarımın uygulanabilmesi için aşağıdaki paketlerin hazırlanması gere
 
 ### Yaklaşık 80 kişilik sınıfta yürütme
 
-CEN/SE uygulama planında son 50 etkin studio dakikasında eğitmenle birlikte iki asistan görev alır. Üç değerlendirici ortak kısa soru havuzu, rubrik ve kapsama kaydı kullanır. Sözlü seçim o dönem yarısında en az kontrol edilmiş öğrencilerden yapılır; değerlendirmenin sınıfa dengeli yayılması izlenir.
+CEN/SE uygulama planında 95–110 ve 120–150 aralıklarındaki toplam 45 etkin studio dakikasında eğitmenle birlikte iki asistan görev alır. Üç değerlendirici ortak kısa soru havuzu, rubrik ve kapsama kaydı kullanır. Sözlü seçim o dönem yarısında en az kontrol edilmiş öğrencilerden yapılır; değerlendirmenin sınıfa dengeli yayılması izlenir.
 
 Eğitmen haftalık asistan kayıtlarından örneklem kontrol eder ve nihai not kararını verir. Otomatik testler sorunlu teslimleri görünür kılar; kavramsal açıklama ve tasarım kararları insan incelemesiyle değerlendirilir. CMPE'de aynı izlenebilirlik ilkesi, kendi öğrenci sayısı ve uygulama saatine göre planlanır.
 

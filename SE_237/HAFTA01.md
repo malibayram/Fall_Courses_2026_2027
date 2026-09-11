@@ -1,7 +1,7 @@
 # SE 237 Object Oriented Programming — 1. Hafta Öğretim Dosyası
 
 **Hafta:** Panorama — tek kayıt isteği, on tasarım sorusu  
-**Süre:** 180 dakika; 140 dakika etkin öğrenme + 40 dakika ara  
+**Süre:** 155 dakika; 125 dakika etkin öğrenme + üç adet 10 dakikalık ara  
 **Dönem ürünü:** Course Registration  
 **Bu dosyanın sınırı:** Yalnızca 1. haftada anlatılacak, yaptırılacak ve toplanacak işleri içerir.
 
@@ -66,35 +66,32 @@ Her çapada şu sorular tekrarlanır:
 4. Gelecek değişiklik en az hangi parçayı etkilemeli?
 5. Bu iddiayı hangi test çürütebilir?
 
-## 180 dakikalık ders akışı
+## 155 dakikalık ders akışı
 
 | Süre | İçerik ve öğretmen hamlesi | Öğrenci işi / kanıt |
 | --- | --- | --- |
 | 00–05 | Course Registration hikâyesini ve tek isteği tanıt: “S100 son kontenjana kayıt olmak istiyor.” | İlk nesne/sorumluluk tahmini |
-| 05–12 | Referans uygulamada accepted, duplicate ve full sonuçlarını göster; kodu henüz açıklama. | Request–rule–state–result izi |
-| 12–18 | **A1:** Class, object, instance; noun avı yerine sorumluluk. | “Ne bilir/ne yapar?” kartı |
-| 18–24 | **A2:** Encapsulation, private state ve invariant; rejected request’in state’i değiştirmemesi. | Invariant cümlesi |
-| 24–30 | **A3:** Association, uses, owns; caller ile roster’ın sınırı. | Küçük object diagram |
+| 05–10 | Referans uygulamada accepted, duplicate ve full sonuçlarını göster; kodu henüz açıklama. | Request–rule–state–result izi |
+| 10–16 | **A1:** Class, object, instance; noun avı yerine sorumluluk. | “Ne bilir/ne yapar?” kartı |
+| 16–22 | **A2:** Encapsulation, private state ve invariant; rejected request’in state’i değiştirmemesi. | Invariant cümlesi |
+| 22–30 | **A3:** Association, uses, owns; caller ile roster’ın sınırı. | Küçük object diagram |
 | 30–40 | **Ara** | |
 | 40–46 | A1–A3 notsuz retrieval; “Her şeyi `main` yapsa hangi değişiklikler yayılır?” | Değişiklik etkisi tahmini |
-| 46–53 | **A4:** Subtype ve substitutability; aynı signature’ın doğru davranışa yetmemesi. | Sözleşme ihlali örneği |
-| 53–60 | **A5:** Interface type, implementation ve davranış/failure contract. | Caller’ın bilmemesi gerekenler |
-| 60–67 | **A6:** Composition ve Strategy; değişen policy’yi kararlı akıştan ayır. | Alternatif policy yeri |
-| 67–70 | Inheritance–interface–composition arasındaki ihtiyacı bir cümleyle ayırt ettir. | Hızlı eşleştirme |
+| 46–52 | **A4:** Subtype ve substitutability; aynı signature’ın doğru davranışa yetmemesi. | Sözleşme ihlali örneği |
+| 52–59 | **A5:** Interface type, implementation ve davranış/failure contract. | Caller’ın bilmemesi gerekenler |
+| 59–66 | **A6:** Composition ve Strategy; değişen policy’yi kararlı akıştan ayır. | Alternatif policy yeri |
+| 66–70 | Inheritance–interface–composition arasındaki ihtiyacı bir cümleyle ayırt ettir. | Hızlı eşleştirme |
 | 70–80 | **Ara** | |
-| 80–87 | **A7:** Reference aliasing, identity, logical equality, defensive copy/immutability panoraması. | `==`/`equals` tahmini |
-| 87–94 | **A8:** `List<String>`, generics, `List`/`Set`; type rule ile duplicate domain kuralını ayır. | Yanlış güvenceyi düzeltme |
-| 94–101 | **A9:** Memory başarısı, persistence hatası, exception contract ve try-with-resources. | İki ayrı başarı durumu |
-| 101–106 | **A10:** Config ile bilinen implementation seçimi, runtime metadata; keyfi plugin’in ayrı güvenlik problemi olması. | Type/instance eşleştirmesi |
-| 106–110 | On çapayı tek enrollment request’e yerleştir. | A1–A10 I/P/F haritası |
+| 80–85 | **A7:** Reference aliasing, identity, logical equality, defensive copy/immutability panoraması. | `==`/`equals` tahmini |
+| 85–90 | **A8:** `List<String>`, generics, `List`/`Set`; type rule ile duplicate domain kuralını ayır. | Yanlış güvenceyi düzeltme |
+| 90–95 | **A9:** Memory başarısı, persistence hatası, exception contract ve try-with-resources. | İki ayrı başarı durumu |
+| 95–100 | **A10:** Config ile bilinen implementation seçimi, runtime metadata; keyfi plugin’in ayrı güvenlik problemi olması. | Type/instance eşleştirmesi |
+| 100–110 | On çapayı tek enrollment request’e yerleştir; studio starter’ını derle ve önce tek kaydı accept et. | A1–A10 I/P/F haritası + build/ilk test |
 | 110–120 | **Ara** | |
-| 120–130 | Studio: starter’ı derle; önce tek kaydı accept et ve count’u güncelle. | Build + ilk test |
-| 130–140 | Capacity check’i mutation’dan önce uygula; full rejection sonrası count’un değişmediğini göster. | Sınır testi |
-| 140–150 | Duplicate check’i ekle; aynı ID ikinci kez geldiğinde state’in değişmediğini göster. Driver/predictor rollerini değiştir. | Duplicate testi |
-| 150–160 | **Ara** | |
-| 160–169 | Normal, capacity ve duplicate için JUnit/tekrar üretilebilir testler; test adlarını davranış cümlesi yap. | Üç geçen test |
-| 169–175 | Kod ile UML/nesne haritasını karşılaştır; uyuşmayan bir oku düzelt. | Map delta |
-| 175–180 | Bireysel exit ticket ve 2. hafta köprüsü. | Çıkış kaydı |
+| 120–132 | Capacity check’i mutation’dan önce uygula; full rejection sonrası count’un değişmediğini göster. | Sınır testi |
+| 132–142 | Duplicate check’i ekle; aynı ID ikinci kez geldiğinde state’in değişmediğini göster. Driver/predictor rollerini değiştir. | Duplicate testi |
+| 142–150 | Normal, capacity ve duplicate için JUnit/tekrar üretilebilir testler; kod ile UML/nesne haritasını karşılaştır. | Üç geçen test + map delta |
+| 150–155 | Bireysel exit ticket ve 2. hafta köprüsü. | Çıkış kaydı |
 
 ## On çapanın ilk hafta için doğru derinliği
 
@@ -161,6 +158,6 @@ A7: `b=a` için tek nesne çiz; `b` üzerinden değişikliğin `a` ile görüld�
 1. Bugün koruduğun invariant nedir?
 2. Type safety ile domain rule arasındaki fark nedir?
 3. Bir reddetme testinin önce/sonra state kanıtı ne olmalıdır?
-4. 1. haftada sistemi paket ve sorumluluk sınırlarına ayırırken ilk hangi bağımlılığı görünür kılarsın?
+4. 2. haftada sistemi paket ve sorumluluk sınırlarına ayırırken ilk hangi bağımlılığı görünür kılarsın?
 
-5. haftaya başlangıç cümlesi: **“Bugün gördüğümüz on tasarım sorusunu, derlenen ve smoke test geçen bir walking skeleton’ın açık sınırlarına dönüştüreceğiz.”**
+2. haftaya başlangıç cümlesi: **“Bugün gördüğümüz on tasarım sorusunu, derlenen ve smoke test geçen bir walking skeleton’ın açık sınırlarına dönüştüreceğiz.”**

@@ -74,19 +74,19 @@ Hedef ağaç starter'da giderek oluşur: `src/main/java/.../{cli,domain,applicat
 
 ### W2 — Bütün sistemin yapısı ve iskelet
 
-**Artım:** Verilen CLI, service ve bellekte saklama parçalarını bağla; bir sabit kayıt senaryosu uçtan uca çalışsın. A1–A10'un her biri için şimdiki bileşen veya gelecekteki sınır gösterilir; on çapa üç haftaya bölünmez.
+**Artım:** Verilen CLI, service ve bellekte saklama parçalarını bağla; bir sabit kayıt senaryosu uçtan uca çalışsın. Bu hafta A1–A3'e (nesne modeli, encapsulation/invariant, ilişkiler/UML) odaklanılır; A4–A10 haritada bekleyen olarak işaretlenir, yeniden anlatılmaz.
 
 **Kanıt:** `./mvnw test`, CLI smoke testi, class/object diagram farkı, sahiplik ve değişiklik noktaları, on artımlık backlog. İleri parçalar stub diye işaretlenir. **Regresyon:** W1 testleri. **Sonraki bağ:** Gerçek komut girdisi.
 
 ### W3 — Bütün sistemin davranışı ve hata
 
-**Artım:** Verilen komut ayrıştırıcıyla `enroll` isteğini service ve roster üzerinden gerçek state değişimine bağla. Bilinmeyen öğrenci/açılış ve hatalı komut kontrollü reddedilir. Her çapa için çağrı, state, hata veya gelecekteki davranış yeniden dolaşılır.
+**Artım:** Verilen komut ayrıştırıcıyla `enroll` isteğini service ve roster üzerinden gerçek state değişimine bağla. Bilinmeyen öğrenci/açılış ve hatalı komut kontrollü reddedilir. Bu hafta A4–A6'ya (kalıtım/yerine kullanılabilirlik, interface/sözleşme, polimorfizm/composition) odaklanılır; A1–A3 kısaca geri çağrılır, A7–A10 bekleyen kalır.
 
 **Kanıt:** Mutlu yol sequence diagram'ı, iki ret izi, en az üç deterministik test; çağrı öncesi/sonrası state. **Regresyon:** Capacity ve duplicate. **Sonraki bağ:** Listeleme ve hata çıktısının birlikte sürümleştirilmesi.
 
 ### W4 — Entegrasyon ve `v0.1`
 
-**Artım:** Öğrenci/katalog/açılış ekleme, kayıt ve listelemeyi aynı CLI oturumunda birleştir. On çapanın implementasyon/gelecek ayrımıyla son rehberli bütün turu tamamlanır.
+**Artım:** Öğrenci/katalog/açılış ekleme, kayıt ve listelemeyi aynı CLI oturumunda birleştir. Bu hafta A7–A10'a (kimlik/eşitlik/kopyalama, generics/collections, exception/kaynak, runtime metadata/plugin) odaklanılır; A1–A6 kısaca geri çağrılır ve ikinci tur bu haftayla tamamlanır. On çapanın implementasyon/gelecek ayrımı haritada güncellenir.
 
 **Kanıt:** Temiz build, kabul/duplicate/full/bilinmeyen kimlik, tutarlı çıktı, regression suite, üç tasarım kararı. Persistence ve plugin henüz vaat edilmez. **Sonraki bağ:** Gereksinim büyüdüğünde sınıf sınırları değişecek.
 

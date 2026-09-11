@@ -4,6 +4,9 @@
 **Dönem:** 2026–2027 Güz · 14 hafta · `1 + 3 + 10`  
 **Proje:** Factory ERP — üretim, stok, satış ve finans süreçlerinin nesne modeli  
 **Belge sürümü:** 1.0 · 11 Eylül 2026  
+
+**Ders oturumu:** 155 dakika; 125 dakika etkin çalışma ve üç adet 10 dakikalık ara. Hazır altyapı ve sınırlı öğrenci değişikliği bu süreye göre planlanır; süre azalması ek ev ödevine aktarılmaz.
+
 **Hedef kitle:** Bu projeyi geliştirecek öğrenciler
 
 Bu rehber, önceki Course Registration örneğinin yerine geçen fabrika projesini tanımlar. Türkçe açıklamalarda İngilizce teknik terimler korunmuştur. Dersin sınav ve resmî değerlendirme dili ilgili izlenceye tabidir. [Veritabanı dersinin rehberi](../CMPE_351/ERP_OGRENCI_REHBERI.md) aynı fabrikanın veri ve transaction tasarımını açıklar; o derse katılmanız bu projeyi yapmanın önkoşulu değildir.
@@ -51,7 +54,7 @@ Raporlarda tarih, ürün, müşteri, kanal, bölge ve satış temsilcisi filtrel
 
 Ders öncesinde kısa kavram kaynağını inceleyin ve çalışan bir önceki sürümde ilgili iş akışını izleyin. Derste önce bir fabrika değişiklik talebinin sonucunu tahmin edin; ardından referans davranışı çalıştırıp tahmininizi sınayın. Küçük bir kod/SQL değişikliği yapın, başarı ve hata durumlarını test edin, sonucu nesne veya veri modeliyle açıklayın. Ders sonrasında geri bildirime göre düzeltin ve aynı ürünün yeni sürümünü teslim edin.
 
-İlk dört haftada bütün ders haritasını farklı ayrıntı düzeylerinde tekrar görürsünüz; her şeyi ilk haftada bağımsız geliştirmiş olmanız beklenmez. Derinleşme haftalarında bir konu öne çıkar, fakat stok–üretim–satış zinciri ve önceki testler çalışmaya devam eder. Referans çözüm veya kurtarma tabanı kullanırsanız kaynağını belirtin; neyi kendiniz değiştirdiğinizi gösterin. Yalnızca çalışan ekran, ezberlenmiş tanım veya açıklayamadığınız üretilmiş kod yeterli kanıt değildir.
+Dersi baştan sona üç turda görürsünüz: W1 bütün haritanın panoraması; W2–W4 konuların üç haftaya dağıtıldığı ikinci tur; W5–W14 on haftalık ayrıntılı üçüncü tur. İkinci turda her hafta yalnız kendi konu grubu işlenir; tüm modüller her hafta yeniden anlatılmaz. Her şeyi ilk haftada bağımsız geliştirmeniz beklenmez. Derinleşme haftalarında bir konu öne çıkar, fakat stok–üretim–satış zinciri ve önceki testler çalışmaya devam eder. Referans çözüm veya kurtarma tabanı kullanırsanız kaynağını belirtin; neyi kendiniz değiştirdiğinizi gösterin. Yalnızca çalışan ekran, ezberlenmiş tanım veya açıklayamadığınız üretilmiş kod yeterli kanıt değildir.
 
 ## Fabrika senaryosu ve ortak sayısal örnek
 
@@ -153,26 +156,26 @@ Hedef yapı:
 
 ## 5. 14 haftalık geliştirme planınız
 
-İlk dört hafta her seferinde A1–A10'un tamamına dönersiniz: panorama, yapı, davranış/hata, entegrasyon. Sonraki on hafta aynı ürünün bir tasarım boyutunu derinleştirirsiniz. Her hafta önceki sürümün testleri korunur.
+Üç tam tur: W1'de A1–A10 panorama; W2–W4 toplamında A1–A10'un ikinci işlenişi; W5–W14'te haftada bir çapayla ayrıntılı üçüncü tur. İkinci turun dağılımı W2 A1–A3, W3 A4–A6, W4 A7–A10'dur. İskelet/dikey dilim/entegrasyon ürün adımlarıdır; konu dağılımının yerine geçmez. Her hafta önceki sürümün testleri korunur.
 
 ### W1 — Panorama ve malzeme planı
 
 **Artım:** Yukarıdaki prototip ve fabrika süreç haritası. **Kavram:** A1–A10'a ilk bakış; nesne, invariant, referans ve koleksiyon örnekleri. **Teslim:** 100 sandalye hesabı, testler, değiştirmediğiniz stok durumu. **Açıklama sorusu:** İhtiyaç hesaplamak ile malzeme ayırmak neden ayrı işlemler?
 
-### W2 — Yapı ve çalışan uygulama iskeleti
+### W2 — İkinci tur, A1–A3: nesne modeli, invariant ve ilişkiler
 
 **Artım:** Ürün–reçete–stok–üretim servislerini verilen web/CLI iskeletine bağlayın. Bellekte repository kullanın; sayfada bir ürün ve plan sonucu görülsün. Satış, finans, servis, İK ve connector sınırlarını haritaya ekleyin; henüz uygulanmamış olanları etiketleyin.  
-**Kavram/geri bağ:** A1–A10'un yapısal turu; özellikle sorumluluk ve bağımlılık. **Kanıt:** Tarayıcı smoke testi, bir domain testi, sınıf/nesne diyagramı, tenant kimliğinin izlediği yol.
+**Konu:** A1 nesne sorumluluğu, A2 encapsulation/invariant, A3 UML/ilişki/sahiplik. Her biri ürün–reçete–stok örneği ve bir karşı örnekle işlenir; diğer çapalar yalnız haritada bekleyen konulardır. **Kanıt:** Tarayıcı smoke testi, bir domain testi, sınıf/nesne diyagramı, tenant kimliğinin izlediği yol.
 
-### W3 — Davranış, rezervasyon ve hata
+### W3 — İkinci tur, A4–A6: kalıtım, interface ve polimorfizm
 
 **Artım:** Sipariş planından rezervasyon talebine ilerleyin; eksik malzeme ve yinelenen request ID sonucunu yönetin. Tüm kontroller bitmeden state değişmesin; geçersiz istekte rezervasyon oluşmasın. Verilen işlem sınırı birden çok nesnenin güncellenmesini koordine eder.  
-**Kavram/geri bağ:** A1–A10 davranış turu; A2 invariant, A7 alias, A9 hata. **Kanıt:** Mutlu yol sequence diagram'ı, eksik stok, aynı anahtar/aynı içerik ve aynı anahtar/farklı içerik testleri. Bellek içi tek-thread doğruluğunu çok kullanıcılı güvence olarak sunmayın.
+**Konu:** A4 ortak uygunluk denetiminde alt tür sözleşmesi; A5 rezervasyon/kanal portu; A6 seçilebilir uygunluk politikası ve composition. Sağlanan iki küçük implementation aynı contract testinden geçirilir. A2 invariant kısa geri çağrılır; ileri hata/alias ayrıntıları W4 ve üçüncü tura bırakılır. **Kanıt:** Mutlu yol sequence diagram'ı, eksik stok, aynı anahtar/aynı içerik ve aynı anahtar/farklı içerik testleri. Bellek içi tek-thread doğruluğunu çok kullanıcılı güvence olarak sunmayın.
 
-### W4 — İlk uçtan uca fabrika sürümü: v0.1
+### W4 — İkinci tur, A7–A10 ve ilk fabrika sürümü: v0.1
 
 **Artım:** Sağlanan süreç iskeletinde eksik malzemeyi satınalma ve mal kabule, iş emrini malzeme çıkışı/mamul kabulüne ve siparişi kısmi sevkiyata bağlayın. Her alt modül bu aşamada az sayıda ama gerçek davranış içerir.  
-**Kavram/geri bağ:** A1–A10 entegrasyon turu. **Kanıt:** 100 sandalye ana senaryosu; 60+40 sevk; tekrarlanan üretim tamamlama isteğinin ikinci stok yaratmaması; güncel model ve sınırlar. Maliyet yöntemi basit sağlanan uygulamadır, W10'da derinleşir.
+**Konu:** A7 snapshot/equality/kopya, A8 tür güvenli koleksiyon, A9 hata/kaynak ömrü, A10 sağlanan provider üzerinden runtime seçim. Her konu küçük bir davranış ve karşı örnekle görülür; tam kalıcılık/plugin altyapısı hazırdır. Kümülatif A1–A10 haritası ikinci turun tamamlandığını kaydeder; yeniden tam anlatım yapılmaz. **Kanıt:** 100 sandalye ana senaryosu; 60+40 sevk; tekrarlanan üretim tamamlama isteğinin ikinci stok yaratmaması; güncel model ve sınırlar. Maliyet yöntemi basit sağlanan uygulamadır, W10'da derinleşir.
 
 ### W5 — A1: Ayrıştırma ve domain modeli
 

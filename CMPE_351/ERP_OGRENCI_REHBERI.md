@@ -4,6 +4,9 @@
 **Dönem:** 2026–2027 Güz · 12 hafta · `1 + 3 + 8`  
 **Proje:** Factory ERP — üretim, ortak stok ve finans zincirinin veri omurgası  
 **Belge sürümü:** 1.0 · 11 Eylül 2026  
+
+**Ders oturumu:** 155 dakika; 125 dakika etkin çalışma ve üç adet 10 dakikalık ara. Hazır altyapı ve sınırlı öğrenci değişikliği bu süreye göre planlanır; süre azalması ek ev ödevine aktarılmaz.
+
 **Hedef kitle:** Bu projeyi modelleyecek, sorgulayacak ve sınayacak öğrenciler
 
 Bu rehber, önceki Campus Learning Hub örneğinin yerine geçen fabrika projesini tanımlar. Türkçe açıklamalarda İngilizce teknik terimler korunmuştur. Resmî değerlendirme dili ilgili izlenceye tabidir. [OOP rehberi](../SE_237/ERP_OGRENCI_REHBERI.md) aynı fabrikanın Java iş mantığını ele alır; bu dersi tamamlamak için o derse katılmanız veya Java uygulaması yazmanız gerekmez.
@@ -50,7 +53,7 @@ Raporlarda tarih, ürün, müşteri, kanal, bölge ve satış temsilcisi filtrel
 
 Ders öncesinde kısa kavram kaynağını inceleyin ve çalışan bir önceki sürümde ilgili iş akışını izleyin. Derste önce bir fabrika değişiklik talebinin sonucunu tahmin edin; ardından referans davranışı çalıştırıp tahmininizi sınayın. Küçük bir kod/SQL değişikliği yapın, başarı ve hata durumlarını test edin, sonucu nesne veya veri modeliyle açıklayın. Ders sonrasında geri bildirime göre düzeltin ve aynı ürünün yeni sürümünü teslim edin.
 
-İlk dört haftada bütün ders haritasını farklı ayrıntı düzeylerinde tekrar görürsünüz; her şeyi ilk haftada bağımsız geliştirmiş olmanız beklenmez. Derinleşme haftalarında bir konu öne çıkar, fakat stok–üretim–satış zinciri ve önceki testler çalışmaya devam eder. Referans çözüm veya kurtarma tabanı kullanırsanız kaynağını belirtin; neyi kendiniz değiştirdiğinizi gösterin. Yalnızca çalışan ekran, ezberlenmiş tanım veya açıklayamadığınız üretilmiş kod yeterli kanıt değildir.
+Dersi baştan sona üç turda görürsünüz: W1 bütün haritanın panoraması; W2–W4 konuların üç haftaya dağıtıldığı ikinci tur; W5–W12 sekiz haftalık ayrıntılı üçüncü tur. İkinci turda her hafta yalnız kendi konu grubu işlenir; tüm modüller her hafta yeniden anlatılmaz. Her şeyi ilk haftada bağımsız geliştirmeniz beklenmez. Derinleşme haftalarında bir konu öne çıkar, fakat stok–üretim–satış zinciri ve önceki testler çalışmaya devam eder. Referans çözüm veya kurtarma tabanı kullanırsanız kaynağını belirtin; neyi kendiniz değiştirdiğinizi gösterin. Yalnızca çalışan ekran, ezberlenmiş tanım veya açıklayamadığınız üretilmiş kod yeterli kanıt değildir.
 
 ## Fabrika senaryosu ve ortak sayısal örnek
 
@@ -218,26 +221,26 @@ Fotoğraf/video nesne depolamada; metadata ve erişim ilişkisi veritabanındad�
 
 ## 6. 12 haftalık geliştirme planınız
 
-M1–M8 sırası değişmez. W1 panorama; W2 yapı; W3 davranış/hata; W4 entegrasyonda sekiz modülün tamamı yeniden görülür. W5–W12 her seferinde bir modülü derinleştirir.
+Üç tam tur uygulanır: W1 M1–M8 panoraması; W2–W4 toplamında ikinci tur; W5–W12 haftada bir modülle ayrıntılı üçüncü tur. İkinci tur W2 M1–M3, W3 M4–M6, W4 M7–M8 olarak bölünür. Her hafta ilgili modüller örnek ve karşı örnekle işlenir. İskelet/dikey dilim/entegrasyon aynı ürünün gelişim adımlarıdır.
 
 ### W1 — Panorama ve ihtiyaç sorgusu
 
 **Artım:** Ortak 100 sandalye ihtiyacı, başlangıç snapshot'ı ve eksik ahşap sorgusu. **Kavram:** M1–M8'e ilk bakış; gerçek uygulama model/bütünlük/SQL'de. **Kanıt:** Ortak sayısal sonuç, FK/CHECK reddi, stokta yan etki olmaması. **Sorunuz:** “Üretilebilir” ile “rezervasyonu yapılmış” neden farklı?
 
-### W2 — Yapı ve walking skeleton
+### W2 — İkinci tur, M1–M3: DBMS, model ve SQL
 
 **Artım:** W1 verisini migration/seed'e taşıyın; sağlanan sorgu/API girişini bağlayın. Tenant, normal uygulama rolü, migration sahibi, stok/üretim/ticaret sınırlarını ayırın. Sekiz modülün gelecek genişlemeleri tablo/işlem haritasında olsun.  
-**Kanıt:** Boş DB kurulumu, health query, ER taslağı, bağlantı rolü, import batch kimliği, web istemcisinden ürün/plan görüntüsü. **Geri bağ:** M1 mimari, M2 model.
+**Kanıt:** Boş DB kurulumu, health query, ER taslağı, bağlantı rolü, import batch kimliği, web istemcisinden ürün/plan görüntüsü. **Konu kanıtı:** M1 istemci/oturum ve iş yükü haritası; M2 anahtar/FK/CHECK karşı örneği; M3 ihtiyaç sorgusunda selection/join/aggregate ve beklenen sonuç. Sonraki modüller bu hafta yeniden anlatılmaz.
 
-### W3 — Davranış, transaction ve hata
+### W3 — İkinci tur, M4–M6: normalizasyon, transaction ve indeks
 
 **Artım:** Siparişten plan ve rezervasyona giden işlem iskeletini, duplicate event ve geçersiz FK yollarını bağlayın. Başarı/rollback durumunu inceleyin; satınalma, üretim, finans ve dış olayların transaction sınırlarını aynı haritada gösterin.  
-**Kanıt:** Mutlu yol, hata sonrası state, tenant FK reddi, tekrar anahtarı, ilk EXPLAIN. Tek istemcili deney çok kullanıcılı stok güvencesi değildir; bu açık M5'e taşınır.
+**Konu kanıtı:** M4 küçük staging tablosunda bağımlılık ve anomali/düzeltme; M5 sağlanan iki oturumda rezervasyon yarışı ve rollback; M6 aynı sorgunun önce/sonra planı ve indeksin yazma bedeli. Ürün kanıtı mutlu yol, hata sonrası state, tenant FK reddi ve tekrar anahtarıdır. İlk rehberli deney, W9'daki bağımsız concurrency kabulünün yerine geçmez.
 
-### W4 — İlk bütünleşik veri sürümü: v0.1
+### W4 — İkinci tur, M7–M8 ve ilk veri sürümü: v0.1
 
 **Artım:** Sağlanan işlem iskeletlerinde eksik malzemeden satınalma/mal kabule, iş emrinden tüketim/mamul kabulüne ve kısmi sevkiyata ilerleyin. Snapshot başlangıcı kontrollü açılış defterine dönüşsün; bakiye hareketlerle uzlaştırılsın.  
-**Kanıt:** 100 sandalye ana akışı; 60+40 sevkiyat; hareket/rezervasyon toplamı; duplicate belge reddi; sekiz modül haritası ve bilinen concurrency/yetki sınırları. İleri finans/kanal/İK verileri bu aşamada bağlı örneklerdir.
+**Konu kanıtı:** M7 sağlanan replica gecikmesi/restore izi üzerinden garanti ve kurtarma; M8 aynı servis belgesinin ilişkisel/JSONB gösterimi ve rol erişimi karşı örneği. Tam bulut/modern platform kurulumu istenmez. **Ürün kanıtı:** 100 sandalye ana akışı; 60+40 sevkiyat; hareket/rezervasyon toplamı; duplicate belge reddi; sekiz modül haritası ve bilinen concurrency/yetki sınırları. İleri finans/kanal/İK verileri bu aşamada bağlı örneklerdir.
 
 ### W5 — M1: DBMS mimarisi, iş yükü ve garantiler
 
