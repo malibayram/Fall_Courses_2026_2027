@@ -10,7 +10,7 @@
 
 ## İlgili belgeler
 
-**Güncel öğrenci belgesi:** [Sandalye Fabrikası ERP — CMPE 351 öğrenci rehberi](ERP_CMPE351_OGRENCI_REHBERI.md). Bu README'deki `1 + 3 + 8` ders modeli korunur. Aşağıdaki metin ve önceki proje/ilk hafta planlarında kalan Campus Learning Hub örnekleri önceki senaryoya aittir; güncel iş akışları, haftalık proje teslimleri ve kabul koşullarında ERP rehberi esas alınır.
+**Güncel öğrenci belgesi:** [Sandalye Fabrikası ERP — CMPE 351 öğrenci rehberi](ERP_OGRENCI_REHBERI.md). Bu README'deki `1 + 3 + 8` ders modeli korunur. Aşağıdaki metin ve önceki proje/ilk hafta planlarında kalan Campus Learning Hub örnekleri önceki senaryoya aittir; güncel iş akışları, haftalık proje teslimleri ve kabul koşullarında ERP rehberi esas alınır.
 
 [Kaynakça](KAYNAKCA.md) · [İlk hafta öğretmen akışı](HAFTA01.md) · [Prototip ve 12 haftalık proje planı](PROJE.md)
 

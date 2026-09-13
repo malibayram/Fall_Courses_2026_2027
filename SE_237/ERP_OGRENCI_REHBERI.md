@@ -158,6 +158,8 @@ Hedef yapı:
 
 Üç tam tur: W1'de A1–A10 panorama; W2–W4 toplamında A1–A10'un ikinci işlenişi; W5–W14'te haftada bir çapayla ayrıntılı üçüncü tur. İkinci turun dağılımı W2 A1–A3, W3 A4–A6, W4 A7–A10'dur. İskelet/dikey dilim/entegrasyon ürün adımlarıdır; konu dağılımının yerine geçmez. Her hafta önceki sürümün testleri korunur.
 
+İkinci turun ayrıntılı öğretmen dosyaları: [W2 — Nesne yapısı](HAFTA02.md) · [W3 — Rezervasyon dilimi](HAFTA03.md) · [W4 — Entegrasyon ve v0.1](HAFTA04.md). Bu dosyalar hazırlık, ders akışı, studio, test matrisi ve kabul ölçütlerini ayrıntılandırır; adı geçen starter ve fixture'lar ayrıca üretilecektir.
+
 ### W1 — Panorama ve malzeme planı
 
 **Artım:** Yukarıdaki prototip ve fabrika süreç haritası. **Kavram:** A1–A10'a ilk bakış; nesne, invariant, referans ve koleksiyon örnekleri. **Teslim:** 100 sandalye hesabı, testler, değiştirmediğiniz stok durumu. **Açıklama sorusu:** İhtiyaç hesaplamak ile malzeme ayırmak neden ayrı işlemler?
@@ -290,6 +292,6 @@ Fabrikanın canlıya geçişi için ürün/BOM/cari/fiyat/stok/açık sipariş a
 - [Java 25 BigDecimal](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/math/BigDecimal.html): Para, yuvarlama ve equality/scale ayrıntılarını buradan doğrulayın.
 - [Java 25 ServiceLoader](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/ServiceLoader.html): W14 provider keşfinin sözleşmesi; plugin güvenlik sandbox'ı sağlamaz.
 - [JUnit kılavuzu](https://docs.junit.org/6.1.0/overview.html): Domain ve contract testleri için.
-- [Ders kaynakçası](KAYNAKCA_SE237.md): Ek alıştırma ve tasarım kaynakları; eski kayıt sistemi örneklerini bu rehberin fabrika senaryosuyla eşleştirin.
+- [Ders kaynakçası](KAYNAKCA.md): Ek alıştırma ve tasarım kaynakları; eski kayıt sistemi örneklerini bu rehberin fabrika senaryosuyla eşleştirin.
 
 İş ihtiyaçlarının kaynağı ders için paylaşılan sandalye fabrikası ERP vaka metnidir. Reçete sayıları, sınıf isimleri, algoritma tercihleri ve ders kapsamı bu vakayı uygulanabilir/test edilebilir hâle getirmek için bu rehberde tanımlanmıştır.

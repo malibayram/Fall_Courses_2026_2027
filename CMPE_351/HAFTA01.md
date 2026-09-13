@@ -6,7 +6,9 @@
 **Dönem ürünü:** Campus Learning Hub  
 **Bu dosyanın sınırı:** Yalnızca 1. haftada anlatılacak, yaptırılacak ve toplanacak işleri içerir.
 
-**İlgili belgeler:** [Prototip ve dönem planı](PROJE.md) · [Kaynakça](KAYNAKCA.md)
+**İlgili belgeler:** [ERP öğrenci rehberi](ERP_OGRENCI_REHBERI.md) · [Önceki proje planı](PROJE.md) · [Kaynakça](KAYNAKCA.md) · [2. hafta](HAFTA02.md) · [3. hafta](HAFTA03.md) · [4. hafta](HAFTA04.md)  
+
+> **Senaryo uyarısı:** Bu dosya hâlâ önceki Campus Learning Hub örneğini anlatır. Güncel dönem ürünü sandalye fabrikası ERP'sidir; [W2](HAFTA02.md)–[W4](HAFTA04.md) fabrika senaryosunu kullanır. Bu W1 akışı ERP'ye uyarlanana kadar sınıfta kullanılmadan önce [ERP rehberiyle](ERP_OGRENCI_REHBERI.md) karşılaştırılmalıdır.
 
 Bu Türkçe belge eğitmen içindir; öğrenci yönergeleri ve ölçülen içerik için İngilizce eşdeğer hazırlanır. W1 tanılayıcıdır; teslimler geri bildirim sağlar ve yeni bir not bileşeni oluşturmaz. Kurulum aksarsa eşli çalışma ve verilen çıktı üzerinden açıklama kabul edilir; kişisel ortam daha sonra tamamlanır.
 
@@ -128,7 +130,7 @@ Bu Türkçe belge eğitmen içindir; öğrenci yönergeleri ve ölçülen içeri
 
 Zorunlu prototip küçük şema, arama, başarılı kayıt ve duplicate/FK reddidir. Kontenjan yarışı ve indeks karşılaştırması eğitmen rehberli panorama deneyidir; ilk hafta concurrency çözümü veya performans iyileştirmesi beklenmez.
 
-Sabit veri: `S100`, `S101`; `CMPE351` dersi; `2026-FALL` döneminde capacity=`1` olan offering. İlk `S100` başarılı, ikinci aynı kayıt UNIQUE ihlali, olmayan `S999` FK ihlalidir. Farklı öğrenci yazmasının basit şemada kontenjanı aşabildiğini ayrıca göster; çözümü M5'e bağla. Hataları ayrı transaction veya savepoint ile çalıştır; hata sonrasında aborted transaction için rollback gerekir. Ayrıntı [prototip sözleşmesindedir](PROJE_CMPE351.md).
+Sabit veri: `S100`, `S101`; `CMPE351` dersi; `2026-FALL` döneminde capacity=`1` olan offering. İlk `S100` başarılı, ikinci aynı kayıt UNIQUE ihlali, olmayan `S999` FK ihlalidir. Farklı öğrenci yazmasının basit şemada kontenjanı aşabildiğini ayrıca göster; çözümü M5'e bağla. Hataları ayrı transaction veya savepoint ile çalıştır; hata sonrasında aborted transaction için rollback gerekir. Ayrıntı [prototip sözleşmesindedir](PROJE.md).
 
 ## Sorulacak kritik sorular ve beklenen yön
 

@@ -223,6 +223,8 @@ Fotoğraf/video nesne depolamada; metadata ve erişim ilişkisi veritabanındad�
 
 Üç tam tur uygulanır: W1 M1–M8 panoraması; W2–W4 toplamında ikinci tur; W5–W12 haftada bir modülle ayrıntılı üçüncü tur. İkinci tur W2 M1–M3, W3 M4–M6, W4 M7–M8 olarak bölünür. Her hafta ilgili modüller örnek ve karşı örnekle işlenir. İskelet/dikey dilim/entegrasyon aynı ürünün gelişim adımlarıdır.
 
+İkinci turun ayrıntılı öğretmen dosyaları: [W2 — Migration ve sorgu](HAFTA02.md) · [W3 — Transaction ve plan](HAFTA03.md) · [W4 — Dayanıklılık ve v0.1](HAFTA04.md). Bu dosyalar ders akışını, 120 dakikalık laboratuvarı, deneyleri ve kabul ölçütlerini ayrıntılandırır; adı geçen starter, harness ve fixture'lar ayrıca üretilecektir.
+
 ### W1 — Panorama ve ihtiyaç sorgusu
 
 **Artım:** Ortak 100 sandalye ihtiyacı, başlangıç snapshot'ı ve eksik ahşap sorgusu. **Kavram:** M1–M8'e ilk bakış; gerçek uygulama model/bütünlük/SQL'de. **Kanıt:** Ortak sayısal sonuç, FK/CHECK reddi, stokta yan etki olmaması. **Sorunuz:** “Üretilebilir” ile “rezervasyonu yapılmış” neden farklı?

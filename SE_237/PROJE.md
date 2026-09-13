@@ -170,7 +170,7 @@ Her konsept ilgili artımda uygulanır veya açıkça etiketli küçük karşı 
 
 ## Kabul, test ve teslim düzeni
 
-**Sürüm kapıları:** W1 prototip; W4 `v0.1`; W9 ara entegrasyon; W14 `v1.0`. Haftalık paket önceki sürümden başlar ve yeni davranış, eski regresyon, UML farkı, kısa karar, bilinen sınırlama ve AI katkısını içerir. Ağırlıklar [README](README.md) ile aynıdır; yeni not kalemi eklenmez.
+**Sürüm kapıları:** W1 prototip; W4 `v0.1`; W9 ara entegrasyon; W14 `v1.0`. Haftalık paket önceki sürümden başlar ve yeni davranış, eski regresyon, UML farkı, kısa karar, bilinen sınırlama ve AI katkısını içerir. Ağırlıklar [ana README](../README.md) ile aynıdır; yeni not kalemi eklenmez.
 
 **Test katmanları:** Domain unit testleri kural/state'i; contract testleri alternatif implementation'ları; CLI integration testleri kullanıcı sonucunu; file testleri geçici dizinde save/load'u kontrol eder. Duvar saatine veya rastgele ID'ye bağımlı testler yerine verilen saat/ID üretici kullanılır. Negatif test yalnız hata mesajını değil, state'in korunmasını da denetler.
 

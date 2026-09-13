@@ -97,7 +97,9 @@ CEN 302 kendi iş yükü ve projesi üzerinden ilerler. Dosya, bellek, eşzamanl
 | CEN 302'nin güncel ürünü | [CEN 302 proje planı](CEN_302/PROJE.md) | Byte Counter, Workbench, xv6 kapsamı, haftalık artımlar ve kabul koşulları |
 | CEN 302'nin ilk dört haftası | [W1](CEN_302/HAFTA01.md) · [W2](CEN_302/HAFTA02.md) · [W3](CEN_302/HAFTA03.md) · [W4](CEN_302/HAFTA04.md) | Ayrıntılı öğretmen akışı, hazırlık, studio, test ve kabul planları |
 | SE 237'nin güncel ürünü | [SE 237 ERP öğrenci rehberi](SE_237/ERP_OGRENCI_REHBERI.md) | Fabrika iş kuralları, nesne modeli, 14 haftalık proje ve test kataloğu |
+| SE 237'nin ikinci turu | [W2](SE_237/HAFTA02.md) · [W3](SE_237/HAFTA03.md) · [W4](SE_237/HAFTA04.md) | A1–A3, A4–A6 ve A7–A10 için öğretmen akışı, studio, test ve kabul planları |
 | CMPE 351'in güncel ürünü | [CMPE 351 ERP öğrenci rehberi](CMPE_351/ERP_OGRENCI_REHBERI.md) | Veri modeli, SQL, transaction sözleşmesi, 12 haftalık proje ve test kataloğu |
+| CMPE 351'in ikinci turu | [W2](CMPE_351/HAFTA02.md) · [W3](CMPE_351/HAFTA03.md) · [W4](CMPE_351/HAFTA04.md) | M1–M3, M4–M6 ve M7–M8 için ders akışı, laboratuvar, deney ve kabul planları |
 | CMPE 351'in pedagojik ayrıntıları | [CMPE 351 ders modeli](CMPE_351/README.md) | `1 + 3 + 8`, sekiz modül ve değerlendirme taslağı; proje senaryosunda ERP rehberi esas alınır |
 | Teknik okuma ve başvuru | [CEN kaynakları](CEN_302/KAYNAKCA.md) · [SE kaynakları](SE_237/KAYNAKCA.md) · [CMPE kaynakları](CMPE_351/KAYNAKCA.md) | Haftanın öğrenme hedefi için seçilecek kaynak havuzu |
 | İlk haftanın öğretmen akışı | [CEN W1](CEN_302/HAFTA01.md) · [SE W1](SE_237/HAFTA01.md) · [CMPE W1](CMPE_351/HAFTA01.md) | Sınıf uygulaması hazırlığı; SE/CMPE'deki eski senaryolar ERP'ye uyarlanmalıdır |
@@ -131,12 +133,18 @@ Belgeler arasında farklılık olduğunda şu ayrım uygulanır:
 │   ├── ERP_OGRENCI_REHBERI.md       Güncel fabrika/OOP proje sözleşmesi
 │   ├── PROJE.md                    Önceki senaryonun proje tasarımı
 │   ├── HAFTA01.md                  ERP'ye uyarlanacak ilk hafta akışı
+│   ├── HAFTA02.md                  İkinci tur: A1–A3; fabrika iskeleti
+│   ├── HAFTA03.md                  İkinci tur: A4–A6; rezervasyon dilimi
+│   ├── HAFTA04.md                  İkinci tur: A7–A10; v0.1 kabulü
 │   └── KAYNAKCA.md                 Teknik kaynaklar
 ├── CMPE_351/
 │   ├── README.md                   12 haftalık model; eski senaryo izleri içerir
 │   ├── ERP_OGRENCI_REHBERI.md       Güncel fabrika/veritabanı sözleşmesi
 │   ├── PROJE.md                    Önceki senaryonun proje tasarımı
 │   ├── HAFTA01.md                  ERP'ye uyarlanacak ilk hafta akışı
+│   ├── HAFTA02.md                  İkinci tur: M1–M3; migration ve sorgu
+│   ├── HAFTA03.md                  İkinci tur: M4–M6; transaction ve plan
+│   ├── HAFTA04.md                  İkinci tur: M7–M8; v0.1 veri sürümü
 │   └── KAYNAKCA.md                 Teknik kaynaklar
 └── archive/                        Önceki belgeler ve üretimler
 ```

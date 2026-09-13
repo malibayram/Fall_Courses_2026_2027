@@ -170,7 +170,7 @@ Başlangıç: offering capacity=1 ve sıfır kayıt. Ayrı oturumlar T1/S100 ve 
 
 Her hafta başlangıç sürümü, yeni migration/sorgu/deney, regresyon çıktısı, M1–M8 harita farkı ve kısa gerekçe birlikte teslim edilir. “Çalıştırıldı” kanıtı komut, rol, sürüm, fixture ve beklenen/gerçek sonucu içerir. Migration testi hem sıfırdan kurulum hem bir önceki sürümden yükseltme yapar; eski veri sessizce atılmaz.
 
-**W1:** Tanılayıcı prototip. **W4:** İlişkisel `v0.1`. **W8:** Model/migration ara kontrolü ve gerekirse kurtarma tabanı. **W12:** M8 artımıyla birlikte `v1.0`. Not ağırlıkları [README_CMPE351](README_CMPE351.md) ile aynıdır; W12 ayrı bir ikinci büyük proje değildir.
+**W1:** Tanılayıcı prototip. **W4:** İlişkisel `v0.1`. **W8:** Model/migration ara kontrolü ve gerekirse kurtarma tabanı. **W12:** M8 artımıyla birlikte `v1.0`. Not ağırlıkları [CMPE 351 ders modeli](README.md) ile aynıdır; W12 ayrı bir ikinci büyük proje değildir.
 
 Final demosu: temiz kurulum → search → geçerli/duplicate kayıt → iki oturumda son kontenjan → ölçülmüş sorgu planı → restore doğrulaması → başka kullanıcı erişiminin reddi → seçilmiş modern davranış. Öğrenci her adımda hangi garantiye hangi kanıtın yettiğini ve neyi kanıtlamadığını açıklar.
 
@@ -182,4 +182,4 @@ Eğitmen bağlantı/build ortamını, migration runner'ı, sabit seed'leri, iki 
 
 ## Başvuru kaynakları
 
-[PostgreSQL 18](https://www.postgresql.org/docs/18/) şema/SQL için; [transaction isolation](https://www.postgresql.org/docs/18/transaction-iso.html) ve [WAL](https://www.postgresql.org/docs/18/wal.html) M5 için; [Database System Concepts](https://www.db-book.com/) model/cebir/FD için; [CMU Database Systems](https://15445.courses.cs.cmu.edu/fall2026/schedule.html) storage ve query processing için; [MongoDB veri modelleme](https://learn.mongodb.com/learning-paths/data-modeling-for-mongodb) alternatif model için kullanılır. Ayrıntılı seçki dersin [kaynakçasındadır](KAYNAKCA_CMPE351.md).
+[PostgreSQL 18](https://www.postgresql.org/docs/18/) şema/SQL için; [transaction isolation](https://www.postgresql.org/docs/18/transaction-iso.html) ve [WAL](https://www.postgresql.org/docs/18/wal.html) M5 için; [Database System Concepts](https://www.db-book.com/) model/cebir/FD için; [CMU Database Systems](https://15445.courses.cs.cmu.edu/fall2026/schedule.html) storage ve query processing için; [MongoDB veri modelleme](https://learn.mongodb.com/learning-paths/data-modeling-for-mongodb) alternatif model için kullanılır. Ayrıntılı seçki dersin [kaynakçasındadır](KAYNAKCA.md).

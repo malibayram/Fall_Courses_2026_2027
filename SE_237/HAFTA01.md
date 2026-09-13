@@ -5,7 +5,9 @@
 **Dönem ürünü:** Course Registration  
 **Bu dosyanın sınırı:** Yalnızca 1. haftada anlatılacak, yaptırılacak ve toplanacak işleri içerir.
 
-**İlgili belgeler:** [Prototip ve dönem planı](PROJE.md) · [Kaynakça](KAYNAKCA.md)
+**İlgili belgeler:** [ERP öğrenci rehberi](ERP_OGRENCI_REHBERI.md) · [Önceki proje planı](PROJE.md) · [Kaynakça](KAYNAKCA.md) · [2. hafta](HAFTA02.md) · [3. hafta](HAFTA03.md) · [4. hafta](HAFTA04.md)  
+
+> **Senaryo uyarısı:** Bu dosya hâlâ önceki Course Registration örneğini anlatır. Güncel dönem ürünü sandalye fabrikası ERP'sidir; [W2](HAFTA02.md)–[W4](HAFTA04.md) fabrika senaryosunu kullanır. Bu W1 akışı ERP'ye uyarlanana kadar sınıfta kullanılmadan önce [ERP rehberiyle](ERP_OGRENCI_REHBERI.md) karşılaştırılmalıdır.
 
 Bu Türkçe belge eğitmen içindir; öğrenci yönergeleri ve ölçülen içerik için İngilizce eşdeğer hazırlanır. W1 tanılayıcıdır; teslimler geri bildirim sağlar ve yeni bir not bileşeni oluşturmaz. Kurulum aksarsa eşli çalışma ve verilen çıktı üzerinden açıklama kabul edilir; kişisel ortam daha sonra tamamlanır.
 

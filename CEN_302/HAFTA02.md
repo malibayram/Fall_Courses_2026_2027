@@ -70,7 +70,7 @@ W1'de görülen bütünü bu hafta **yapı açısından** yeniden kuracağız. �
 | Derleme | Linux executable'ı ile RISC-V/xv6 executable'ı karışmaz. |
 | Çıkış kontrolü | QEMU'dan çıkış ve test timeout'u öğretim ekibinin harness'inde denenmiştir. |
 | Katkı | Kernel, uyarlama ve test altyapısının sağlanan bölümleri açıktır. |
-| Süre | Studio'daki öğrenci değişikliği 50 etkin dakikalık alana sığar. |
+| Süre | Studio'daki öğrenci değişikliği 120–150 aralığındaki 30 etkin dakikaya sığar. |
 
 Upstream'de kullanıcı programları ve imaj üretimi [Makefile](https://github.com/mit-pdos/xv6-riscv/blob/9e3161a9abf5f51ea402562d1874caf6c4926597/Makefile) üzerinden izlenir. `_bytecount` ekleme ve fixture paketleme değişiklikleri eğitmen starter'ında hazır olur. Upstream `make qemu` ile bu ders için hazırlanacak `make guest-test` ayrı komutlardır.
 
