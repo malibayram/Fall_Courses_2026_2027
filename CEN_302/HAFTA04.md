@@ -12,7 +12,7 @@
 | Sonraki bağlantı | W5'te bu tabana sınırlı xv6 süreç istatistiği syscall'ı ve host syscall gözlemi |
 | Belge durumu | Öğretim ve kabul sözleşmesi; test harness'leri, fixture programları ve referans release ayrıca hazırlanıp doğrulanacaktır |
 
-**Bağlantılar:** [Ana ders sistemi](../README.md) · [Proje sözleşmesi](PROJE.md) · [W1](HAFTA01.md) · [W2](HAFTA02.md) · [W3](HAFTA03.md) · [Kaynakça](KAYNAKCA.md)
+**Bağlantılar:** [Ana ders sistemi](../README.md) · [Güncel kapsam](GUNCEL_KAPSAM.md) · [Proje sözleşmesi](PROJE.md) · [W1](HAFTA01.md) · [W2](HAFTA02.md) · [W3](HAFTA03.md) · [Kaynakça](KAYNAKCA.md)
 
 Bu dosya eğitmen/asistan planıdır; sondaki İngilizce görev özeti, eşdeğer İngilizce kavram notu ve rubrikle öğrenciye yayımlanır. **Bu hafta A8–A10'a (sanal bellek/izolasyon, dosya sistemi/tutarlılık, depolama/I/O) entegrasyon açısından ayrıntılı işlenir.** A1–A7 yalnız kısa geri çağırmayla kullanılır; ikinci tur bu haftayla tamamlanır. `v0.1`, bütün OS mekanizmalarının öğrenci tarafından uygulanması anlamına gelmez; ilk çalışır ürün ve sonraki on artımın açık başlangıç noktasıdır.
 

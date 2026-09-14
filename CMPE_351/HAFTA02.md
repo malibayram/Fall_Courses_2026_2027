@@ -12,9 +12,9 @@
 | Sonraki kapı | W3'te siparişten rezervasyona giden transaction iskeleti |
 | Belge durumu | Öğretim ve görev tasarımı; starter, migration aracı, veri üretici ve web istemcisi ders paketinde ayrıca üretilecektir |
 
-**Bağlantılar:** [Ana ders sistemi](../README.md) · [ERP öğrenci rehberi](ERP_OGRENCI_REHBERI.md) · [Ders modeli](README.md) · [W1](HAFTA01.md) · [W3](HAFTA03.md) · [W4](HAFTA04.md) · [Kaynakça](KAYNAKCA.md)
+**Bağlantılar:** [Ana ders sistemi](../README.md) · [Güncel kapsam](GUNCEL_KAPSAM.md) · [ERP öğrenci rehberi](ERP_OGRENCI_REHBERI.md) · [Ders modeli](README.md) · [W1](HAFTA01.md) · [W3](HAFTA03.md) · [W4](HAFTA04.md) · [Kaynakça](KAYNAKCA.md)
 
-Bu Türkçe dosya eğitmen ve asistanlar içindir. Güncel proje sözleşmesi [ERP rehberidir](ERP_OGRENCI_REHBERI.md). [W1 dosyası](HAFTA01.md) ve [eski proje planı](PROJE.md) hâlâ önceki Campus Learning Hub senaryosunu anlatır; bu belgeler fabrika senaryosuna uyarlanana kadar W2–W4'te ERP rehberindeki veri modeli ve sayısal örnek esas alınır.
+Bu Türkçe dosya eğitmen ve asistanlar içindir. Güncel proje sözleşmesi [ERP rehberidir](ERP_OGRENCI_REHBERI.md); [eski Campus Learning Hub planı](PROJE.md) yalnız tarihsel referanstır ve öğrenciye yürürlükteki görev olarak verilmez.
 
 ## 1. Öğretim amacı ve doğru derinlik
 

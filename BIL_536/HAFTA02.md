@@ -5,7 +5,7 @@
 **Süre:** 155 dakika ders; 125 dakika etkin çalışma + üç adet 10 dakikalık ara  
 **Dönem ürünü:** Yeniden Üretilebilir Makine Öğrenmesi Çalışması (`ML Evidence Lab`)  
 **İkinci turdaki yeri:** İlk bölüm — problem, genelleme ve veri/doğrulama sözleşmesi  
-**İlgili belgeler:** [Ders modeli](README.md) · [1. hafta](HAFTA01.md) · [3. hafta](HAFTA03.md) · [4. hafta](HAFTA04.md)
+**İlgili belgeler:** [Ders modeli](README.md) · [Matematik ve algoritma kapsam matrisi](KAPSAM_MATRISI.md) · [1. hafta](HAFTA01.md) · [3. hafta](HAFTA03.md) · [4. hafta](HAFTA04.md)
 
 Bu hafta yeni ve karmaşık bir algoritma seçme haftası değildir. Öğrenci önce hangi kararı desteklediğini, verinin nasıl oluştuğunu ve gelecekteki kullanımı hangi değerlendirme düzeninin temsil ettiğini kesinleştirir. Model ailesi seçimi, geçerli bir deney sözleşmesinden sonra gelir.
 

@@ -10,9 +10,9 @@
 
 ## İlgili belgeler
 
-**Güncel öğrenci belgesi:** [Sandalye Fabrikası ERP — CMPE 351 öğrenci rehberi](ERP_OGRENCI_REHBERI.md). Bu README'deki `1 + 3 + 8` ders modeli korunur. Aşağıdaki metin ve önceki proje/ilk hafta planlarında kalan Campus Learning Hub örnekleri önceki senaryoya aittir; güncel iş akışları, haftalık proje teslimleri ve kabul koşullarında ERP rehberi esas alınır.
+**Güncel öğrenci belgesi:** [Sandalye Fabrikası ERP — CMPE 351 öğrenci rehberi](ERP_OGRENCI_REHBERI.md). Bu README'deki `1 + 3 + 8` ders modeli korunur; güncel iş akışları, haftalık proje teslimleri ve kabul koşullarında ERP rehberi esas alınır.
 
-[Kaynakça](KAYNAKCA.md) · [İlk hafta öğretmen akışı](HAFTA01.md) · [Prototip ve 12 haftalık proje planı](PROJE.md)
+[Güncel veri sistemleri kapsamı](GUNCEL_KAPSAM.md) · [Kaynakça](KAYNAKCA.md) · [İlk hafta öğretmen akışı](HAFTA01.md) · [önceki prototip ve proje planı](PROJE.md)
 
 Bunlar planlama belgeleridir; adı geçen yeni starter, referans uygulama ve testler ayrıca hazırlanıp çalıştırılarak doğrulanacaktır.
 
@@ -68,28 +68,28 @@ Buradaki kritik ayrım şudur: **2., 3. ve 4. haftalarda sekiz modülün tamamı
 - **4. hafta:** M7–M8 ve entegrasyon — model, şema, sorgular, testler ve belgeler nasıl çalışan bir veri ürününde birleşir?
 - **5–12. haftalar:** Her modül hangi mekanizmaları içerir ve ürünü nasıl daha doğru, hızlı, güvenli veya uygun hâle getirir?
 
-## Dönem ürünü: Campus Learning Hub
+## Dönem ürünü: Factory ERP veri omurgası
 
 Ders boyunca birbirinden kopuk haftalık veritabanları hazırlanmaz. Her öğrenci aynı temel problem alanını kullanan tek bir veri ürününü aşamalı olarak geliştirir.
 
-**Campus Learning Hub** şu temel hikâyeyi taşır:
+**Factory ERP veri omurgası** şu temel hikâyeyi taşır:
 
-- Öğrenci dersleri kod veya anahtar kelimeyle arar.
-- Uygun dönemde bir derse kayıt olur ve kayıtlarını görüntüler.
-- Öğretim elemanı ders kataloğunu ve kontenjanı yönetir.
-- Sistem aynı anda gelen kayıt isteklerinde kontenjanı aşmaz.
-- Erişim kullanıcı rolü ve veri sahipliğine göre sınırlandırılır.
-- Ders içeriği anahtar kelime veya anlam benzerliğiyle aranabilir.
+- Ürün, reçete, stok, üretim, satın alma, satış ve finans kayıtları birbirine izlenebilir biçimde bağlanır.
+- Sistem 100 sandalyelik üretim ihtiyacını mevcut stokla karşılaştırır ve eksikleri açıklar.
+- Stok hareketleri ve rezervasyonlar aynı malzemenin iki kez tahsis edilmesini önler.
+- Eşzamanlı rezervasyonlar fiziksel olarak bulunandan fazla stok ayıramaz.
+- Erişim kiracı, rol ve veri sahipliğine göre sınırlandırılır.
+- Servis belgeleri ile yapay zekâ önerileri için `jsonb`, realtime ve vektör seçenekleri iş yüküne göre değerlendirilir.
 
 İlk dört haftada ürün PostgreSQL, `psql` ve sade bir komut satırı giriş noktasıyla çalışır. Web arayüzü zorunlu değildir; öğrencinin enerjisi veri modeli ve veri sistemi davranışına ayrılır.
 
 Dönem boyunca ürün şu sorularla büyür:
 
-- Model, gerçek dünyadaki ders ve kayıt kurallarını doğru temsil ediyor mu?
+- Model, gerçek dünyadaki reçete, stok ve üretim kurallarını doğru temsil ediyor mu?
 - Veritabanı geçersiz durumu uygulama kodundan bağımsız olarak engelliyor mu?
 - Bilgi ihtiyacı doğru ve anlaşılır SQL'e dönüşüyor mu?
 - Şema güncelleme, ekleme ve silme anomalileri üretiyor mu?
-- İki kayıt aynı anda geldiğinde kontenjan bütünlüğü korunuyor mu?
+- İki rezervasyon aynı anda geldiğinde stok bütünlüğü korunuyor mu?
 - Sorgu neden yavaş ve seçilen indeks gerçekten işe yarıyor mu?
 - Veri tek düğümün dışına çıktığında hangi garantiler değişiyor?
 - Doküman, realtime, JSONB, RLS veya vektör arama hangi somut iş yükünü çözüyor?
@@ -134,7 +134,7 @@ Varlık, öznitelik, tanımlayıcı, ilişki, kardinalite, katılım, zayıf var
 
 ### M3 — İlişkisel cebir ve SQL
 
-Selection, projection, Cartesian product, join, küme işlemleri, rename, grouping ve division fikri; bunların `SELECT`, `WHERE`, `JOIN`, `GROUP BY`, `HAVING`, alt sorgu, CTE, window function ve view ile ifadesi; `NULL` ve üç değerli mantık; sonuç doğrulama işlenir.
+Selection, projection, Cartesian product, join, küme işlemleri, rename, grouping ve division fikri; bunların `SELECT`, `WHERE`, `JOIN`, `GROUP BY`, `HAVING`, alt sorgu, recursive CTE, window function, view ve `MERGE ... RETURNING` ile ifadesi; `NULL` ve üç değerli mantık; sonuç doğrulama işlenir.
 
 SQL sözdizimi ezberlenecek komutlar bütünü olarak değil, bilgi ihtiyacının doğrulanabilir dönüşümü olarak ele alınır.
 
@@ -150,31 +150,31 @@ ACID; transaction sınırı; schedule ve serializability sezgisi; lost update, d
 
 PostgreSQL'de Read Uncommitted, Read Committed gibi davranır; dirty read gerçek PostgreSQL deneyi olarak vaat edilmez. Genel anomaly örnekleri ile ürünün desteklediği izolasyon davranışı ayrılır.
 
-Ana laboratuvar senaryosu, son kontenjana iki öğrencinin aynı anda kayıt olmaya çalışmasıdır. Doğruluk tek bir başarılı çalıştırmayla değil, kontrollü eşzamanlı deney ve tekrar üretilebilir izlerle gösterilir.
+Ana laboratuvar senaryosunda fiziksel olarak 10 birim bulunan bir malzemeye iki oturum aynı anda 8'er birim rezervasyon ister. Doğruluk tek bir başarılı çalıştırmayla değil, kontrollü eşzamanlı deney ve tekrar üretilebilir izlerle gösterilir.
 
 ### M6 — Depolama, indeksler ve sorgu işleme
 
-Page, record, heap ve buffer kavramları; B-tree, hash, GIN, GiST, BRIN ve bileşik/partial/covering indeks seçimi; parser, planner, optimizer ve executor; selectivity, statistics ve cost; `EXPLAIN` ile `EXPLAIN ANALYZE` ele alınır.
+Page, record, heap ve buffer kavramları; B-tree, hash, GIN, GiST, BRIN ve bileşik/partial/covering indeks seçimi; parser, planner, optimizer ve executor; selectivity, statistics ve cost; `EXPLAIN` ile `EXPLAIN ANALYZE` ele alınır. PostgreSQL 18'in asynchronous I/O ve B-tree skip-scan gibi sürüm özellikleri, temel indeks/plan teorisinin yerine değil, aynı planın güncel motor uygulaması olarak trace üzerinden incelenir.
 
 Her performans iddiası ölçüm ister. Öğrenci yalnızca indeks eklemez; sorgu planını, veri büyüklüğünü, seçiciliği, okuma kazancını ve yazma/depolama bedelini birlikte yorumlar.
 
 ### M7 — Dağıtık, bulut ve dayanıklı veri sistemleri
 
-Replication, partitioning ve sharding; leader/follower ve multi-leader fikirleri; quorum sezgisi; consistency modelleri; CAP ve PACELC'in tasarım bağlamı; failover, backup, point-in-time recovery ve disaster recovery; veri yerleşimi, gecikme, maliyet ve operasyon yükü ele alınır.
+Replication, partitioning ve sharding; leader/follower ve multi-leader fikirleri; quorum sezgisi; consistency modelleri; CAP ve PACELC'in tasarım bağlamı; physical/logical replication, logical decoding ve CDC; replica identity, lag ve conflict; failover, backup, point-in-time recovery ve disaster recovery; veri yerleşimi, gecikme, maliyet ve operasyon yükü ele alınır.
 
 Öğrenci “dağıtık” kelimesini otomatik olarak “daha iyi” veya “daha ölçeklenebilir” ile eşitlemez. Hangi hata modeline karşı hangi garantiden, gecikmeden veya işletim sadeliğinden vazgeçildiğini açıklar.
 
 ### M8 — Doküman/realtime modeller ve modern PostgreSQL
 
-MongoDB'nin document/collection modeli, embedding/referencing tercihleri; Firestore yapısı ve güvenlik kuralları; Firebase Realtime Database JSON ağacı ve listener davranışı; PostgreSQL `jsonb` ve GIN; Supabase Auth, API, Realtime, Storage ve Row Level Security; pgvector, exact/approximate nearest neighbor, semantic ve hybrid search ele alınır.
+MongoDB'nin document/collection modeli, embedding/referencing tercihleri; Firestore yapısı ve güvenlik kuralları; Firebase Realtime Database JSON ağacı ve listener davranışı; PostgreSQL `jsonb`, SQL/JSON ve GIN; Supabase Auth, API, Realtime, Storage ve Row Level Security; pgvector, exact/approximate nearest neighbor, semantic ve hybrid search; veri sahipliği, lineage ve retention ele alınır.
 
-Bu geniş modül bir ürün turuna dönüşmez. Campus Learning Hub içindeki sınırlı bir içerik arama veya canlı durum iş yükü seçilir; aynı gereksinim ilişkisel, doküman ve realtime modellerde veri şekli, sorgulanabilirlik, güvenlik, tutarlılık, maliyet ve işletim yükü açısından karşılaştırılır. Uygulama artımı yalnızca seçilen bir çekirdek davranışı gerçekleştirir; diğer teknolojiler kontrollü örnek ve karar matrisiyle değerlendirilir.
+Bu geniş modül bir ürün turuna dönüşmez. Factory ERP içindeki sınırlı bir servis belgesi, yapay zekâ önerisi veya canlı stok olayı iş yükü seçilir; aynı gereksinim ilişkisel, doküman ve realtime modellerde veri şekli, sorgulanabilirlik, güvenlik, tutarlılık, maliyet ve işletim yükü açısından karşılaştırılır. Uygulama artımı yalnızca seçilen bir çekirdek davranışı gerçekleştirir; diğer teknolojiler kontrollü örnek ve karar matrisiyle değerlendirilir.
 
 ## İlk dört hafta: panorama ve modüllerin ilk sistematik turu
 
 ### 1. hafta — Panorama: veri kararlarının tamamı
 
-Eğitmen tamamlanmış referans Campus Learning Hub sürümünü uçtan uca çalıştırır. Bir öğrencinin ders araması, kayıt olması, kısıtla karşılaşması, verinin saklanması ve daha sonra aranması üzerinden `M1–M8` görünür hâle getirilir.
+Eğitmen tamamlanmış referans Factory ERP veri omurgasını uçtan uca çalıştırır. 100 sandalyelik ihtiyacın hesaplanması, açılış stok hareketinin yazılması, rezervasyonun kısıtla karşılaşması ve karar izinin daha sonra aranması üzerinden `M1–M8` görünür hâle getirilir.
 
 Öğrenci:
 
@@ -206,8 +206,8 @@ Eğitmen tamamlanmış referans Campus Learning Hub sürümünü uçtan uca çal
 
 Öğrenci:
 
-- çalışan ders arama dikey dilimini kurar,
-- geçersiz veri ve yinelenen kayıt gibi en az iki hata üretir,
+- çalışan ihtiyaç sorgusu ve rezervasyon dikey dilimini kurar,
+- geçersiz stok hareketi ve yinelenen komut gibi en az iki hata üretir,
 - bir transaction sınırını gösterir,
 - bir kısıtın hangi hatayı engellediğini açıklar,
 - ilk sorgu planını okur,
@@ -215,14 +215,14 @@ Eğitmen tamamlanmış referans Campus Learning Hub sürümünü uçtan uca çal
 
 ### 4. hafta — M7–M8 ve entegrasyon: `v0.1`
 
-İkinci turun son bölümü işlenir: `M7` dağıtık/bulut/dayanıklı veri sistemleri, `M8` doküman/realtime modeller ve modern PostgreSQL. Bu haftayla ikinci tur tamamlanır; model, şema, sorgular, kayıt akışı, hata yönetimi, testler ve belgeler tek sürümde birleştirilir.
+İkinci turun son bölümü işlenir: `M7` dağıtık/bulut/dayanıklı veri sistemleri, `M8` doküman/realtime modeller ve modern PostgreSQL. Bu haftayla ikinci tur tamamlanır; model, şema, sorgular, rezervasyon akışı, hata yönetimi, testler ve belgeler tek sürümde birleştirilir.
 
 `v0.1` kabul kapısı:
 
 - temiz kurulumdan sonra PostgreSQL ve ürün giriş noktası çalışır,
-- ders listeleme/arama senaryosu çalışır,
-- öğrenci kayıt senaryosu çalışır,
-- tekrarlı kayıt veya dolu kontenjan gibi en az bir hata kontrollü reddedilir,
+- 100 sandalyelik ihtiyaç ve eksik malzeme sorgusu çalışır,
+- stok hareketi ve rezervasyon senaryosu çalışır,
+- yinelenen komut veya yetersiz stok gibi en az bir hata kontrollü reddedilir,
 - görünür regresyon testleri yeniden çalıştırılabilir,
 - `M1–M8` haritası mevcut kodu ve gelecekteki genişleme noktalarını gösterir,
 - `README`, `CHANGELOG`, bilinen sınırlamalar ve AI kullanım notu bulunur,
@@ -232,16 +232,16 @@ Eğitmen tamamlanmış referans Campus Learning Hub sürümünü uçtan uca çal
 
 ## 5–12. haftaların ürün ve kanıt haritası
 
-| Hafta | Modül | Campus Learning Hub artımı | Asgari kanıt |
+| Hafta | Modül | Factory ERP artımı | Asgari kanıt |
 | ---: | --- | --- | --- |
 | 5 | M1 — DBMS mimarisi ve garantiler | İstemci/sunucu, bağlantı ve oturum gözlemi; iş yükü/garanti kararı | Oturum-sorgu yaşam döngüsü, bağlantı bütçesi, sorumluluk sınırı kaydı |
 | 6 | M2 — Model, şema ve bütünlük | Genişletilmiş ER/EER modeli ve ilişkisel migration | Kardinalite/katılım varsayımları, anahtarlar, kısıtlar ve negatif testler |
-| 7 | M3 — İlişkisel cebir ve SQL | Doğrulanmış sorgu kütüphanesi ve view'lar | Cebir–SQL eşlemesi, join/alt sorgu/küme işlemi, `NULL` sınır durumu |
+| 7 | M3 — İlişkisel cebir ve SQL | Doğrulanmış sorgu kütüphanesi, recursive/window sorguları ve `MERGE` örneği | Cebir–SQL eşlemesi, beklenen sonuç kümesi, `NULL`/duplicate/source sınırı |
 | 8 | M4 — Normalizasyon | Anomali üreten şemanın 3NF/BCNF yönünde güvenli dönüşümü | FD/closure, kayıpsızlık, bağımlılık koruma ve önce–sonra karşı örneği |
-| 9 | M5 — Transaction ve eşzamanlılık | Son kontenjan yarışı ve güvenli kayıt çözümü | İki oturumlu deney, izolasyon/kilit izi, hata veya retry davranışı |
+| 9 | M5 — Transaction ve eşzamanlılık | Stok rezervasyonu yarışı ve güvenli tahsis çözümü | İki oturumlu deney, izolasyon/kilit izi, hata veya retry davranışı |
 | 10 | M6 — Depolama ve performans | Hedefli indeks ve sorgu iyileştirmesi | `EXPLAIN ANALYZE`, önce–sonra ölçümü, yazma/depolama bedeli |
-| 11 | M7 — Dağıtık ve dayanıklı veri | Dağıtım/replication kararı ve kurtarma tatbikatı | Hata senaryosu, garanti matrisi, backup–restore kanıtı |
-| 12 | M8 — Modern veri platformu | Seçilmiş JSONB/RLS/realtime/vector davranışı ve `v1.0` | Karşılaştırma matrisi, güvenlik/arama kanıtı, regresyon ve final mimari savunma |
+| 11 | M7 — Dağıtık ve dayanıklı veri | Replication/CDC kararı ve kurtarma tatbikatı | Replica identity/lag/conflict kartı, garanti matrisi, backup–restore kanıtı |
+| 12 | M8 — Modern veri platformu | Seçilmiş SQL/JSON, RLS, realtime/vector ve governance davranışı; `v1.0` | Normal-rol güvenlik testi, relevance/arama kanıtı, owner/retention kaydı ve final savunma |
 
 ## Her haftanın öğrenme döngüsü
 
@@ -350,7 +350,7 @@ Son hafta hem M8 derinleşmesini hem de bütünleşik sürüm kapısını taşı
 `v1.0` için:
 
 - temiz kurulum ve çalıştırma belgelenir,
-- ana arama ve kayıt senaryoları çalışır,
+- ana ihtiyaç, stok, üretim ve satış sorguları çalışır,
 - bütün migration'lar doğru sırada uygulanır,
 - birikimli regresyon testleri geçer,
 - transaction ve bütünlük davranışı korunur,
@@ -395,7 +395,7 @@ Her haftanın içeriği üç şeritte sunulur:
 - **Stretch:** İsteğe bağlı ileri çalışma; eksik Core'un yerine geçmez
 - **Instructor demo:** Sistemin daha ileri olanaklarını gösterir; öğrenci uygulaması zorunlu değildir
 
-Özellikle M7 ve M8'de amaç çok sayıda bulut ürününü yüzeysel biçimde kurmak değildir. Ücretli hesap zorunlu tutulmaz. Yerel örnekler, sağlanmış trace'ler, emülatörler ve karar matrisleri kullanılabilir. Her teknoloji, Campus Learning Hub içindeki belirli bir gereksinim veya mevcut PostgreSQL çözümünün belirli bir sınırı üzerinden ele alınır.
+Özellikle M7 ve M8'de amaç çok sayıda bulut ürününü yüzeysel biçimde kurmak değildir. Ücretli hesap zorunlu tutulmaz. Yerel örnekler, sağlanmış trace'ler, emülatörler ve karar matrisleri kullanılabilir. Her teknoloji, Factory ERP içindeki belirli bir gereksinim veya mevcut PostgreSQL çözümünün belirli bir sınırı üzerinden ele alınır.
 
 ## 12 haftalık modele geçişte korunacak ilkeler
 
@@ -432,7 +432,7 @@ ilk spiral tamamlanmıştır.
 - sorgu planını okuyup performans kararını ölçebiliyor,
 - dağıtım ve dayanıklılık ödünleşimlerini açıklayabiliyor,
 - ilişkisel, doküman, realtime ve vektör yaklaşımlarını iş yükü üzerinden karşılaştırabiliyor,
-- bütün bu kararların Campus Learning Hub mimarisini nasıl değiştirdiğini gösterebiliyorsa
+- bütün bu kararların Factory ERP veri omurgasını nasıl değiştirdiğini gösterebiliyorsa
 
 sistem amacına ulaşmıştır.
 

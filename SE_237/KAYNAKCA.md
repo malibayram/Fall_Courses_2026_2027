@@ -3,7 +3,7 @@
 **Son kontrol:** 10 Eylül 2026  
 **Teknik taban:** Java 25 LTS. Kaynaklardaki daha yeni Java özellikleri, derste açıkça seçilmedikçe kullanılmayacaktır. Hiçbir ücretli kaynak zorunlu değildir.
 
-[İlk hafta](HAFTA01.md) · [Proje planı](PROJE.md)
+[Güncel kapsam](GUNCEL_KAPSAM.md) · [İlk hafta](HAFTA01.md) · [ERP proje rehberi](ERP_OGRENCI_REHBERI.md)
 
 Güncel resmî belgeler teknik davranışı doğrulamak, eski ama geçerli dersler temel kavramları çalışmak içindir. Devam eden 2026 derslerinin sonraki materyalleri henüz yayımlanmamış veya önceki dönemden aktarılmış olabilir. Bağlantı erişimi, ücretli kurs içeriğinin bütünüyle incelendiği anlamına gelmez.
 
@@ -21,6 +21,9 @@ Güncel resmî belgeler teknik davranışı doğrulamak, eski ama geçerli dersl
 - **[Collections Framework](https://dev.java/learn/api/collections-framework/)** — Collection seçimini yalnız syntax değil davranış ve maliyet açısından ele alır. `List`, `Set`, `Map` seçimi dönem uygulamasındaki gerçek ihtiyaca bağlanmalıdır.
 - **[Exceptions](https://dev.java/learn/exceptions/)** — Exception üretme, yakalama ve try-with-resources yapısını resmi örneklerle anlatır. A9’da hata sözleşmesi ve kaynak yaşam döngüsü için temel kaynaktır.
 - **[Java Collection API contract](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Collection.html)** — Mutability, optional operation, equality ve thread-safety gibi ayrıntıları doğrudan sözleşmeden kontrol etmeyi öğretir.
+- **[Records](https://dev.java/learn/records/)** · **[Pattern matching](https://dev.java/learn/pattern-matching/)** — Immutable data carrier, sealed/type hierarchy ve exhaustive karar ifadelerini klasik class/polymorphism seçenekleriyle karşılaştırmak için kullanılır.
+- **[Virtual Threads](https://dev.java/learn/new-features/virtual-threads/)** — W13'te blocking I/O, interruption ve task/resource ownership bağlantısını göstermek için kısa panoramadır; concurrency güvenliği veya performans garantisi olarak sunulmaz.
+- **[Java SE support roadmap](https://www.oracle.com/java/technologies/java-se-support-roadmap.html)** — Java 25'in LTS taban olarak seçilmesini ve feature sürümleriyle farkını doğrular. Dönem içinde preview feature Core'a eklenmez.
 - **[Google Java Style Guide](https://google.github.io/styleguide/javaguide.html)** — Ortak kod biçimi ve okunabilirlik için somut kurallar sunar. Tasarım doğruluğunun yerine geçmez; ekip içinde gereksiz biçim tartışmasını azaltır.
 
 ## Ücretsiz dersler ve alıştırma bankaları
@@ -54,7 +57,7 @@ Güncel resmî belgeler teknik davranışı doğrulamak, eski ama geçerli dersl
 ## Kaynakları haftalık kullanma reçetesi
 
 - **A1–A3:** dev.java + MIT 6.102 + PlantUML.
-- **A4–A6:** Interfaces/Inheritance + Refactoring.Guru + seçilmiş Java Design Patterns örneği.
-- **A7–A8:** Java 25 API/JLS + Generics/Collections + Exercism.
-- **A9–A10:** Exceptions + JUnit + resmi Java kanalı ve API belgeleri.
+- **A4–A6:** Interfaces/Inheritance + sealed/pattern karşılaştırması + functional interface/lambda + seçilmiş tasarım örneği.
+- **A7–A8:** Java 25 API/JLS + records + Generics/Collections/Streams + Exercism.
+- **A9–A10:** Exceptions + virtual-thread kaynak ömrü panoraması + module/ServiceLoader + JUnit ve API belgeleri.
 - Her örnekte öğrenci şunları göstermelidir: **sorumluluk**, **korunan invariant/sözleşme**, **test kanıtı**, **değişiklik gerekçesi**.

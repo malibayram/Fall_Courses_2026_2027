@@ -12,7 +12,7 @@
 | Sonraki kapı | W3'te sipariş planından rezervasyon talebine giden dikey dilim |
 | Belge durumu | Öğretim ve görev tasarımı; adı geçen starter, web iskeleti ve fixture'lar ders paketinde ayrıca üretilecektir |
 
-**Bağlantılar:** [Ana ders sistemi](../README.md) · [ERP öğrenci rehberi](ERP_OGRENCI_REHBERI.md) · [W1](HAFTA01.md) · [W3](HAFTA03.md) · [W4](HAFTA04.md) · [Kaynakça](KAYNAKCA.md)
+**Bağlantılar:** [Ana ders sistemi](../README.md) · [Güncel kapsam](GUNCEL_KAPSAM.md) · [ERP öğrenci rehberi](ERP_OGRENCI_REHBERI.md) · [W1](HAFTA01.md) · [W3](HAFTA03.md) · [W4](HAFTA04.md) · [Kaynakça](KAYNAKCA.md)
 
 Bu Türkçe dosya eğitmen ve asistanlar içindir. Sondaki İngilizce öğrenci görev özeti doğrudan paketlenebilir; ölçülen kavramların İngilizce notu, hazırlık soruları ve rubrik açıklaması da yayımlanır. Güncel proje sözleşmesi [ERP rehberidir](ERP_OGRENCI_REHBERI.md); [eski Course Registration planı](PROJE.md) yalnız tarihsel referanstır ve öğrenciye yürürlükteki görev olarak verilmez.
 

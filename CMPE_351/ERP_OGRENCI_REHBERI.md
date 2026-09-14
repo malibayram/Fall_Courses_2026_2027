@@ -1,15 +1,17 @@
 # CMPE 351 — Sandalye Fabrikası ERP'si: Öğrenci Veri Sistemi Rehberi
 
-**Ders:** Database Systems / Veritabanı Sistemleri  
-**Dönem:** 2026–2027 Güz · 12 hafta · `1 + 3 + 8`  
-**Proje:** Factory ERP — üretim, ortak stok ve finans zincirinin veri omurgası  
-**Belge sürümü:** 1.0 · 11 Eylül 2026  
+**Ders:** Database Systems / Veritabanı Sistemleri
+**Dönem:** 2026–2027 Güz · 12 hafta · `1 + 3 + 8`
+**Proje:** Factory ERP — üretim, ortak stok ve finans zincirinin veri omurgası
+**Belge sürümü:** 1.0 · 11 Eylül 2026
 
 **Ders oturumu:** 155 dakika; 125 dakika etkin çalışma ve üç adet 10 dakikalık ara. Hazır altyapı ve sınırlı öğrenci değişikliği bu süreye göre planlanır; süre azalması ek ev ödevine aktarılmaz.
 
 **Hedef kitle:** Bu projeyi modelleyecek, sorgulayacak ve sınayacak öğrenciler
 
 Bu rehber, önceki Campus Learning Hub örneğinin yerine geçen fabrika projesini tanımlar. Türkçe açıklamalarda İngilizce teknik terimler korunmuştur. Resmî değerlendirme dili ilgili izlenceye tabidir. [OOP rehberi](../SE_237/ERP_OGRENCI_REHBERI.md) aynı fabrikanın Java iş mantığını ele alır; bu dersi tamamlamak için o derse katılmanız veya Java uygulaması yazmanız gerekmez.
+
+Çekirdek veritabanı konularının CDC, SQL/JSON, RLS, vektör arama ve veri yönetişimiyle haftalık bağlantısı [güncel kapsam matrisinde](GUNCEL_KAPSAM.md) gösterilir. Bu başlıklar temel ilişkisel model, SQL, transaction ve indeks kapsamının yerine geçmez.
 
 ## 1. Sizden beklenen veri ürünü
 
@@ -231,58 +233,58 @@ Fotoğraf/video nesne depolamada; metadata ve erişim ilişkisi veritabanındad�
 
 ### W2 — İkinci tur, M1–M3: DBMS, model ve SQL
 
-**Artım:** W1 verisini migration/seed'e taşıyın; sağlanan sorgu/API girişini bağlayın. Tenant, normal uygulama rolü, migration sahibi, stok/üretim/ticaret sınırlarını ayırın. Sekiz modülün gelecek genişlemeleri tablo/işlem haritasında olsun.  
+**Artım:** W1 verisini migration/seed'e taşıyın; sağlanan sorgu/API girişini bağlayın. Tenant, normal uygulama rolü, migration sahibi, stok/üretim/ticaret sınırlarını ayırın. Sekiz modülün gelecek genişlemeleri tablo/işlem haritasında olsun.
 **Kanıt:** Boş DB kurulumu, health query, ER taslağı, bağlantı rolü, import batch kimliği, web istemcisinden ürün/plan görüntüsü. **Konu kanıtı:** M1 istemci/oturum ve iş yükü haritası; M2 anahtar/FK/CHECK karşı örneği; M3 ihtiyaç sorgusunda selection/join/aggregate ve beklenen sonuç. Sonraki modüller bu hafta yeniden anlatılmaz.
 
 ### W3 — İkinci tur, M4–M6: normalizasyon, transaction ve indeks
 
-**Artım:** Siparişten plan ve rezervasyona giden işlem iskeletini, duplicate event ve geçersiz FK yollarını bağlayın. Başarı/rollback durumunu inceleyin; satınalma, üretim, finans ve dış olayların transaction sınırlarını aynı haritada gösterin.  
+**Artım:** Siparişten plan ve rezervasyona giden işlem iskeletini, duplicate event ve geçersiz FK yollarını bağlayın. Başarı/rollback durumunu inceleyin; satınalma, üretim, finans ve dış olayların transaction sınırlarını aynı haritada gösterin.
 **Konu kanıtı:** M4 küçük staging tablosunda bağımlılık ve anomali/düzeltme; M5 sağlanan iki oturumda rezervasyon yarışı ve rollback; M6 aynı sorgunun önce/sonra planı ve indeksin yazma bedeli. Ürün kanıtı mutlu yol, hata sonrası state, tenant FK reddi ve tekrar anahtarıdır. İlk rehberli deney, W9'daki bağımsız concurrency kabulünün yerine geçmez.
 
 ### W4 — İkinci tur, M7–M8 ve ilk veri sürümü: v0.1
 
-**Artım:** Sağlanan işlem iskeletlerinde eksik malzemeden satınalma/mal kabule, iş emrinden tüketim/mamul kabulüne ve kısmi sevkiyata ilerleyin. Snapshot başlangıcı kontrollü açılış defterine dönüşsün; bakiye hareketlerle uzlaştırılsın.  
+**Artım:** Sağlanan işlem iskeletlerinde eksik malzemeden satınalma/mal kabule, iş emrinden tüketim/mamul kabulüne ve kısmi sevkiyata ilerleyin. Snapshot başlangıcı kontrollü açılış defterine dönüşsün; bakiye hareketlerle uzlaştırılsın.
 **Konu kanıtı:** M7 sağlanan replica gecikmesi/restore izi üzerinden garanti ve kurtarma; M8 aynı servis belgesinin ilişkisel/JSONB gösterimi ve rol erişimi karşı örneği. Tam bulut/modern platform kurulumu istenmez. **Ürün kanıtı:** 100 sandalye ana akışı; 60+40 sevkiyat; hareket/rezervasyon toplamı; duplicate belge reddi; sekiz modül haritası ve bilinen concurrency/yetki sınırları. İleri finans/kanal/İK verileri bu aşamada bağlı örneklerdir.
 
 ### W5 — M1: DBMS mimarisi, iş yükü ve garantiler
 
-**Talep:** Üretim kiosk'u, B2B araması ve gece kârlılık raporu aynı sisteme yük getiriyor. **Artım:** İş yükü kataloğu ve session/transaction gözlemi; bağlantı havuzu ve süre bütçesi tasarımı. **Geri bağ:** M3 sorgu, M5 kilit.  
+**Talep:** Üretim kiosk'u, B2B araması ve gece kârlılık raporu aynı sisteme yük getiriyor. **Artım:** İş yükü kataloğu ve session/transaction gözlemi; bağlantı havuzu ve süre bütçesi tasarımı. **Geri bağ:** M3 sorgu, M5 kilit.
 **Kanıt:** pg_stat_activity, uzun transaction örneği, OLTP/analitik ayrımı, gecikme/throughput ölçümünün ortamı. Rol ve tenant bağlamının bağlantı yeniden kullanımında sıfırlanması gereğini açıklayın; testte ölçülmemiş SLA yazmayın.
 
 ### W6 — M2: Kavramsal model, şema ve bütünlük
 
-**Talep:** Lot, varyant, fason ve kısmi işlemler geldiğinde model geçerli kalsın. **Artım:** ER/EER ve migration; composite tenant FK; stok pozisyonu tekilliği; sipariş/üretim/servis bağlantıları. **Geri bağ:** M1 garanti, M3 join.  
-**Kanıt:** Cardinality/participation, candidate key, weak entity, specialization alternatifleri; NULL ve deletion policy; yanlış tenant/ürüne ait alt reçete reddi. Kayıtların çoğu tek ana tabloda mı, alt tür tablolarda mı tutulacak gerekçelendirin.
+**Talep:** Lot, varyant, fason ve kısmi işlemler geldiğinde model geçerli kalsın. **Artım:** ER/EER ve migration; composite tenant FK; stok pozisyonu tekilliği; sipariş/üretim/servis bağlantıları; fiyat/BOM için tarihsel sürüm sözleşmesi. **Geri bağ:** M1 garanti, M3 join.
+**Kanıt:** Cardinality/participation, candidate key, weak entity, specialization alternatifleri; NULL ve deletion policy; yanlış tenant/ürüne ait alt reçete reddi. Değişen master kayıtlarının eski işlemi değiştirmediği gösterilir; tek `updated_at` alanı tam tarihçe sayılmaz. Kayıtların çoğu tek ana tabloda mı, alt tür tablolarda mı tutulacak gerekçelendirin.
 
 ### W7 — M3: İlişkisel cebir, recursive SQL ve raporlar
 
-**Talep:** Çok seviyeli BOM, where-used, kaynak lot ve net kanal sonucu sorgulansın. **Artım:** Aşağıdaki on sorguluk portföy; recursive CTE, cycle path, JOIN/EXISTS, window, aggregate ve view kullanımı. **Geri bağ:** M2 anahtar, M1 workload.  
-**Kanıt:** Sabit sonuç kümeleri, aynı hammaddenin dallar arasında toplanması, maliyet join çoğalması karşı örneği, NULL ve ORDER BY sınırları. Eğitmen sorgu/veri iskeletleri sağlar; kendi tamamladığınız bölümleri belirtin.
+**Talep:** Çok seviyeli BOM, where-used, kaynak lot ve net kanal sonucu sorgulansın. **Artım:** Aşağıdaki on sorguluk portföy; recursive CTE, cycle path, JOIN/EXISTS, window, aggregate ve view kullanımı; küçük staging akışında `MERGE ... RETURNING`. **Geri bağ:** M2 anahtar, M1 workload.
+**Kanıt:** Sabit sonuç kümeleri, aynı hammaddenin dallar arasında toplanması, maliyet join çoğalması karşı örneği, NULL ve ORDER BY sınırları. `MERGE` için yinelenen kaynak satırı, `WHEN` sırası ve transaction/idempotency sınırı açıklanır. Eğitmen sorgu/veri iskeletleri sağlar; kendi tamamladığınız bölümleri belirtin.
 
 ### W8 — M4: Fonksiyonel bağımlılık ve normalizasyon
 
-**Talep:** Fabrikanın eski Excel ürün/BOM/fiyat/açık sipariş verisi aktarılacak. **Artım:** Staging modelindeki anomalileri gösterin; 3NF/BCNF yönünde dönüşüm ve import reconciliation ekleyin. Sağlam canlı çekirdeği ödev için bozmayın. **Geri bağ:** M2 key, M3 sonuç eşdeğerliği.  
-**Kanıt:** FD, closure, candidate key; 1NF–BCNF; kayıpsızlık ve dependency preservation. Örneğin (tenant,SKU)→ürün özellikleri; (tenant,BOM revision,line_no)→bileşen/miktar. Tarihsel fiyatı yalnız SKU'ya bağımlı varsaymayın. Kaynak satır sayısı, reddedilen satır ve açılış toplamlarını uzlaştırın.
+**Talep:** Fabrikanın eski Excel ürün/BOM/fiyat/açık sipariş verisi aktarılacak. **Artım:** Staging modelindeki anomalileri gösterin; 3NF/BCNF yönünde dönüşüm, kaynak–staging–çekirdek lineage kaydı ve import reconciliation ekleyin. Sağlam canlı çekirdeği ödev için bozmayın. **Geri bağ:** M2 key, M3 sonuç eşdeğerliği.
+**Kanıt:** FD, closure, candidate key; 1NF–BCNF; kayıpsızlık ve dependency preservation. Örneğin (tenant,SKU)→ürün özellikleri; (tenant,BOM revision,line_no)→bileşen/miktar. Tarihsel fiyatı yalnız SKU'ya bağımlı varsaymayın. Kaynak satır sayısı, reddedilen satır, dönüşüm sürümü ve açılış toplamlarını uzlaştırın; normalizasyonun veri kalitesini tek başına garanti etmediğini belirtin.
 
 ### W9 — M5: Transaction, concurrency ve recovery
 
-**Talep:** İki satış kanalı son malzemeyi aynı anda ayıramasın; yinelenen üretim tamamlama ikinci mamul yaratmasın. **Artım:** Aşağıdaki idempotent rezervasyon ve üretim transaction'ı; ortak kilit sırası ve bounded retry. **Geri bağ:** M2 bütünlük, M4 doğru anahtarlar.  
+**Talep:** İki satış kanalı son malzemeyi aynı anda ayıramasın; yinelenen üretim tamamlama ikinci mamul yaratmasın. **Artım:** Aşağıdaki idempotent rezervasyon ve üretim transaction'ı; ortak kilit sırası ve bounded retry. **Geri bağ:** M2 bütünlük, M4 doğru anahtarlar.
 **Kanıt:** Bariyerli iki oturum deneyi, tek etkili duplicate, atomik çok kalem, rollback, deadlock/retry, MVCC ve WAL açıklaması. PostgreSQL'de Read Uncommitted'in Read Committed gibi davranması ile genel isolation anomalilerini ayırın.
 
 ### W10 — M6: Storage, indeks ve query processing
 
-**Talep:** Milyonlarca stok hareketinde kullanılabilir stok, geciken emir ve kanal raporu zamanında gelsin. **Artım:** Seed büyütücüsü, üç iş yükü, gerekçeli indeks ve önce/sonra plan. **Geri bağ:** M3 sorgu, M5 write maliyeti.  
-**Kanıt:** Page/heap/buffer, selectivity/statistics/cost; scan/join/sort/aggregate düğümleri. B-tree/hash/GIN/GiST/BRIN, composite/partial/covering seçeneklerini ihtiyaçla karşılaştırın. Her indeksi kurmayın; gerekli bir veya iki seçimi ham ölçüm ve yazma/depolama bedeliyle savunun.
+**Talep:** Milyonlarca stok hareketinde kullanılabilir stok, geciken emir ve kanal raporu zamanında gelsin. **Artım:** Seed büyütücüsü, üç iş yükü, gerekçeli indeks ve önce/sonra plan. **Geri bağ:** M3 sorgu, M5 write maliyeti.
+**Kanıt:** Page/heap/buffer, selectivity/statistics/cost; scan/join/sort/aggregate düğümleri. B-tree/hash/GIN/GiST/BRIN, composite/partial/covering seçeneklerini ihtiyaçla karşılaştırın. PostgreSQL 18 asynchronous I/O ve B-tree skip-scan davranışı sağlanan plan/trace'te gözlenir; sürüm özelliği temel indeks teorisinin yerine geçmez. Her indeksi kurmayın; gerekli bir veya iki seçimi ham ölçüm ve yazma/depolama bedeliyle savunun.
 
 ### W11 — M7: Bulut, dağıtık sistem ve kurtarma
 
-**Talep:** Merkezî ERP arızadan geri dönebilsin; pazaryeri senkronizasyonunun gecikmesi yönetilsin. **Artım:** Ayrı DB'ye backup/restore; sağlanan replica/lag deneyi; outbox teslim/uzlaştırma raporu. **Geri bağ:** M5 durability, M6 workload.  
-**Kanıt:** Restore sonrası stok ve maliyet toplamları; ölçülen recovery süresi; RPO/RTO hedefi ayrımı; partition/replication/sharding/quorum kararı. CAP/PACELC'i somut ağ bölünmesi ve gecikme tercihiyle açıklayın. pg_dump restore'u PITR saymayın; PITR için base backup ve WAL arşivi ayrıca gerekir.
+**Talep:** Merkezî ERP arızadan geri dönebilsin; pazaryeri senkronizasyonunun gecikmesi yönetilsin. **Artım:** Ayrı DB'ye backup/restore; sağlanan replica/lag deneyi; outbox teslim/uzlaştırma raporu; logical replication/decoding üzerinden CDC karar kartı. **Geri bağ:** M5 durability, M6 workload.
+**Kanıt:** Restore sonrası stok ve maliyet toplamları; ölçülen recovery süresi; RPO/RTO hedefi ayrımı; partition/physical-logical replication/sharding/quorum kararı. CDC için primary key/replica identity, order, lag, conflict ve tüketici tekrarını belirtin. CAP/PACELC'i somut ağ bölünmesi ve gecikme tercihiyle açıklayın. pg_dump restore'u PITR saymayın; PITR için base backup ve WAL arşivi ayrıca gerekir.
 
 ### W12 — M8: Modern veri modelleri, RLS ve v1.0
 
-**Talep:** Bayi yalnız kendi verisini görsün; servis/AI belgesi esnek metadata taşısın. **Artım:** Sağlanan auth/RLS iskeletinde tenant+bayi politikası ve bir JSONB belge/servis sorgusu. **Geri bağ:** M2 model, M3 filtre, M5 tutarlılık, M6 indeks.  
-**Kanıt:** Rol bazlı pozitif/negatif test, dosya metadata ilişkisi, düşük güvenli AI önerisi için onay kaydı. MongoDB embedding/reference; Firestore/Realtime Database; Supabase Auth/API/Storage/Realtime ve pgvector exact/ANN/hybrid yaklaşımları aynı iş ihtiyacıyla karşılaştırılır. Sabit embedding/olay demoları sağlanır; her ürünün sıfırdan kurulması istenmez. **v1.0:** Bütün önceki kanıtlar ve son fabrika demosu.
+**Talep:** Bayi yalnız kendi verisini görsün; servis/AI belgesi esnek metadata taşısın. **Artım:** Sağlanan auth/RLS iskeletinde tenant+bayi politikası, SQL/JSON kullanan bir JSONB belge/servis sorgusu ve sabit veride vector/hybrid arama karşılaştırması. **Geri bağ:** M2 model, M3 filtre, M5 tutarlılık, M6 indeks.
+**Kanıt:** Normal rol ile pozitif/negatif RLS testi, dosya metadata ilişkisi, düşük güvenli AI önerisi için onay kaydı; veri sahibi/retention satırı. MongoDB embedding/reference; Firestore/Realtime Database; Supabase Auth/API/Storage/Realtime ve pgvector exact/ANN/hybrid yaklaşımları aynı iş ihtiyacıyla karşılaştırılır. Vector aday üretiminde filtre, recall/relevance, latency ve yetki ayrı kanıtlardır. Sabit embedding/olay demoları sağlanır; her ürünün sıfırdan kurulması istenmez. **v1.0:** Bütün önceki kanıtlar ve son fabrika demosu.
 
 ## 7. Zorunlu sorgu portföyü
 

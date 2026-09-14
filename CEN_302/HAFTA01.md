@@ -5,7 +5,7 @@
 **Dönem ürünü:** Mini Systems Workbench  
 **Bu dosyanın sınırı:** Yalnızca 1. haftada anlatılacak, yaptırılacak ve toplanacak işleri içerir.
 
-**İlgili belgeler:** [Prototip ve dönem planı](PROJE.md) · [Kaynakça](KAYNAKCA.md) · [2. hafta](HAFTA02.md) · [3. hafta](HAFTA03.md) · [4. hafta](HAFTA04.md)
+**İlgili belgeler:** [Güncel kapsam](GUNCEL_KAPSAM.md) · [Prototip ve dönem planı](PROJE.md) · [Kaynakça](KAYNAKCA.md) · [2. hafta](HAFTA02.md) · [3. hafta](HAFTA03.md) · [4. hafta](HAFTA04.md)
 
 Bu Türkçe belge eğitmen içindir; öğrenci yönergeleri ve ölçülen içerik için İngilizce eşdeğer hazırlanır. W1 tanılayıcıdır; teslimler geri bildirim sağlar ve yeni bir not bileşeni oluşturmaz. Kurulum aksarsa eşli çalışma ve verilen çıktı üzerinden açıklama kabul edilir; kişisel ortam daha sonra tamamlanır.
 

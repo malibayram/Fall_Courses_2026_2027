@@ -12,7 +12,7 @@
 | Sonraki kapı | W4'te sinyalli sonlanma, tekrar/cleanup ve temiz kurulumla `v0.1` |
 | Belge durumu | Öğretim ve uygulama sözleşmesi; starter, hata kanalı ve harness aşağıdaki tanıma göre ayrıca üretilecektir |
 
-**Bağlantılar:** [Ana ders sistemi](../README.md) · [Proje sözleşmesi](PROJE.md) · [W1](HAFTA01.md) · [W2](HAFTA02.md) · [W4](HAFTA04.md) · [Kaynakça](KAYNAKCA.md)
+**Bağlantılar:** [Ana ders sistemi](../README.md) · [Güncel kapsam](GUNCEL_KAPSAM.md) · [Proje sözleşmesi](PROJE.md) · [W1](HAFTA01.md) · [W2](HAFTA02.md) · [W4](HAFTA04.md) · [Kaynakça](KAYNAKCA.md)
 
 Dosya öğretim ekibi içindir. Öğrenci görev özeti sonda İngilizce verilmiştir; öğrenciye yayımlanmadan önce hazırlık soruları ve ölçülen içeriğin eşdeğer İngilizce notu da eklenir. **Bu hafta A5–A7'ye (senkronizasyon/deadlock, CPU zamanlama, adres uzayı/çevirisi) davranış ve hata açısından ayrıntılı işlenir.** A1–A4 yalnız kısa geri çağırmayla kullanılır; A8–A10 W4'e bırakılır ve haritada bekleyen kalır.
 

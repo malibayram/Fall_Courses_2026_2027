@@ -12,7 +12,7 @@
 | Sonraki kapı | W4'te satınalma–üretim–sevkiyat zinciri ve `v0.1` kabulü |
 | Belge durumu | Öğretim ve uygulama sözleşmesi; starter, işlem sınırı ve contract test iskeleti ayrıca üretilecektir |
 
-**Bağlantılar:** [Ana ders sistemi](../README.md) · [ERP öğrenci rehberi](ERP_OGRENCI_REHBERI.md) · [W1](HAFTA01.md) · [W2](HAFTA02.md) · [W4](HAFTA04.md) · [Kaynakça](KAYNAKCA.md)
+**Bağlantılar:** [Ana ders sistemi](../README.md) · [Güncel kapsam](GUNCEL_KAPSAM.md) · [ERP öğrenci rehberi](ERP_OGRENCI_REHBERI.md) · [W1](HAFTA01.md) · [W2](HAFTA02.md) · [W4](HAFTA04.md) · [Kaynakça](KAYNAKCA.md)
 
 Dosya öğretim ekibi içindir. Öğrenci görev özeti sonda İngilizce verilmiştir. Güncel proje sözleşmesi [ERP rehberidir](ERP_OGRENCI_REHBERI.md).
 

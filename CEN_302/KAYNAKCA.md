@@ -3,7 +3,7 @@
 **Son kontrol:** 10 Eylül 2026  
 **Kullanım ilkesi:** Aşağıdaki ilk beş kaynak dersin çekirdeğidir. Diğerleri ihtiyaca göre başvurulacak destek kaynaklarıdır; hiçbir ücretli kaynak zorunlu değildir.
 
-[İlk hafta](HAFTA01.md) · [Proje planı](PROJE.md)
+[Güncel kapsam](GUNCEL_KAPSAM.md) · [İlk hafta](HAFTA01.md) · [Proje planı](PROJE.md)
 
 Güncel resmî belgeler teknik davranışı doğrulamak, eski ama geçerli dersler temel kavramları çalışmak içindir. Devam eden 2026 derslerinin sonraki materyalleri henüz yayımlanmamış veya önceki dönemden aktarılmış olabilir. Bağlantı erişimi, ücretli kurs içeriğinin bütünüyle incelendiği anlamına gelmez.
 
@@ -43,6 +43,9 @@ Ayrıntılı seçim ve haftalık kaynak kodu haritası [proje planındadır](PRO
 
 - **[Brendan Gregg — Linux Performance](https://www.brendangregg.com/linuxperf.html)** — CPU, memory, disk ve network gözlemi için yöntem, araç ve diyagramları bir araya getirir. Tek ölçümden iddia üretmek yerine kapsam, darboğaz ve ölçüm yanlılığını tartışmak için değerlidir.
 - **[Linux kernel documentation](https://www.kernel.org/doc/html/latest/)** · **[scheduler bölümü](https://www.kernel.org/doc/html/latest/scheduler/)** — Üretim çekirdeğinin güncel resmi belgeleridir. Başlangıç kaynağı değildir; OSTEP/xv6 modelinin gerçek Linux’taki karşılığını kontrol etmek için seçerek okunmalıdır.
+- **[cgroup v2](https://www.kernel.org/doc/html/latest/admin-guide/cgroup-v2.html)** · **[namespaces](https://man7.org/linux/man-pages/man7/namespaces.7.html)** — Container kaynak kontrolü ve görünürlük/izolasyon mekanizmalarını doğrudan resmî sözleşmelerinden okumak için kullanılır. Namespace ile kaynak limiti aynı şey sayılmaz.
+- **[eBPF userspace API](https://www.kernel.org/doc/html/latest/userspace-api/ebpf/index.html)** · **[Landlock](https://www.kernel.org/doc/html/latest/userspace-api/landlock.html)** — Gözlemlenebilirlik/runtime extension ile yetkisiz süreç sandbox'ının farklı rollerini gösteren resmî çekirdek belgeleridir.
+- **[liburing](https://github.com/axboe/liburing)** — `io_uring` için referans kullanıcı alanı kütüphanesi ve örnekleridir. Core laboratuvarda API ezberi yerine blocking/readiness/submission-completion modeli karşılaştırılır.
 
 ## Video ve açık ders
 
@@ -60,8 +63,8 @@ Ayrıntılı seçim ve haftalık kaynak kodu haritası [proje planındadır](PRO
 
 ## Kaynakları haftalık kullanma reçetesi
 
-- **A1–A4:** OSTEP + Linux man-pages + TLPI örnek kodu.
-- **A5–A6:** OSTEP simulator + Little Book of Semaphores + Berkeley/MIT problem setleri.
-- **A7–A8:** OSTEP paging araçları + xv6 kitabı/page-table kodu + QEMU.
-- **A9–A10:** OSTEP file-system/disk simulator + xv6 file system + Brendan Gregg ölçüm rehberi.
+- **A1–A4:** OSTEP + Linux man-pages + TLPI örnek kodu; seçilmiş namespaces/async-I/O trace'i.
+- **A5–A6:** OSTEP simulator + Little Book of Semaphores + Berkeley/MIT problem setleri; atomics/futex ve cgroup v2 köprüsü.
+- **A7–A8:** OSTEP paging araçları + xv6 kitabı/page-table kodu + QEMU; capabilities/seccomp/Landlock ve container/VM karşılaştırması.
+- **A9–A10:** OSTEP file-system/disk simulator + xv6 file system + Brendan Gregg; `perf`/eBPF ve async/NVMe panoraması.
 - Her kaynak kullanımında öğrenci üç satır yazmalıdır: **iddiam**, **kanıtım**, **kaynağın/deneyin sınırı**.

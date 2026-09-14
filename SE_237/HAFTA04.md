@@ -12,7 +12,7 @@
 | Sonraki bağlantı | W5'te A1 derinleşmesi: varyant ve BOM revizyonu ayrıştırması |
 | Belge durumu | Öğretim ve kabul sözleşmesi; süreç iskeleti, kalıcılık adaptörü ve provider paketleri ayrıca hazırlanıp doğrulanacaktır |
 
-**Bağlantılar:** [Ana ders sistemi](../README.md) · [ERP öğrenci rehberi](ERP_OGRENCI_REHBERI.md) · [W1](HAFTA01.md) · [W2](HAFTA02.md) · [W3](HAFTA03.md) · [Kaynakça](KAYNAKCA.md)
+**Bağlantılar:** [Ana ders sistemi](../README.md) · [Güncel kapsam](GUNCEL_KAPSAM.md) · [ERP öğrenci rehberi](ERP_OGRENCI_REHBERI.md) · [W1](HAFTA01.md) · [W2](HAFTA02.md) · [W3](HAFTA03.md) · [Kaynakça](KAYNAKCA.md)
 
 Bu dosya eğitmen/asistan planıdır. **Bu hafta A7–A10 ayrıntılı işlenir** ve ikinci tur tamamlanır; A1–A6 yalnız kısa geri çağırmayla kullanılır. `v0.1`, on çapanın tamamının öğrenci tarafından uygulandığı anlamına gelmez; ilk çalışır fabrika akışı ve sonraki on artımın açık başlangıç noktasıdır.
 

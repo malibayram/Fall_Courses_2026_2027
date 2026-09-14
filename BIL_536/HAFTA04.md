@@ -5,7 +5,7 @@
 **Süre:** 155 dakika ders; 125 dakika etkin çalışma + üç adet 10 dakikalık ara  
 **Dönem ürünü:** Yeniden Üretilebilir Makine Öğrenmesi Çalışması (`ML Evidence Lab`)  
 **İkinci turdaki yeri:** Son bölüm — modern öğrenme, ardışık karar, sorumlu/üretimde ML ve `v0.1` entegrasyonu  
-**İlgili belgeler:** [Ders modeli](README.md) · [1. hafta](HAFTA01.md) · [2. hafta](HAFTA02.md) · [3. hafta](HAFTA03.md)
+**İlgili belgeler:** [Ders modeli](README.md) · [Matematik ve algoritma kapsam matrisi](KAPSAM_MATRISI.md) · [1. hafta](HAFTA01.md) · [2. hafta](HAFTA02.md) · [3. hafta](HAFTA03.md)
 
 Bu hafta ikinci tur tamamlanır. Ç7–Ç10'un amacı dört geniş alanı bir derste bitirmek değildir; her alanın temel mekanizmasını çalışan küçük bir örnekle kurmak ve dönem ürünündeki karar noktasına bağlamaktır. Öğrenci her modern yöntemi projesine eklemek zorunda değildir. `v0.1`, en karmaşık model değil, en iyi belgelenmiş ve yeniden üretilebilir ilk uçtan uca araştırma sürümüdür.
 
@@ -31,8 +31,9 @@ Bu hafta ikinci tur tamamlanır. Ç7–Ç10'un amacı dört geniş alanı bir de
 - learning rate, initialization, batch ve regularization'ın eğitim davranışını etkilediğini gösterir;
 - train/development learning curve üzerinden underfit, overfit veya optimizasyon sorunu için ilk tanı koyar;
 - küçük tablo verisinde MLP'nin klasik baseline'a otomatik üstün olmadığını kabul eder;
-- PCA, embedding, autoencoder, CNN ve attention'ı ortak “temsil öğrenme” sorusu içinde konumlandırır;
-- clustering/anomaly/üretici çıktının ground-truth sınıf veya doğru karar anlamına gelmediğini açıklar;
+- PCA, k-means, embedding, autoencoder, CNN ve attention'ı ortak “temsil öğrenme” sorusu içinde konumlandırır;
+- k-means atama–merkez güncelleme döngüsünü ve PCA'nın variance yönlerini küçük örnekte izler;
+- clustering/anomaly/üretici çıktının ground-truth sınıf veya doğru karar anlamına gelmediğini açıklar; hiyerarşik kümeleme, DBSCAN ve GMM/EM'in hangi veri geometrilerinde k-means'ten ayrıldığını söyler;
 - durum, eylem, ödül, politika ve exploration kavramlarını küçük bandit/ardışık karar örneğinde kullanır;
 - bir model kararının gelecekte toplanan veriyi nasıl değiştirebileceğini feedback loop ile çizer;
 - gözlemsel tahmin başarısından nedensel müdahale etkisi çıkarmaz;
@@ -54,8 +55,9 @@ Bu hafta ikinci tur tamamlanır. Ç7–Ç10'un amacı dört geniş alanı bir de
 
 ### Ç8 — Temsil istasyonu
 
-- Küçük 2B/3B PCA görselleştirmesi ve reconstruction variance özeti hazırla.
-- Clustering etiketlerinin gerçek sınıflarla bire bir eşleşmediği örnek üret.
+- Küçük 2B/3B PCA görselleştirmesi, explained-variance özeti ve iki iterasyonluk k-means örneği hazırla.
+- Aynı veride k-means, hiyerarşik kümeleme, DBSCAN ve GMM sonuçlarını karşılaştır; bu hafta yalnız k-means/PCA hesabını Core tut, diğerlerinin W12'de türetileceğini işaretle.
+- Clustering etiketlerinin gerçek sınıflarla bire bir eşleşmediği ve silhouette yüksekliğinin alan geçerliliğini garanti etmediği örnek üret.
 - Görsel/metin için önceden üretilmiş küçük embedding veya attention çıktısı kullan; dış servis/ücretli API gerektirme.
 - Autoencoder/generative model için yalnız küçük sabit çıktı veya eğitmen demosu hazırla.
 - Her örnekte “temsil faydası hangi downstream görevle ölçüldü?” sorusunu görünür tut.
@@ -108,8 +110,8 @@ Bu hafta ikinci tur tamamlanır. Ç7–Ç10'un amacı dört geniş alanı bir de
 | 25–30 | Learning rate/regularization/learning curve hata ayıklama. | Üç eğriye ilk tanı |
 | 30–40 | **Ara** | |
 | 40–49 | MLP'yi W3 sabit protokolünde çalıştır; klasik modelle skor/maliyet karşılaştır. | Tahmin–gözlem farkı |
-| 49–58 | **Ç8:** PCA, clustering, embedding, autoencoder, CNN ve attention'ı temsil sorusuna bağla. | Yöntem–veri–downstream görev eşleştirmesi |
-| 58–65 | Küçük PCA/embedding istasyonu; temsil kalitesinin nasıl sınanacağını sor. | G/M/F kaydı + bir uygunluk ölçütü |
+| 49–58 | **Ç8:** PCA, k-means, hiyerarşik/DBSCAN/GMM, embedding, autoencoder, CNN ve attention'ı temsil sorusuna bağla. | Yöntem–veri geometrisi–downstream görev eşleştirmesi |
+| 58–65 | Küçük PCA + iki iterasyonlu k-means istasyonu; temsil/küme kalitesinin nasıl sınanacağını sor. | G/M/F kaydı + bir iç ve bir dış/alan ölçütü |
 | 65–70 | Generative/foundation model kullanımında kaynak, lisans, privacy ve evaluation ön izlemesi. | Bir risk + kontrol |
 | 70–80 | **Ara** | |
 | 80–90 | **Ç9:** State, action, reward, policy, value; supervised prediction'dan farkı. | Kavramları bakım kararına yerleştirme |
@@ -128,7 +130,7 @@ Bu hafta ikinci tur tamamlanır. Ç7–Ç10'un amacı dört geniş alanı bir de
 | Çapa | Bu hafta ayrıntılı işle | Sonraki derinleşmeye bırak |
 | --- | --- | --- |
 | Ç7 | MLP bileşenleri, forward/backprop sezgisi, optimizer, learning curve ve temel debug | Ayrıntılı mimari tasarım, ileri optimizasyon ve büyük ölçekli eğitim |
-| Ç8 | Temsil öğrenme ortak sorusu; PCA/clustering/embedding ve modern mimarilerin yeri | Her modalite için tam model eğitimi, ileri generative yöntemler ve fine-tuning |
+| Ç8 | Temsil öğrenme ortak sorusu; PCA ve k-means mekanizması; hierarchical/DBSCAN/GMM, anomaly, embedding ve modern mimarilerin yeri | W12'de denetimsiz yöntemlerin ayrıntılı karşılaştırması; her modalite için tam model eğitimi, ileri generative yöntemler ve fine-tuning |
 | Ç9 | State/action/reward/policy, bandit, exploration ve feedback/causality sınırı | Bellman türetimleri, ileri RL algoritmaları ve kapsamlı causal inference |
 | Ç10 | Risk kaydı, card'lar, reproducibility, serving/monitoring/rollback sözleşmesi | Üretim platformu kurulumu, ileri güvenlik, privacy-preserving learning ve kurumsal yönetişim |
 
@@ -305,6 +307,8 @@ Her öğrenci rastgele seçilen bir soruyu yanıtlar:
 - **MLP daha esnekse neden klasik modelden kötü olabilir?** Veri azlığı, optimizasyon, ölçek, regularization, gürültü ve tabular yapı etkileyebilir.
 - **Learning curve sorunun nedenini kesin gösterir mi?** Tanı için kanıttır; tek başına nedensel kesinlik sağlamaz, kontrollü değişiklikle sınanır.
 - **PCA'da ayrılan kümeler gerçek sınıfları kanıtlar mı?** Hayır; projection yapısı ve varyans, görev etiketi veya iş değeri değildir.
+- **K-means neden her küme yapısını bulamaz?** Öklid uzaklığı ve merkez etrafında yaklaşık küresel/eş-ölçekli yapı varsayar; başlangıç, ölçek ve `k` seçimine duyarlıdır.
+- **DBSCAN neyi farklı yapar?** Merkez yerine yoğunluk bağlantısı kullanır, gürültü noktası ayırabilir ve küme sayısını baştan istemez; değişen yoğunluk ve yüksek boyutta zorlanır.
 - **Embedding benzerliği doğru/ilgili cevap mıdır?** Aday yakınlığıdır; downstream relevance, filtre, yetki ve insan/alan doğrulaması gerekir.
 - **Bandit supervised learning'den neden farklıdır?** Eylem hangi ödül verisinin gözleneceğini etkiler; exploration ve counterfactual eksikliği vardır.
 - **Prediction doğruysa intervention da doğru mudur?** Hayır; tahmin ilişkisi müdahale etkisini tanımlamaz.
@@ -330,7 +334,7 @@ Her öğrenci rastgele seçilen bir soruyu yanıtlar:
 
 1. Ç1–Ç10 güncel sistem/kanıt haritası.
 2. MLP için learning curve ve en fazla 200 kelimelik debug yorumu.
-3. Temsil istasyonu için yöntem–ölçüt–sınır kartı.
+3. PCA/k-means küçük hesabı ve temsil istasyonu için yöntem–veri geometrisi–ölçüt–sınır kartı.
 4. Bandit çıktısı ve kendi probleme ait feedback-loop diyagramı.
 5. En az dört satırlık risk register ve monitoring planı.
 6. Checkpoint holdout'un ilk/tek çalıştırılma kaydı veya kabul önkoşulu geçmediyse neden açılmadığı; final blind holdout'un kapalı olduğuna dair kontrol.

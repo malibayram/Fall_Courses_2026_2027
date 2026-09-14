@@ -12,7 +12,7 @@
 
 ## İlgili belgeler
 
-[W1](HAFTA01.md) · [W2](HAFTA02.md) · [W3](HAFTA03.md) · [W4](HAFTA04.md) · [2026–2027 lisansüstü akademik takvimi](archive/original_pdfs/Maltepe_Universitesi_2026-2027_Lisansustu_Akademik_Takvim.pdf) · [yalnız arşiv amaçlı eski izlence](archive/original_pdfs/BIL_536_Makine_Ogrenmesi_2023-2024_Bahar_Eski_Izlence.pdf)
+[Matematik ve algoritma kapsam matrisi](KAPSAM_MATRISI.md) · [W1](HAFTA01.md) · [W2](HAFTA02.md) · [W3](HAFTA03.md) · [W4](HAFTA04.md) · [2026–2027 lisansüstü akademik takvimi](archive/original_pdfs/Maltepe_Universitesi_2026-2027_Lisansustu_Akademik_Takvim.pdf) · [yalnız arşiv amaçlı eski izlence](archive/original_pdfs/BIL_536_Makine_Ogrenmesi_2023-2024_Bahar_Eski_Izlence.pdf)
 
 Eski izlence yalnız tarihsel kayıt olarak saklanır; bu ders tasarımının konu, sıra, yöntem veya değerlendirme referansı değildir. Bu README ve haftalık dosyalar sıfırdan oluşturulan yeni ders sistemini tanımlar.
 
@@ -114,7 +114,7 @@ Tahmin ile karar ayrımı; gözlem birimi, hedef ve tahmin ufku; veri üretim s�
 
 ### Ç2 — Matematiksel/istatistiksel temel ve genelleme
 
-Vektör/matris işlemleri, normlar ve özdeğer sezgisi; olasılık, koşullu olasılık, beklenti ve varyans; olabilirlik ve Bayesçi bakış; türev, gradyan ve optimizasyon; ampirik risk, aşırı/eksik öğrenme, bias–variance, regularization ve kapasite ele alınır. İspat ve hesap, model davranışını açıklamak için kullanılır.
+Vektör/matris işlemleri, normlar, özdeğer/özvektör ve SVD; olasılık, koşullu bağımsızlık, beklenti, varyans ve kovaryans; olabilirlik, MLE/MAP ve Bayesçi bakış; entropy, cross-entropy, KL divergence ve mutual information; türev, chain rule, gradyan ve optimizasyon; ampirik risk, aşırı/eksik öğrenme, bias–variance, regularization ve kapasite ele alınır. İspat ve hesap, model davranışını açıklamak için kullanılır; matematik ilgili algoritmadan kopuk öğretilmez.
 
 ### Ç3 — Veri, önişleme, özellikler ve doğrulama tasarımı
 
@@ -122,11 +122,11 @@ Eksik değer, kategorik değişken, ölçekleme, aykırı değer ve özellik ür
 
 ### Ç4 — Doğrusal ve olasılıksal modeller
 
-Doğrusal regresyon, lojistik regresyon, kayıp ve olabilirlik ilişkisi; L1/L2 düzenlileştirme; generative/discriminative ayrımı; Naive Bayes ve olasılıksal çıktı; karar eşiği ve kalibrasyon ele alınır. Katsayı yorumunun nedensellik olmadığı özellikle sınırlandırılır.
+Doğrusal/polynomial regresyon, Ridge, Lasso ve Elastic Net; lojistik regresyon; k-NN; Gaussian/Multinomial/Bernoulli Naive Bayes; LDA/QDA; kayıp ve olabilirlik ilişkisi; generative/discriminative ayrımı; olasılıksal çıktı, karar eşiği ve kalibrasyon ele alınır. Katsayı veya komşuluğun nedensel etki olmadığı özellikle sınırlandırılır.
 
 ### Ç5 — Ağaçlar, çekirdek yöntemleri ve ensemble'lar
 
-Karar ağaçları, impurity ve budama; bagging, random forest, boosting ve gradient boosting; SVM, margin ve kernel sezgisi; hiperparametre arama maliyeti ve nested validation ihtiyacı ele alınır. Model karmaşıklığı yalnız skorla değil gecikme, bellek, kararlılık ve açıklanabilirlikle karşılaştırılır.
+Karar ağaçlarında entropy, information gain, Gini impurity ve budama; bagging, random forest/Extra Trees, AdaBoost ve gradient boosting; SVM/SVR, margin, hinge loss ve kernel sezgisi ele alınır. Yaygın XGBoost/LightGBM/CatBoost uygulamaları aynı gradient-boosting ailesinin mühendislik varyantları olarak konumlandırılır. Hiperparametre arama maliyeti ve nested validation ihtiyacı gösterilir; model karmaşıklığı yalnız skorla değil gecikme, bellek, kararlılık ve açıklanabilirlikle karşılaştırılır.
 
 ### Ç6 — Değerlendirme, belirsizlik, açıklama ve hata analizi
 
@@ -138,7 +138,7 @@ Algılayıcı, çok katmanlı ağ, aktivasyonlar, ileri/geri yayılım, otomatik
 
 ### Ç8 — Modern temsiller, denetimsiz ve üretici öğrenme
 
-PCA ve boyut indirgeme; clustering ve anomaly detection; embeddings; CNN, attention ve transformer fikri; transfer learning ve foundation model kullanımı; autoencoder ve üretici model sezgisi ele alınır. Her tema tam ölçekli ürün eğitimi olarak değil, ortak temsil problemi ve kontrollü deneylerle bağlanır.
+PCA/SVD/NMF ve boyut indirgeme; k-means, hiyerarşik kümeleme, DBSCAN ve GMM/EM; Isolation Forest, LOF ve One-Class SVM ile anomaly detection; öneri sistemleri ve association rules panoraması; embeddings; CNN, recurrent ağlar, attention ve transformer fikri; transfer learning, autoencoder ve üretici model sezgisi ele alınır. Her tema tam ölçekli ürün eğitimi olarak değil, ortak temsil/amaç fonksiyonu problemi ve kontrollü deneylerle bağlanır.
 
 ### Ç9 — Ardışık kararlar, pekiştirmeli öğrenme ve nedensellik sınırı
 
@@ -147,6 +147,18 @@ Durum, eylem, ödül, politika ve değer; exploration–exploitation; bandit ve 
 ### Ç10 — Sorumlu, sağlam, yeniden üretilebilir ve üretimde ML
 
 Adalet ölçülerinin bağlama bağımlılığı; gizlilik, güvenlik, adversarial/operasyonel sağlamlık; datasheet ve model card; random seed'in sınırları; ortam/veri/kod/deney sürümleme; paketleme, servis, latency, drift, monitoring, rollback ve insan gözetimi ele alınır. Üretime alma teknik bir final değil, yeni bir değerlendirme evresidir.
+
+## Kapsam sözleşmesi
+
+Algoritmalar problem türüne göre **regresyon, sınıflandırma, kümeleme, boyut indirgeme/temsil, anomali tespiti, zaman serisi, öneri/örüntü madenciliği, yarı/öz-denetimli ve üretici öğrenme ile pekiştirmeli öğrenme** olarak gruplandırılır. Her yöntem için problem türü, matematiksel omurga, varsayım, başarısızlık kipi, hesap maliyeti ve uygun değerlendirme protokolü belirtilir.
+
+Ders, literatürdeki her isimlendirilmiş varyantı eşit derinlikte işlemeyi amaçlamaz. [Matematik ve algoritma kapsam matrisi](KAPSAM_MATRISI.md), yaygın ana ailelerin tamamını üç öğrenme derinliğiyle güvence altına alır:
+
+- **T — Türet ve kur:** temel denklemi/hesabı ve çalışan uygulamayı zorunlu kılar;
+- **K — Kur ve karşılaştır:** sızıntısız kontrollü deney ve seçim gerekçesi ister;
+- **P — Panorama:** mekanizma, varsayım, kullanım alanı ve sınırların açıklanmasını ister.
+
+Bir yöntemin yalnız adının veya kütüphane çağrısının gösterilmesi kapsama alınmış sayılmaz. Öğrenci yeni bir algoritmayı problem türü, temsil, amaç fonksiyonu, optimizasyon ve değerlendirme eksenlerinde konumlandırabilmelidir.
 
 ## İlk dört hafta
 
@@ -164,13 +176,13 @@ Eğitmen sentetik öngörücü bakım verisinde üç koşulu çalıştırır: ç
 
 ### 3. hafta — Ç4–Ç6: klasik ML dikey dilimi
 
-Doğrusal/lojistik bir model ile en az bir ağaç tabanlı model aynı sabit protokolde karşılaştırılır. Hiperparametre seçimi yalnız eğitim/validation katında yapılır. Öğrenci birincil metrik, karar eşiği, kalibrasyon ve en az iki hata dilimini raporlar; tek skor yerine belirsizlik ve sınırlama sunar.
+Doğrusal/lojistik bir model ile en az bir ağaç tabanlı model aynı sabit protokolde karşılaştırılır. Ortak küçük veride Naive Bayes posterior/smoothing, k-NN uzaklık/ölçek ve decision-tree entropy/information-gain hesapları yapılır; ensemble ve SVM aileleri bu mekanizmalarla ilişkilendirilir. Hiperparametre seçimi yalnız eğitim/validation katında yapılır. Öğrenci birincil metrik, karar eşiği, kalibrasyon ve en az iki hata dilimini raporlar; tek skor yerine belirsizlik ve sınırlama sunar.
 
 **Ürün artımı:** yeniden çalıştırılabilir eğitim komutu, model karşılaştırması, metrik dosyası, hata analizi ve ilk model card taslağı.
 
 ### 4. hafta — Ç7–Ç10 ve entegrasyon: `v0.1`
 
-Küçük bir sinir ağı ve modern temsil örneği, “daha büyük her zaman daha iyi değildir” sorusuyla klasik baseline'a bağlanır. Ardışık karar/feedback loop, adalet, gizlilik, sağlamlık, yeniden üretilebilirlik ve izleme gereksinimleri ürün yaşam döngüsüne yerleştirilir.
+Küçük bir sinir ağı ile PCA/k-means mekanizma örneği, “daha büyük veya daha karmaşık her zaman daha iyi değildir” sorusuyla klasik baseline'a bağlanır; hiyerarşik kümeleme, DBSCAN ve GMM/EM'in farklı veri geometrileri panoraması kurulur. Ardışık karar/feedback loop, adalet, gizlilik, sağlamlık, yeniden üretilebilirlik ve izleme gereksinimleri ürün yaşam döngüsüne yerleştirilir.
 
 `v0.1` kabul kapısı:
 
@@ -188,13 +200,13 @@ Küçük bir sinir ağı ve modern temsil örneği, “daha büyük her zaman da
 | Hafta | Derinleşme | Temel deney/ürün artımı | Ana kanıt |
 | ---: | --- | --- | --- |
 | 5 | Ç1 — Problem ve veri üretim süreci | Hedef/ufuk/eylem revizyonu, baseline ve hata maliyeti | Problem card + yanlışlanabilir başarı ölçütü |
-| 6 | Ç2 — Genelleme temeli | Kapasite, regularization ve optimizasyon kontrollü deneyi | Öğrenme eğrisi + varsayım açıklaması |
+| 6 | Ç2 — Matematik ve genelleme temeli | Linear algebra, olasılık/Bayes, likelihood, entropy/KL, gradient, kapasite ve regularization | Elle hesap + öğrenme eğrisi + varsayım açıklaması |
 | 7 | Ç3 — Veri ve doğrulama | Random/group/time split ve leakage karşılaştırması | Bölme gerekçesi + sızıntı testi |
-| 8 | Ç4 — Doğrusal/olasılıksal modeller | Regularization, olasılık ve calibration deneyi | Katsayı/olasılık yorumu + calibration grafiği |
-| 9 | Ç5 — Ağaç/kernel/ensemble | Üç model ailesinin sabit protokolde karşılaştırılması | Performans–maliyet–kararlılık tablosu |
+| 8 | Ç4 — Regresyon ve sınıflandırmanın doğrusal/olasılıksal ailesi | Linear/Ridge/Lasso/Elastic Net, logistic, k-NN, Naive Bayes ve LDA/QDA | Kayıp/likelihood + Bayes hesabı + calibration grafiği |
+| 9 | Ç5 — Ağaç/kernel/ensemble | Entropy/Gini ile tree; RF/Extra Trees, AdaBoost/gradient boosting ve SVM/SVR | Split hesabı + performans–maliyet–kararlılık tablosu |
 | 10 | Ç6 — Değerlendirme ve hata analizi | Bootstrap, eşik ve slice analizi | Belirsizlik + hata taksonomisi |
 | 11 | Ç7 — Sinir ağları | MLP, optimizasyon ve hata ayıklama | Learning curves + ablation/debug günlüğü |
-| 12 | Ç8 — Modern temsiller | Probleme uygun tek temsil/denetimsiz/transfer uzantısı | Baseline'a karşı kontrollü artım |
+| 12 | Ç8 — Denetimsiz öğrenme ve modern temsiller | PCA/SVD; k-means, hierarchical, DBSCAN, GMM/EM; anomaly ve probleme uygun transfer/öneri uzantısı | En az iki kümeleme + temsil/anomali kontrollü kanıtı |
 | 13 | Ç9 — Ardışık karar ve nedensellik sınırı | Bandit/feedback-loop simülasyonu veya etki haritası | Politika riski + nedensel olmayan iddia sınırı |
 | 14 | Ç10 — Sorumlu ve üretimde ML | Risk denetimi, paketleme, monitoring/rollback ve `v1.0` | Yeniden üretim kaydı + model/data card + savunma |
 
@@ -271,6 +283,8 @@ Her teknik başlık üç seviyeden biriyle etiketlenir:
 
 GPU zorunlu değildir. Büyük dil modeli, büyük görsel model, dağıtık eğitim veya ücretli bulut servisi Core kapsamına alınmaz. Bu başlıklar küçük önceden eğitilmiş model, sentetik veri, indirgenmiş örnek ya da eğitmen demosuyla kavramsal ve deneysel olarak incelenebilir.
 
+Kapsam genişliği, “her öğrenci her algoritmayı projesine ekler” anlamına gelmez. Bütün öğrenciler matristeki T düzeyi mekanizmaları öğrenir; K düzeyi yöntemleri ortak kontrollü laboratuvarlarda karşılaştırır; dönem ürününde ise problemine uygun, gerekçeli az sayıda aileyi kullanır. Bu ayrım model alışverişini ve validation set üzerinde kontrolsüz aramayı önler.
+
 ## Araç ve ortam ilkeleri
 
 - Dönem başında desteklenen Python ve paket sürümleri kilit dosyasında sabitlenir.
@@ -339,7 +353,9 @@ Dersi başarıyla tamamlayan öğrenci:
 - bir gerçek dünya kararını yanlışlanabilir ML problemine dönüştürür;
 - veri üretim sürecini, örnekleme yanlılığını ve sızıntı riskini analiz eder;
 - uygun baseline, split, pipeline, model ailesi ve metriği seçer;
-- klasik ve sinir ağı tabanlı yöntemlerin matematiksel varsayımlarını karşılaştırır;
+- regresyon, sınıflandırma, kümeleme, boyut indirgeme, anomali tespiti ve ardışık karar problemlerini ayırır;
+- doğrusal/olasılıksal, komşuluk, ağaç/ensemble, kernel, kümeleme ve sinir ağı yöntemlerinin matematiksel varsayımlarını karşılaştırır;
+- entropy, cross-entropy, KL divergence, Bayes, likelihood, information gain, Gini, margin, gradient ve regularization kavramlarını doğru algoritmaya bağlar;
 - model seçimini test verisini kirletmeden gerçekleştirir;
 - performansı belirsizlik, kalibrasyon ve hata dilimleriyle raporlar;
 - açıklama ile nedensel iddia arasındaki sınırı korur;
@@ -350,4 +366,4 @@ Dersi başarıyla tamamlayan öğrenci:
 
 ## Belge durumu
 
-Bu dosya 2026–2027 Güz dönemi için yeni ders mimarisidir. Ayrıntılı W1–W4 dosyaları hazırdır; `HAFTA05.md`–`HAFTA14.md`, starter repository, sentetik veri ve kabul testleri bu omurgaya göre ayrıca hazırlanacaktır. Arşivdeki eski izlence bu geliştirme sürecinde içerik referansı olarak kullanılmayacaktır.
+Bu dosya 2026–2027 Güz dönemi için yeni ders mimarisidir. Ayrıntılı W1–W4 dosyaları ve matematik/algoritma kapsam matrisi hazırdır; `HAFTA05.md`–`HAFTA14.md`, starter repository, sentetik veri ve kabul testleri bu omurgaya göre ayrıca hazırlanacaktır. Arşivdeki eski izlence bu geliştirme sürecinde içerik referansı olarak kullanılmayacaktır.

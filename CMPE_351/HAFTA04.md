@@ -12,7 +12,7 @@
 | Sonraki bağlantı | W5'te M1 derinleşmesi: iş yükü kataloğu ve oturum/bağlantı bütçesi |
 | Belge durumu | Öğretim ve kabul sözleşmesi; süreç iskeletleri, restore hedefi, replica deneyi ve RLS iskeleti ayrıca hazırlanıp doğrulanacaktır |
 
-**Bağlantılar:** [Ana ders sistemi](../README.md) · [ERP öğrenci rehberi](ERP_OGRENCI_REHBERI.md) · [Ders modeli](README.md) · [W1](HAFTA01.md) · [W2](HAFTA02.md) · [W3](HAFTA03.md) · [Kaynakça](KAYNAKCA.md)
+**Bağlantılar:** [Ana ders sistemi](../README.md) · [Güncel kapsam](GUNCEL_KAPSAM.md) · [ERP öğrenci rehberi](ERP_OGRENCI_REHBERI.md) · [Ders modeli](README.md) · [W1](HAFTA01.md) · [W2](HAFTA02.md) · [W3](HAFTA03.md) · [Kaynakça](KAYNAKCA.md)
 
 Bu dosya eğitmen/asistan planıdır. **Bu hafta M7–M8 ayrıntılı işlenir** ve ikinci tur tamamlanır; M1–M6 yalnız kısa geri çağırmayla kullanılır. `v0.1`, sekiz modülün tamamının uygulandığı anlamına gelmez; ilişkisel çekirdeğin çalıştığı ve sonraki sekiz artımın bağlanacağı sınırların açık olduğu anlamına gelir.
 

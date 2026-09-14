@@ -1,15 +1,17 @@
 # SE 237 — Sandalye Fabrikası ERP'si: Öğrenci Proje Rehberi
 
-**Ders:** Nesneye Dayalı Programlama / Object Oriented Programming  
-**Dönem:** 2026–2027 Güz · 14 hafta · `1 + 3 + 10`  
-**Proje:** Factory ERP — üretim, stok, satış ve finans süreçlerinin nesne modeli  
-**Belge sürümü:** 1.0 · 11 Eylül 2026  
+**Ders:** Nesneye Dayalı Programlama / Object Oriented Programming
+**Dönem:** 2026–2027 Güz · 14 hafta · `1 + 3 + 10`
+**Proje:** Factory ERP — üretim, stok, satış ve finans süreçlerinin nesne modeli
+**Belge sürümü:** 1.0 · 11 Eylül 2026
 
 **Ders oturumu:** 155 dakika; 125 dakika etkin çalışma ve üç adet 10 dakikalık ara. Hazır altyapı ve sınırlı öğrenci değişikliği bu süreye göre planlanır; süre azalması ek ev ödevine aktarılmaz.
 
 **Hedef kitle:** Bu projeyi geliştirecek öğrenciler
 
 Bu rehber, önceki Course Registration örneğinin yerine geçen fabrika projesini tanımlar. Türkçe açıklamalarda İngilizce teknik terimler korunmuştur. Dersin sınav ve resmî değerlendirme dili ilgili izlenceye tabidir. [Veritabanı dersinin rehberi](../CMPE_351/ERP_OGRENCI_REHBERI.md) aynı fabrikanın veri ve transaction tasarımını açıklar; o derse katılmanız bu projeyi yapmanın önkoşulu değildir.
+
+Modern Java özelliklerinin çekirdek OOP kavramlarına ve haftalara nasıl bağlandığı [güncel kapsam matrisinde](GUNCEL_KAPSAM.md) açıklanır. Bu özellikler ayrı bir framework turu değildir; aynı Factory ERP davranışını daha açık, tür güvenli ve sınanabilir kılmak için kullanılır.
 
 ## 1. Sizden beklenen ürün
 
@@ -166,68 +168,68 @@ Hedef yapı:
 
 ### W2 — İkinci tur, A1–A3: nesne modeli, invariant ve ilişkiler
 
-**Artım:** Ürün–reçete–stok–üretim servislerini verilen web/CLI iskeletine bağlayın. Bellekte repository kullanın; sayfada bir ürün ve plan sonucu görülsün. Satış, finans, servis, İK ve connector sınırlarını haritaya ekleyin; henüz uygulanmamış olanları etiketleyin.  
+**Artım:** Ürün–reçete–stok–üretim servislerini verilen web/CLI iskeletine bağlayın. Bellekte repository kullanın; sayfada bir ürün ve plan sonucu görülsün. Satış, finans, servis, İK ve connector sınırlarını haritaya ekleyin; henüz uygulanmamış olanları etiketleyin.
 **Konu:** A1 nesne sorumluluğu, A2 encapsulation/invariant, A3 UML/ilişki/sahiplik. Her biri ürün–reçete–stok örneği ve bir karşı örnekle işlenir; diğer çapalar yalnız haritada bekleyen konulardır. **Kanıt:** Tarayıcı smoke testi, bir domain testi, sınıf/nesne diyagramı, tenant kimliğinin izlediği yol.
 
 ### W3 — İkinci tur, A4–A6: kalıtım, interface ve polimorfizm
 
-**Artım:** Sipariş planından rezervasyon talebine ilerleyin; eksik malzeme ve yinelenen request ID sonucunu yönetin. Tüm kontroller bitmeden state değişmesin; geçersiz istekte rezervasyon oluşmasın. Verilen işlem sınırı birden çok nesnenin güncellenmesini koordine eder.  
-**Konu:** A4 ortak uygunluk denetiminde alt tür sözleşmesi; A5 rezervasyon/kanal portu; A6 seçilebilir uygunluk politikası ve composition. Sağlanan iki küçük implementation aynı contract testinden geçirilir. A2 invariant kısa geri çağrılır; ileri hata/alias ayrıntıları W4 ve üçüncü tura bırakılır. **Kanıt:** Mutlu yol sequence diagram'ı, eksik stok, aynı anahtar/aynı içerik ve aynı anahtar/farklı içerik testleri. Bellek içi tek-thread doğruluğunu çok kullanıcılı güvence olarak sunmayın.
+**Artım:** Sipariş planından rezervasyon talebine ilerleyin; eksik malzeme ve yinelenen request ID sonucunu yönetin. Tüm kontroller bitmeden state değişmesin; geçersiz istekte rezervasyon oluşmasın. Verilen işlem sınırı birden çok nesnenin güncellenmesini koordine eder.
+**Konu:** A4 ortak uygunluk denetiminde alt tür sözleşmesi; A5 rezervasyon/kanal portu; A6 seçilebilir uygunluk politikası ve composition. Sağlanan iki küçük implementation aynı contract testinden geçirilir; saf ve durumsuz tek-metot policy için functional interface/lambda alternatifi gösterilir. A2 invariant kısa geri çağrılır; ileri hata/alias ayrıntıları W4 ve üçüncü tura bırakılır. **Kanıt:** Mutlu yol sequence diagram'ı, eksik stok, aynı anahtar/aynı içerik ve aynı anahtar/farklı içerik testleri. Bellek içi tek-thread doğruluğunu çok kullanıcılı güvence olarak sunmayın.
 
 ### W4 — İkinci tur, A7–A10 ve ilk fabrika sürümü: v0.1
 
-**Artım:** Sağlanan süreç iskeletinde eksik malzemeyi satınalma ve mal kabule, iş emrini malzeme çıkışı/mamul kabulüne ve siparişi kısmi sevkiyata bağlayın. Her alt modül bu aşamada az sayıda ama gerçek davranış içerir.  
-**Konu:** A7 snapshot/equality/kopya, A8 tür güvenli koleksiyon, A9 hata/kaynak ömrü, A10 sağlanan provider üzerinden runtime seçim. Her konu küçük bir davranış ve karşı örnekle görülür; tam kalıcılık/plugin altyapısı hazırdır. Kümülatif A1–A10 haritası ikinci turun tamamlandığını kaydeder; yeniden tam anlatım yapılmaz. **Kanıt:** 100 sandalye ana senaryosu; 60+40 sevk; tekrarlanan üretim tamamlama isteğinin ikinci stok yaratmaması; güncel model ve sınırlar. Maliyet yöntemi basit sağlanan uygulamadır, W10'da derinleşir.
+**Artım:** Sağlanan süreç iskeletinde eksik malzemeyi satınalma ve mal kabule, iş emrini malzeme çıkışı/mamul kabulüne ve siparişi kısmi sevkiyata bağlayın. Her alt modül bu aşamada az sayıda ama gerçek davranış içerir.
+**Konu:** A7 snapshot/equality/kopya ve record seçimi, A8 tür güvenli koleksiyon, A9 hata/kaynak ömrü, A10 sağlanan provider üzerinden runtime/module seçimi. Her konu küçük bir davranış ve karşı örnekle görülür; tam kalıcılık/plugin altyapısı hazırdır. Kümülatif A1–A10 haritası ikinci turun tamamlandığını kaydeder; yeniden tam anlatım yapılmaz. **Kanıt:** 100 sandalye ana senaryosu; 60+40 sevk; tekrarlanan üretim tamamlama isteğinin ikinci stok yaratmaması; güncel model ve sınırlar. Maliyet yöntemi basit sağlanan uygulamadır, W10'da derinleşir.
 
 ### W5 — A1: Ayrıştırma ve domain modeli
 
-**Değişiklik talebi:** Aynı sandalye farklı kumaş/renk varyantlarıyla üretilebilsin. **Artım:** Ürün tanımı, varyant, BOM revizyonu ve iş emri sorumluluklarını ayrıştırın; tek “ERPManager” sınıfında toplanan işleri taşıyın. **Geri bağ:** A2 kurallar, A3 ilişkiler.  
+**Değişiklik talebi:** Aynı sandalye farklı kumaş/renk varyantlarıyla üretilebilsin. **Artım:** Ürün tanımı, varyant, BOM revizyonu ve iş emri sorumluluklarını ayrıştırın; tek “ERPManager” sınıfında toplanan işleri taşıyın. **Geri bağ:** A2 kurallar, A3 ilişkiler.
 **Kanıt:** İki varyantın birbirini etkilemeyen planı; aynı bileşenin farklı BOM dallarındaki toplamı; where-used sonucu; eski testlerin korunması. **Sorunuz:** Varyant değişince hangi nesne kimliği değişmeli?
 
 ### W6 — A2: Encapsulation ve invariant
 
-**Talep:** Kullanıcı stok, sipariş veya iş emri miktarını geçersiz biçimde değiştiremesin. **Artım:** Kontrollü command metotları; miktar/birim doğrulaması; yayımlanmış BOM'un değişmezliği; sipariş ve iş emri geçiş kuralları. **Geri bağ:** A1 sorumluluk, A7 referans sızıntısı.  
-**Kanıt:** Negatif miktar, geçersiz durum, yetersiz stok, tüketilmiş malzemeyi tekrar tüketme reddi; her ret sonrasında aynı state. Public setter ile güvenceyi bozan karşı örneği düzeltin.
+**Talep:** Kullanıcı stok, sipariş veya iş emri miktarını geçersiz biçimde değiştiremesin. **Artım:** Kontrollü command metotları; miktar/birim doğrulaması; yayımlanmış BOM'un değişmezliği; sipariş ve iş emri geçiş kuralları. **Geri bağ:** A1 sorumluluk, A7 referans sızıntısı.
+**Kanıt:** Negatif miktar, geçersiz durum, yetersiz stok, tüketilmiş malzemeyi tekrar tüketme reddi; her ret sonrasında aynı state. Public setter ile güvenceyi bozan karşı örneği düzeltin. Yok, boş ve geçersiz sonucu ayırın; `Optional`'ı alan veya parametre olarak otomatik kullanmayın.
 
 ### W7 — A3: İlişkiler, sahiplik ve izlenebilirlik
 
-**Talep:** Servise gelen sandalyenin üretim partisi ve hammaddesi bulunabilsin. **Artım:** Lot → malzeme çıkışı → iş emri → üretim partisi → sevk → servis bağlantısı; fason emanet stok ilişkisi. **Geri bağ:** A2 yaşam döngüsü, A8 koleksiyon.  
+**Talep:** Servise gelen sandalyenin üretim partisi ve hammaddesi bulunabilsin. **Artım:** Lot → malzeme çıkışı → iş emri → üretim partisi → sevk → servis bağlantısı; fason emanet stok ilişkisi. **Geri bağ:** A2 yaşam döngüsü, A8 koleksiyon.
 **Kanıt:** Çoklu kaynak lotu olan bir üretim partisi; hem geriye hem ileriye iz; kompozisyon/association ve cardinality diyagramı. Bir lotu kopyalamakla ona referans vermenin farkını açıklayın.
 
 ### W8 — A4: Kalıtım, overriding ve yerine kullanılabilirlik
 
-**Talep:** Üretim ve sevkiyat öncesinde farklı uygunluk denetimleri aynı mekanizmadan çalışsın. **Artım:** Yan etkisiz `evaluate(context) → Decision` sözleşmeli soyut kontrol ve en az iki alt tür; stok uygunluğu ve kalite serbest bırakma örnekleri. **Geri bağ:** A2 sözleşme, A3 collaborator.  
-**Kanıt:** Ortak contract testleri; state değiştiren veya beklenmedik önkoşul ekleyen alt türün reddi; overriding/overloading ve constructor zinciri açıklaması. Gerçek iş akışının zaten korunan sert kuralları devre dışı bırakılamaz.
+**Talep:** Üretim ve sevkiyat öncesinde farklı uygunluk denetimleri aynı mekanizmadan çalışsın. **Artım:** Yan etkisiz `evaluate(context) → Decision` sözleşmeli soyut kontrol ve en az iki alt tür; stok uygunluğu ve kalite serbest bırakma örnekleri. **Geri bağ:** A2 sözleşme, A3 collaborator.
+**Kanıt:** Ortak contract testleri; state değiştiren veya beklenmedik önkoşul ekleyen alt türün reddi; overriding/overloading ve constructor zinciri açıklaması. Uygun küçük karar sonucu için açık hierarchy ile sealed hierarchy ve exhaustive pattern switch karşılaştırılır; preview özellik kullanılmaz. Gerçek iş akışının zaten korunan sert kuralları devre dışı bırakılamaz.
 
 ### W9 — A5: Interface ve dış sistem sınırları
 
-**Talep:** B2B ve pazaryeri siparişleri aynı domain modeline gelsin. **Artım:** `ChannelConnector`, `CarrierGateway`, `DocumentGateway` portları; iki sahte kanal ve bir kargo/e-belge yanıtı. Dış SKU ile iç varyant eşleştirmesi açık olsun. **Geri bağ:** A4 contract, A9 failure.  
+**Talep:** B2B ve pazaryeri siparişleri aynı domain modeline gelsin. **Artım:** `ChannelConnector`, `CarrierGateway`, `DocumentGateway` portları; iki sahte kanal ve bir kargo/e-belge yanıtı. Dış SKU ile iç varyant eşleştirmesi açık olsun. **Geri bağ:** A4 contract, A9 failure.
 **Kanıt:** Farklı dış formatlardan eş sipariş; bilinmeyen SKU; timeout; tekrarlı sipariş; kısmi sevk etiketi. **Ara entegrasyon:** W1–W9 senaryoları ve web ekranları birlikte çalışır.
 
 ### W10 — A6: Composition, Strategy ve maliyet
 
-**Talep:** Bayi, pazaryeri ve mağaza için farklı fiyat/iskonto/kargo uygulanabilsin. **Artım:** Fiyatlandırma, gider dağıtımı ve risk/onay politikalarını collaborator olarak seçin. Planlanan maliyet ile fiilî malzeme/işçilik/fason giderini ayırın. **Geri bağ:** A5 port, A2 invariant.  
+**Talep:** Bayi, pazaryeri ve mağaza için farklı fiyat/iskonto/kargo uygulanabilsin. **Artım:** Fiyatlandırma, gider dağıtımı ve risk/onay politikalarını collaborator olarak seçin. Durumsuz küçük policy için lambda/method reference, durum ve birden fazla operasyon taşıyan policy için sınıf kullanımı karşılaştırılsın. Planlanan maliyet ile fiilî malzeme/işçilik/fason giderini ayırın. **Geri bağ:** A5 port, A2 invariant.
 **Kanıt:** Ortak 1.050 TL maliyet ve 220 TL katkı hesabı; yeni kanalın ana sipariş akışını bozmaması; hatalı marj paydasının reddi; komisyon/fason/ambalajın iki kez sayılmaması. Müşteri/tarih/kanal bazlı fiyat önceliğini test edin.
 
 ### W11 — A7: Kimlik, eşitlik, kopyalama ve immutability
 
-**Talep:** Eski siparişin fiyatı, yeni liste ve BOM revizyonuyla değişmesin. **Artım:** `Money`, `Quantity`, `ProductId` gibi değer nesneleri; sipariş fiyatı ve iş emri BOM snapshot'ı; güvenli dış koleksiyon görünümleri. **Geri bağ:** A2 değişmezlik, A3 sahiplik.  
-**Kanıt:** R2 yayımlandıktan sonra R1 iş emri aynı; fiyat güncellense de eski sipariş toplamı aynı; equals/hashCode uyumu; shallow/deep copy ayrımı. BigDecimal'da sayısal eşitlik ile scale içeren equals farkını normalize ederek yönetin.
+**Talep:** Eski siparişin fiyatı, yeni liste ve BOM revizyonuyla değişmesin. **Artım:** `Money`, `Quantity`, `ProductId` gibi value object/record'lar; sipariş fiyatı ve iş emri BOM snapshot'ı; güvenli dış koleksiyon görünümleri. **Geri bağ:** A2 değişmezlik, A3 sahiplik.
+**Kanıt:** R2 yayımlandıktan sonra R1 iş emri aynı; fiyat güncellense de eski sipariş toplamı aynı; record compact constructor ile validation ve defensive copy; equals/hashCode uyumu; shallow/deep copy ayrımı. BigDecimal'da sayısal eşitlik ile scale içeren equals farkını normalize ederek yönetin. Her entity'nin record olmadığı gerekçelendirilir.
 
 ### W12 — A8: Generics, collections ve modüller arası sorgu
 
-**Talep:** Açık iş emirleri, ödeme onayı bekleyen kayıtlar ve tekrarlayan servis sorunları filtrelenebilsin. **Artım:** Tür güvenli repository ve sorgu sonuçları; Map ile kimlik erişimi, Set ile tekillik; personel/vardiya kaydını işçilik girdisine bağlayın. **Geri bağ:** A7 equality, A5 interface.  
-**Kanıt:** Yanlış türün derleme sınırında yakalanması, deterministik rapor sırası, farklı tenant kayıtlarının karışmaması; bounded type/wildcard kullanım gerekçesi. İnsan kaynakları verisinin satış raporuna gereksiz taşınmadığını gösterin.
+**Talep:** Açık iş emirleri, ödeme onayı bekleyen kayıtlar ve tekrarlayan servis sorunları filtrelenebilsin. **Artım:** Tür güvenli repository ve sorgu sonuçları; Map ile kimlik erişimi, Set ile tekillik; loop ile stream/collector alternatifini aynı sonuç sözleşmesinde karşılaştırın; personel/vardiya kaydını işçilik girdisine bağlayın. **Geri bağ:** A7 equality, A5 interface.
+**Kanıt:** Yanlış türün derleme sınırında yakalanması, deterministik rapor sırası, farklı tenant kayıtlarının karışmaması; bounded type/wildcard kullanım gerekçesi. Stream pipeline'da encounter order, duplicate ve yan etki kararı açık olur; ölçmeden parallel stream kullanılmaz. İnsan kaynakları verisinin satış raporuna gereksiz taşınmadığını gösterin.
 
 ### W13 — A9: Kaynaklar, kalıcılık ve hata yönetimi
 
-**Talep:** Süreç yeniden başlasa da kayıtlar ve bekleyen entegrasyon işi kaybolmasın. **Artım:** Sağlanan kalıcılık/işlem adaptörünü portlara bağlayın; dosya içe aktarımı ve servis eki kaynaklarını kapatın; başarısız dış gönderim için outbox/retry sonucu gösterin. **Geri bağ:** A5 bağımlılık, A7 snapshot.  
-**Kanıt:** Save/load; bozuk içe aktarımda kısmi state yayınlanmaması; gönderim sonrası yanıt kaybında aynı idempotency key; dosya kaynağının kapanması. Domain commit ile dış servis başarı durumunu ayrı raporlayın. Gerçek atomik outbox için kayıt ve olayın aynı kalıcı transaction'da yazılması gerekir.
+**Talep:** Süreç yeniden başlasa da kayıtlar ve bekleyen entegrasyon işi kaybolmasın. **Artım:** Sağlanan kalıcılık/işlem adaptörünü portlara bağlayın; dosya içe aktarımı ve servis eki kaynaklarını kapatın; başarısız dış gönderim için outbox/retry sonucu gösterin. **Geri bağ:** A5 bağımlılık, A7 snapshot.
+**Kanıt:** Save/load; bozuk içe aktarımda kısmi state yayınlanmaması; gönderim sonrası yanıt kaybında aynı idempotency key; dosya kaynağının kapanması. Domain commit ile dış servis başarı durumunu ayrı raporlayın. Sağlanan blocking-I/O demosunda virtual thread, interruption ve resource ownership çizgisi okunur; virtual thread'in paylaşılan mutable state'i güvenli yapmadığı belirtilir. Gerçek atomik outbox için kayıt ve olayın aynı kalıcı transaction'da yazılması gerekir.
 
 ### W14 — A10: Runtime metadata, plugin ve son sürüm
 
-**Talep:** Yeni connector/AI belge okuyucu iş akışı değiştirilmeden takılabilsin. **Artım:** Sağlanan provider paketlerini ServiceLoader ile keşfedin; yapılandırmadan onaylı provider seçin. Belge okuma önerisini güven skoru ve insan onayına bağlayın. **Geri bağ:** A5 sözleşme, A6 dispatch, A9 hata.  
-**Kanıt:** Provider yok/çift kimlik/hatalı yanıt; düşük güvenli belgenin doğrudan mal kabul/ödeme oluşturmaması; yüklenen sınıf bilgisi ve initialization izi. **v1.0:** Bütün fabrika akışı, tarayıcı demosu, regresyon, kurtarma ve bireysel savunma.
+**Talep:** Yeni connector/AI belge okuyucu iş akışı değiştirilmeden takılabilsin. **Artım:** Sağlanan module/provider paketlerini ServiceLoader ile keşfedin; yapılandırmadan allowlist içindeki onaylı provider'ı seçin. Belge okuma önerisini güven skoru ve insan onayına bağlayın. **Geri bağ:** A5 sözleşme, A6 dispatch, A9 hata.
+**Kanıt:** Provider yok/çift kimlik/izinli olmayan sınıf/hatalı yanıt; düşük güvenli belgenin doğrudan mal kabul/ödeme oluşturmaması; module/class loading, reflection, initialization ve nesne oluşturma ayrımı. ServiceLoader güvenlik sandbox'ı değildir. **v1.0:** Bütün fabrika akışı, tarayıcı demosu, regresyon, kurtarma ve bireysel savunma.
 
 ## 6. İş mantığının teknik uygulama kuralları
 

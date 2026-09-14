@@ -12,7 +12,7 @@
 | Sonraki kapı | W4'te satınalma–üretim–sevkiyat zinciri ve `v0.1` veri sürümü |
 | Belge durumu | Öğretim ve uygulama sözleşmesi; iki oturum harness'i, staging fixture'ı ve seed büyütücüsü ayrıca üretilecektir |
 
-**Bağlantılar:** [Ana ders sistemi](../README.md) · [ERP öğrenci rehberi](ERP_OGRENCI_REHBERI.md) · [Ders modeli](README.md) · [W1](HAFTA01.md) · [W2](HAFTA02.md) · [W4](HAFTA04.md) · [Kaynakça](KAYNAKCA.md)
+**Bağlantılar:** [Ana ders sistemi](../README.md) · [Güncel kapsam](GUNCEL_KAPSAM.md) · [ERP öğrenci rehberi](ERP_OGRENCI_REHBERI.md) · [Ders modeli](README.md) · [W1](HAFTA01.md) · [W2](HAFTA02.md) · [W4](HAFTA04.md) · [Kaynakça](KAYNAKCA.md)
 
 Dosya öğretim ekibi içindir. Güncel proje sözleşmesi [ERP rehberidir](ERP_OGRENCI_REHBERI.md); rezervasyon protokolünün tam metni rehberin “Rezervasyonun transaction sözleşmesi” bölümündedir.
 

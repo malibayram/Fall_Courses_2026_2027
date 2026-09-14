@@ -12,7 +12,7 @@
 | Sonraki kapı | W3'te `run(job) → result` sözleşmesinin süreç başlatan dikey dilime dönüşmesi |
 | Belge durumu | Ayrıntılı öğretim ve görev tasarımı; aşağıda adı geçen starter ve test araçları ayrıca hazırlanıp çalıştırılmalıdır |
 
-**Bağlantılar:** [Ana ders sistemi](../README.md) · [Proje sözleşmesi](PROJE.md) · [W1](HAFTA01.md) · [W3](HAFTA03.md) · [W4](HAFTA04.md) · [Kaynakça](KAYNAKCA.md)
+**Bağlantılar:** [Ana ders sistemi](../README.md) · [Güncel kapsam](GUNCEL_KAPSAM.md) · [Proje sözleşmesi](PROJE.md) · [W1](HAFTA01.md) · [W3](HAFTA03.md) · [W4](HAFTA04.md) · [Kaynakça](KAYNAKCA.md)
 
 Bu Türkçe dosya eğitmen ve asistanlar içindir. Sondaki İngilizce öğrenci görev özeti doğrudan paketlenebilir; ölçülen kavramların İngilizce notu, hazırlık soruları ve rubrik açıklaması da yayımlanır. Yeni bir ders notu bileşeni oluşturulmaz; haftalık kanıtlar ana README'deki mevcut bileşenlere bağlanır.
 

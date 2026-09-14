@@ -22,19 +22,19 @@ Bu depo resmî ders bilgi paketi veya kurum onayı yerine geçmez. Takvim, not a
 
 ### CEN 302 — Operating Systems
 
-[Proje planı](CEN_302/PROJE.md) · [W1](CEN_302/HAFTA01.md) · [W2](CEN_302/HAFTA02.md) · [W3](CEN_302/HAFTA03.md) · [W4](CEN_302/HAFTA04.md) · [Kaynakça](CEN_302/KAYNAKCA.md)
+[Güncel kapsam](CEN_302/GUNCEL_KAPSAM.md) · [Proje planı](CEN_302/PROJE.md) · [W1](CEN_302/HAFTA01.md) · [W2](CEN_302/HAFTA02.md) · [W3](CEN_302/HAFTA03.md) · [W4](CEN_302/HAFTA04.md) · [Kaynakça](CEN_302/KAYNAKCA.md)
 
 ### SE 237 — Object Oriented Programming
 
-[ERP öğrenci rehberi](SE_237/ERP_OGRENCI_REHBERI.md) · [W1](SE_237/HAFTA01.md) · [W2](SE_237/HAFTA02.md) · [W3](SE_237/HAFTA03.md) · [W4](SE_237/HAFTA04.md) · [Kaynakça](SE_237/KAYNAKCA.md) · [önceki proje planı](SE_237/PROJE.md)
+[Güncel kapsam](SE_237/GUNCEL_KAPSAM.md) · [ERP öğrenci rehberi](SE_237/ERP_OGRENCI_REHBERI.md) · [W1](SE_237/HAFTA01.md) · [W2](SE_237/HAFTA02.md) · [W3](SE_237/HAFTA03.md) · [W4](SE_237/HAFTA04.md) · [Kaynakça](SE_237/KAYNAKCA.md) · [önceki proje planı](SE_237/PROJE.md)
 
 ### CMPE 351 — Database Systems
 
-[Ders modeli](CMPE_351/README.md) · [ERP öğrenci rehberi](CMPE_351/ERP_OGRENCI_REHBERI.md) · [W1](CMPE_351/HAFTA01.md) · [W2](CMPE_351/HAFTA02.md) · [W3](CMPE_351/HAFTA03.md) · [W4](CMPE_351/HAFTA04.md) · [Kaynakça](CMPE_351/KAYNAKCA.md) · [önceki proje planı](CMPE_351/PROJE.md)
+[Güncel kapsam](CMPE_351/GUNCEL_KAPSAM.md) · [Ders modeli](CMPE_351/README.md) · [ERP öğrenci rehberi](CMPE_351/ERP_OGRENCI_REHBERI.md) · [W1](CMPE_351/HAFTA01.md) · [W2](CMPE_351/HAFTA02.md) · [W3](CMPE_351/HAFTA03.md) · [W4](CMPE_351/HAFTA04.md) · [Kaynakça](CMPE_351/KAYNAKCA.md) · [önceki proje planı](CMPE_351/PROJE.md)
 
 ### BİL 536 01 — Makine Öğrenmesi
 
-[Ders modeli](BIL_536/README.md) · [W1](BIL_536/HAFTA01.md) · [W2](BIL_536/HAFTA02.md) · [W3](BIL_536/HAFTA03.md) · [W4](BIL_536/HAFTA04.md) · [2026–2027 lisansüstü akademik takvimi](BIL_536/archive/original_pdfs/Maltepe_Universitesi_2026-2027_Lisansustu_Akademik_Takvim.pdf) · [yalnız arşiv amaçlı eski izlence](BIL_536/archive/original_pdfs/BIL_536_Makine_Ogrenmesi_2023-2024_Bahar_Eski_Izlence.pdf)
+[Matematik ve algoritma kapsamı](BIL_536/KAPSAM_MATRISI.md) · [Ders modeli](BIL_536/README.md) · [W1](BIL_536/HAFTA01.md) · [W2](BIL_536/HAFTA02.md) · [W3](BIL_536/HAFTA03.md) · [W4](BIL_536/HAFTA04.md) · [2026–2027 lisansüstü akademik takvimi](BIL_536/archive/original_pdfs/Maltepe_Universitesi_2026-2027_Lisansustu_Akademik_Takvim.pdf) · [yalnız arşiv amaçlı eski izlence](BIL_536/archive/original_pdfs/BIL_536_Makine_Ogrenmesi_2023-2024_Bahar_Eski_Izlence.pdf)
 
 Eski BİL 536 izlencesi yalnız tarihsel kayıt olarak saklanır. Yeni dersin kapsamı, sırası, öğretim yöntemi ve değerlendirme yaklaşımı bu belgeden kopyalanmamış; sıfırdan ve daha kapsayıcı biçimde tasarlanmıştır.
 
@@ -43,8 +43,8 @@ Eski BİL 536 izlencesi yalnız tarihsel kayıt olarak saklanır. Yeni dersin ka
 Bir ders için çalışma yaparken şu sırayı izleyin:
 
 1. Bu ana README ile ortak öğretim yaklaşımını ve belge önceliğini okuyun.
-2. Dersin yukarıdaki **ana başlangıç belgesini** açın.
-3. İlgili haftanın `HAFTAxx.md` dosyasından hazırlık, sınıf akışı, Core görev ve kanıtları alın.
+2. Dersin **güncel kapsam/matris** belgesinden çekirdek konuları, modern köprüleri ve beklenen derinliği görün.
+3. Yukarıdaki **ana başlangıç belgesini**, ardından ilgili `HAFTAxx.md` dosyasını açın; hazırlık, sınıf akışı, Core görev ve kanıtları alın.
 4. Proje/öğrenci rehberinden veri, davranış ve kabul sözleşmesini doğrulayın.
 5. Teknik kaynakları dersin `KAYNAKCA.md` dosyasından veya haftalık belgedeki sabit bağlantılardan seçin.
 6. Tarihsel belgeleri yalnız güncel tasarımla karşılaştırarak kullanın.

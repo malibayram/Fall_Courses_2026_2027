@@ -6,7 +6,7 @@
 **Dönem ürünü:** Yeniden Üretilebilir Makine Öğrenmesi Çalışması (`ML Evidence Lab`)  
 **Ortak vaka:** Sentetik öngörücü bakım — sonraki 24 saatte arıza riski  
 **Kapsam:** Ç1–Ç10 panoraması; ayrıntılı teori ve algoritma türetimi daha sonraki haftalara bırakılır  
-**İlgili belge:** [Dersin ana README dosyası](README.md)
+**İlgili belgeler:** [Dersin ana README dosyası](README.md) · [Matematik ve algoritma kapsam matrisi](KAPSAM_MATRISI.md)
 
 Bu Türkçe belge eğitmen içindir. Öğrenci yönergeleri gerektiğinde ayrı ve kısaltılmış olarak yayımlanır. W1 tanılayıcıdır; teslimler geri bildirim sağlar ve yeni bir not bileşeni oluşturmaz. Kurulum aksarsa eşli çalışma veya eğitmenin sağladığı sabit çıktılar üzerinden analiz kabul edilir; kişisel ortam daha sonra tamamlanır.
 

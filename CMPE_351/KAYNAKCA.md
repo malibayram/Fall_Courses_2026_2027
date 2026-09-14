@@ -3,7 +3,7 @@
 **Son kontrol:** 10 Eylül 2026  
 **Teknik omurga:** PostgreSQL 18 ve SQL. Modern veri platformları, çekirdek ilişkisel ilkelerin yerine değil, iş yüküne göre verilen tasarım kararları olarak ele alınır. Hiçbir ücretli kaynak zorunlu değildir.
 
-[İlk hafta](HAFTA01.md) · [Proje planı](PROJE.md)
+[Güncel kapsam](GUNCEL_KAPSAM.md) · [İlk hafta](HAFTA01.md) · [ERP proje rehberi](ERP_OGRENCI_REHBERI.md)
 
 Güncel resmî belgeler teknik davranışı doğrulamak, eski ama geçerli dersler temel kavramları çalışmak içindir. Devam eden 2026 derslerinin sonraki materyalleri henüz yayımlanmamış veya önceki dönemden aktarılmış olabilir. Bağlantı erişimi, ücretli kurs içeriğinin bütünüyle incelendiği anlamına gelmez.
 
@@ -20,6 +20,9 @@ Güncel resmî belgeler teknik davranışı doğrulamak, eski ama geçerli dersl
 
 - **[Concurrency Control](https://www.postgresql.org/docs/18/mvcc.html)** — MVCC, isolation, explicit locking ve veri tutarlılığının resmi açıklamasıdır. M5’te iki oturumlu deneylerden önce ve sonra seçilmiş bölümler okunmalıdır.
 - **[Transaction Processing internals](https://www.postgresql.org/docs/18/transactions.html)** — Transaction kimlikleri, kilitler ve alt transaction'ları açıklar; kurtarma için ayrıca [Reliability and WAL](https://www.postgresql.org/docs/18/wal.html) okunmalıdır. “Commit oldu” iddiasının hangi katmanlarda ne anlama geldiğini tartışmak için kullanılır.
+- **[MERGE](https://www.postgresql.org/docs/18/sql-merge.html)** — Koşullu insert/update/delete akışını tek statement içinde ifade eder. W7'de kaynak satırı çoğalması, `WHEN` sırası, `RETURNING` ve transaction/idempotency sınırıyla birlikte işlenir.
+- **[Logical Replication](https://www.postgresql.org/docs/18/logical-replication.html)** · **[Logical Decoding](https://www.postgresql.org/docs/18/logicaldecoding.html)** — W11'de replication, CDC, replica identity, lag, conflict ve dış tüketici sınırlarını resmî davranış üzerinden kurar.
+- **[Row Security Policies](https://www.postgresql.org/docs/18/ddl-rowsecurity.html)** · **[JSON Types/SQL-JSON](https://www.postgresql.org/docs/18/datatype-json.html)** — W12'de normal rol üzerinden tenant erişimi ve ilişkisel–JSONB tasarım kararını sınamak için kullanılır.
 - **[Use The Index, Luke!](https://use-the-index-luke.com/)** — SQL indeksleme ve sorgu performansını erişim yolu mantığıyla açıklar. “Index her sorguyu hızlandırır” yanılgısını plan ve ölçümle sınamak için en faydalı ikincil kaynaklardan biridir.
 - **[POSETTE 2026](https://www.postgresql.org/about/event/posette-an-event-for-postgres-2026-2569/)** · **[PGConf.EU 2025 kayıtları](https://www.postgresql.eu/events/pgconfeu2025/news/all-pgconfeu-2025-recordings-are-now-online-195/)** — PostgreSQL topluluğunun güncel teknik konuşmalarını sunar. Proje konusu arayan veya üretim deneyimlerini görmek isteyen öğrenciler seçerek izleyebilir.
 - **[PGSimCity](https://github.com/NikolayS/pgsimcity)** — PostgreSQL davranışını şehir benzetmesiyle görünür kılan deneysel bir görselleştirme projesidir. İleri düzey gözlem için ilham vericidir; resmi belge veya ölçümün yerine kanıt sayılmaz.
@@ -49,7 +52,7 @@ Güncel resmî belgeler teknik davranışı doğrulamak, eski ama geçerli dersl
 - **[SQL and PostgreSQL: The Complete Developer’s Guide](https://www.udemy.com/course/sql-and-postgresql/)** — SQL’den PostgreSQL uygulamasına uzanan bütünlüklü bir rota sunar. Özellikle sorgu pratiğini video üzerinden sürdürmek isteyenler içindir.
 - **[Learn SQL Using PostgreSQL](https://www.udemy.com/course/database-postgresql/)** — Başlangıç ve orta düzey PostgreSQL çalışmaları sağlar; resmi doküman ve ders laboratuvarıyla birlikte kullanılmalıdır.
 - **[Hands-On Introduction to SQL with PostgreSQL](https://www.udemy.com/course/hands-on-introduction-to-sql-with-postgresql/)** — Uygulama ağırlıklı başlangıç isteyen öğrenciler için kısa yol sunar.
-- **[SQL Database Design A–Z](https://www.udemy.com/course/sqldatabases/)** — Modelleme, normalizasyon ve tasarım pratiğine odaklanır. Tasarım kararları Campus Learning Hub gereksinimleriyle yeniden sınanmalıdır.
+- **[SQL Database Design A–Z](https://www.udemy.com/course/sqldatabases/)** — Modelleme, normalizasyon ve tasarım pratiğine odaklanır. Tasarım kararları Factory ERP gereksinimleriyle yeniden sınanmalıdır.
 
 > Udemy içeriği, fiyatı ve güncellenme tarihi değişebilir. Satın almadan önce müfredat, kullanılan PostgreSQL sürümü, önizleme, altyazı ve iade koşulları kontrol edilmelidir.
 
@@ -59,9 +62,9 @@ Güncel resmî belgeler teknik davranışı doğrulamak, eski ama geçerli dersl
 | --- | --- |
 | M1 — DBMS ve iş yükü | PostgreSQL giriş bölümleri, CMU ilk dersler |
 | M2 — Model ve şema | PostgreSQL DDL/constraint belgeleri, modelleme alıştırmaları |
-| M3 — Relational algebra ve SQL | PGExercises, SQLBolt, PostgreSQL query belgeleri |
-| M4 — FD ve normalization | Database System Concepts ilişkisel tasarım bölümü, Campus Learning Hub anomali deneyleri |
+| M3 — Relational algebra ve SQL | PGExercises, SQLBolt, PostgreSQL query ve MERGE belgeleri |
+| M4 — FD ve normalization | Database System Concepts ilişkisel tasarım bölümü, Factory ERP anomali deneyleri |
 | M5 — Transaction/concurrency/recovery | PostgreSQL MVCC ve transaction internals, iki oturumlu deney |
 | M6 — Storage/index/query processing | CMU, Use The Index Luke, `EXPLAIN` belgeleri |
-| M7 — Distributed/cloud/resilience | DDIA, CMU ve güncel konferans konuşmaları |
-| M8 — Document/realtime/vector | MongoDB University, Supabase, Firestore emulator, pgvector |
+| M7 — Distributed/cloud/resilience | PostgreSQL logical replication/decoding, DDIA, CMU ve güncel konferans konuşmaları |
+| M8 — Document/realtime/vector | PostgreSQL RLS ve SQL/JSON, MongoDB University, Supabase, Firestore emulator, pgvector |

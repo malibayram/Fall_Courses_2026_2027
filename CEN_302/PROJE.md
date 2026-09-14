@@ -1,8 +1,8 @@
 # CEN 302 — Küçük Prototipten Gerçek Çekirdek İncelemesine
 
-**Dönem:** 14 hafta, `1 + 3 + 10`  
-**Ürün:** Mini Systems Workbench — xv6 incelemesi ve sistem deneyleri  
-**Belgeler:** [Ders sistemi](../README.md) · [İlk hafta akışı](HAFTA01.md) · [Kaynakça](KAYNAKCA.md)  
+**Dönem:** 14 hafta, `1 + 3 + 10`
+**Ürün:** Mini Systems Workbench — xv6 incelemesi ve sistem deneyleri
+**Belgeler:** [Ders sistemi](../README.md) · [Güncel kapsam](GUNCEL_KAPSAM.md) · [İlk hafta akışı](HAFTA01.md) · [Kaynakça](KAYNAKCA.md)
 **Durum:** Uygulanacak proje tasarımıdır; aşağıdaki yeni kod, starter ve deney paketleri henüz hazırlanmış veya çalıştırılmış değildir. Kaynak araştırması: 10 Eylül 2026.
 
 ## Projenin amacı ve ana seçim
@@ -83,7 +83,7 @@ Planlanan ortak komutlar `make host-test`, `make guest-test` ve `make evidence` 
 
 ### W5 — A1: Syscall ve koruma sınırı
 
-**Artım:** Verilen arayüzle xv6'ya sınırlı bir süreç istatistiği syscall'ı ekle; örneğin çağıranın tamamlanan `read` byte toplamı. Host tarafında seçilmiş `strace` satırlarını rapora bağla. **Geri çağır:** A2 süreç sahipliği, A4 descriptor.
+**Artım:** Verilen arayüzle xv6'ya sınırlı bir süreç istatistiği syscall'ı ekle; örneğin çağıranın tamamlanan `read` byte toplamı. Host tarafında seçilmiş `strace` satırlarını rapora bağla; capabilities, seccomp ve eBPF'nin syscall sınırındaki farklı rollerini verilen trace üzerinden konumlandır. **Geri çağır:** A2 süreç sahipliği, A4 descriptor.
 
 **Kanıt:** Kullanıcı programının istediği sayaç, kontrollü okuma ile değişir; geçersiz kullanıcı işaretçisi varsa kernel'i düşürmeden reddedilir. Library call/syscall/trap/hardware interrupt ayrımı ve küçük tehdit modeli yazılır. **Regresyon:** Launcher ve guest boot. **Stretch:** Syscall filtreleme.
 
@@ -91,43 +91,43 @@ Planlanan ortak komutlar `make host-test`, `make guest-test` ve `make evidence` 
 
 **Artım:** Launcher'a en fazla N eşzamanlı child ve her PID için sonuç toplama ekle. xv6 `proc.c` üzerinden oluşturma, bekleme ve temizleme yolunu kaynak konumlarıyla göster. **Geri çağır:** A1 sınır, A6 CPU paylaşımı.
 
-**Kanıt:** N sınırı aşılmaz, biten her çocuk bir kez toplanır; kısa ömürlü çocuk testinde sonuç kaybolmaz. Linux/BSD süreç modeli ve timer/preemption karşılaştırması aynı kanıt dosyasına eklenir. **Sonraki bağ:** Süreç içinde daha hafif worker gereksinimi.
+**Kanıt:** N sınırı aşılmaz, biten her çocuk bir kez toplanır; kısa ömürlü çocuk testinde sonuç kaybolmaz. Linux/BSD süreç modeli ve timer/preemption karşılaştırması aynı kanıt dosyasına eklenir. PID namespace ve `pidfd` fikri sabit trace üzerinde incelenir; namespace'in kaynak limiti veya tam güvenlik sınırı olmadığı belirtilir. **Sonraki bağ:** Süreç içinde daha hafif worker gereksinimi.
 
 ### W7 — A3: Thread ve paylaşılan durum
 
 **Artım:** Host byte counter'a verilen worker-pool iskeletiyle çok dosyalı `pthread` yolu ekle; thread-local sonuçları `join` sonrası topla. **Geri çağır:** A2 process, A5 paylaşım doğruluğu.
 
-**Kanıt:** Seri ve threaded toplam aynı; deterministik fixture ile test, multicore kazanımı hakkında ölçüm sınırı. Standart xv6'daki her process'in kernel yürütüm bağlamı ile POSIX kullanıcı thread'i eşitlenmez. **Sonraki bağ:** Paylaşılan kuyruk/race düzeneği W9'a hazırlanır; tam pthread katmanı xv6'ya eklenmez.
+**Kanıt:** Seri ve threaded toplam aynı; deterministik fixture ile test, multicore kazanımı hakkında ölçüm sınırı. Standart xv6'daki her process'in kernel yürütüm bağlamı ile POSIX kullanıcı thread'i eşitlenmez. C11 atomics ve memory ordering küçük bir yanlış-paylaşım karşı örneğinde konumlandırılır; lock-free yapı geliştirmek Core değildir. **Sonraki bağ:** Paylaşılan kuyruk/race düzeneği W9'a hazırlanır; tam pthread katmanı xv6'ya eklenmez.
 
 ### W8 — A4: IPC ve descriptor ömrü
 
 **Artım:** Guest'te producer → pipe → consumer akışı kur; host fixture'ıyla aynı sayı sonucunu al. Parent ve child gereksiz pipe uçlarını kapatır. **Geri çağır:** A2 yaşam döngüsü, A10 I/O.
 
-**Kanıt:** Veri kaybı yok, son writer kapanınca EOF gelir, açık kalan uç örneği neden bekletir açıklanır. Descriptor/VFS arayüzü, ağdaki message/RPC ve Mach message-passing sınırı karşılaştırılır. **Regresyon:** W1 sonuçları. **Stretch:** Loopback socket uyarlaması.
+**Kanıt:** Veri kaybı yok, son writer kapanınca EOF gelir, açık kalan uç örneği neden bekletir açıklanır. Descriptor/VFS arayüzü, ağdaki message/RPC ve Mach message-passing sınırı karşılaştırılır. Blocking, readiness/event-loop ve `io_uring` submission/completion modelleri aynı I/O isteği üzerinde çizilir; backpressure ve cancellation kararı eklenir. **Regresyon:** W1 sonuçları. **Stretch:** Loopback socket uyarlaması.
 
 ### W9 — A5: Senkronizasyon ve deadlock
 
 **Artım:** W7'deki hazır bounded-buffer kuyruğunun mutex/condition-variable TODO'larını tamamla; kilit sırası belirle. xv6 spinlock/sleep-lock ayrımı kaynak kodunda incelenir. **Geri çağır:** A3 paylaşım, A4 backpressure.
 
-**Kanıt:** Üretilen=tüketilen, yinelenen/kayıp iş yok; bekleme koşulu `while` ile yeniden kontrol edilir. Stress testi tek başına race yokluğu ispatı sayılmaz. Readers–writers, philosophers ve dört deadlock koşulu kısa izlerle; prevention/avoidance/detection/recovery kararları tabloyla kapsanır. **Sonraki bağ:** Bekleme/CPU süreleri W10 raporuna girer.
+**Kanıt:** Üretilen=tüketilen, yinelenen/kayıp iş yok; bekleme koşulu `while` ile yeniden kontrol edilir. Stress testi tek başına race yokluğu ispatı sayılmaz. Readers–writers, philosophers ve dört deadlock koşulu kısa izlerle; prevention/avoidance/detection/recovery kararları tabloyla kapsanır. Mutex/condition beklemesinin futex üzerinden olası kullanıcı–kernel sınırı verilen trace'te gösterilir. **Sonraki bağ:** Bekleme/CPU süreleri W10 raporuna girer.
 
 ### W10 — A6: Zamanlama ve politika
 
 **Artım:** Aynı işlerin burst/arrival kayıtlarını alan verilen modelde FCFS ve RR karşılaştırmasını tamamla; waiting/turnaround/response raporu ekle. Eğitmenin sağladığı xv6 scheduler trace'ini bu rapora bağla. **Geri çağır:** A2 process state, A5 blocked/runnable ayrımı.
 
-**Kanıt:** Küçük örneğin elle hesabı modelle eşleşir; model zamanı ile host duvar saati karıştırılmaz. Starvation, priority inversion, real-time deadline ve multicore perspektifi; Windows 10 tarihsel politika vakası. **Stretch:** xv6 scheduling policy değişikliği; zorunlu kapsam ölçüm ve karşılaştırmadır.
+**Kanıt:** Küçük örneğin elle hesabı modelle eşleşir; model zamanı ile host duvar saati karıştırılmaz. Starvation, priority inversion, real-time deadline ve multicore perspektifi; Windows 10 tarihsel politika vakası. Sağlanan cgroup v2 trace'inde CPU/memory/I/O/pids limiti ile scheduler policy ayrılır. **Stretch:** xv6 scheduling policy değişikliği; zorunlu kapsam ölçüm ve karşılaştırmadır.
 
 ### W11 — A7: Adres çevirisi ve protection
 
 **Artım:** xv6'ya verilen diagnostic sınır içinde page-table yazdırma ekle; `walk` yolunu ve R/W/X/U bayraklarını izle. **Geri çağır:** A1 ayrıcalık, A2 adres uzayı.
 
-**Kanıt:** Sayfa/offset hesabı, geçersiz erişim reddi, parent/child eş adreslerin farklı fiziksel eşlemeleri. Paging/segmentation, allocation ve access matrix/ACL/capability modelleri uygun karşılaştırmayla eklenir. **Regresyon:** Boot ve kullanıcı programları. **Sonraki bağ:** W12 fault sayacı.
+**Kanıt:** Sayfa/offset hesabı, geçersiz erişim reddi, parent/child eş adreslerin farklı fiziksel eşlemeleri. Paging/segmentation, allocation ve access matrix/ACL/capability modelleri uygun karşılaştırmayla eklenir; seccomp ve Landlock için korunan nesne/işlem/kalan risk tablosu okunur. **Regresyon:** Boot ve kullanıcı programları. **Sonraki bağ:** W12 fault sayacı.
 
 ### W12 — A8: Sanal bellek, fault ve izolasyon
 
 **Artım:** Sabit xv6 tabanının mevcut lazy allocation yoluna fault/ayrılan sayfa gözlemi ekle; ayrılmış fakat dokunulmamış alan ile dokunulan sayfaları karşılaştır. Erişim sınırı testi ekle. **Geri çağır:** A7 translation, A6 baskı altında ilerleme.
 
-**Kanıt:** Tabanın hangi fault'u çözdüğü; ilk dokunmanın etkisi; geçersiz erişimin diğer süreci bozmaması. COW ile eager-copy karşılaştırması eğitmen düzeneğinde, replacement/thrashing OSTEP modelinde; container/VM/hypervisor farkı kanıt haritasında. **Stretch:** Hazır laboratuvar tabanında COW uygulaması. Swap bulunduğu varsayılmaz.
+**Kanıt:** Tabanın hangi fault'u çözdüğü; ilk dokunmanın etkisi; geçersiz erişimin diğer süreci bozmaması. COW ile eager-copy karşılaştırması eğitmen düzeneğinde, replacement/thrashing OSTEP modelinde; VM, container ve Wasm izolasyonu kanıt haritasında. Container'ın namespaces + cgroup v2 + güvenlik politikaları bileşimi olduğu, tek mekanizma olmadığı gösterilir. **Stretch:** Hazır laboratuvar tabanında COW uygulaması. Swap bulunduğu varsayılmaz.
 
 ### W13 — A9: Dosya sistemi ve crash consistency
 
@@ -139,7 +139,7 @@ Planlanan ortak komutlar `make host-test`, `make guest-test` ve `make evidence` 
 
 **Artım:** Verilen kernel ölçüm kancalarıyla aynı işin block I/O sayılarını raporla; buffer boyutu ve cache etkisini ayır. Önceki artımları tek demo/kanıt kataloğunda birleştir. **Geri çağır:** A6 zamanlama, A9 kalıcılık.
 
-**Kanıt:** Tekrarlı örneklerin ham verisi, ortamı ve varyasyonu; UART/virtio interrupt yolu, DMA kavramsal izi, HDD/SSD/RAID karşılaştırması. QEMU sonucu gerçek SSD throughput'u olarak sunulmaz. Ağ/dağıtık hata senaryosu ve tarihsel vaka kapsamı portföyle tamamlanır. **Final:** Tek işin launch → IPC/thread → bellek → dosya → I/O yolunu savun; birikimli regresyonu çalıştır.
+**Kanıt:** Tekrarlı örneklerin ham verisi, ortamı ve varyasyonu; UART/virtio interrupt yolu, DMA kavramsal izi, HDD/SSD/RAID karşılaştırması. QEMU sonucu gerçek SSD throughput'u olarak sunulmaz. `perf`/eBPF trace'inin kaynağı ve overhead'i; async I/O/NVMe queue panoraması; ağ/dağıtık hata senaryosu portföyle tamamlanır. **Final:** Tek işin launch → IPC/thread → bellek → dosya → I/O yolunu savun; birikimli regresyonu çalıştır.
 
 ## Gerçek xv6 kaynak kodu okuma haritası
 
@@ -179,6 +179,7 @@ On çapa, kitabın her bölümünün ayrı kernel özelliği olarak yazılacağ�
 | 20 Linux; C BSD UNIX | W6, W13 | Süreç ve filesystem karşılaştırması |
 | 21 Windows 10; B Windows 7 | W10, W14 | Tarihsel mimari, scheduling, memory/I/O karşılaştırması |
 | D Mach | W8, W12 | Message-passing ve microkernel sınırları |
+| Güncel Linux çalışma zamanı | W5–W14 | namespaces, cgroup v2, atomics/futex, seccomp/Landlock, eBPF/perf ve async I/O bağlantıları |
 
 Windows 7/10 kitabın tarihsel vaka adlarıdır; güncel destek veya ürün önerisi sayılmaz. Final kapsam matrisi 1–21 ve A–D'yi tek tek açar; her satırda hafta, kaynak, öğrencinin kanıtı ve sınırı bulunur.
 

@@ -5,9 +5,9 @@
 **Süre:** 155 dakika ders; 125 dakika etkin çalışma + üç adet 10 dakikalık ara  
 **Dönem ürünü:** Yeniden Üretilebilir Makine Öğrenmesi Çalışması (`ML Evidence Lab`)  
 **İkinci turdaki yeri:** Orta bölüm — klasik modeller, değerlendirme, belirsizlik ve hata analizi  
-**İlgili belgeler:** [Ders modeli](README.md) · [1. hafta](HAFTA01.md) · [2. hafta](HAFTA02.md) · [4. hafta](HAFTA04.md)
+**İlgili belgeler:** [Ders modeli](README.md) · [Matematik ve algoritma kapsam matrisi](KAPSAM_MATRISI.md) · [1. hafta](HAFTA01.md) · [2. hafta](HAFTA02.md) · [4. hafta](HAFTA04.md)
 
-W2'de belirlenen problem, veri ve split sözleşmesi bu hafta dondurulur. Amaç mümkün olan en fazla modeli denemek değil; farklı varsayımlara sahip az sayıda modeli aynı protokolde karşılaştırmak ve sonucun karar bağlamındaki anlamını açıklamaktır. W4 checkpoint ve W14 final blind holdout W3 boyunca kapalı kalır.
+W2'de belirlenen problem, veri ve split sözleşmesi bu hafta dondurulur. Bu hafta klasik denetimli öğrenmenin ana aileleri ilk kez sistematik biçimde haritalanır: doğrusal/lojistik, olasılıksal Bayes, komşuluk, ağaç/ensemble ve margin/kernel. Amaç her modeli kontrolsüzce tune etmek değil; her ailenin temel hesabını görmek, farklı varsayımlara sahip az sayıda adayı aynı protokolde karşılaştırmak ve sonucun karar bağlamındaki anlamını açıklamaktır. W4 checkpoint ve W14 final blind holdout W3 boyunca kapalı kalır.
 
 ## Haftanın ana sorusu
 
@@ -17,8 +17,8 @@ W2'de belirlenen problem, veri ve split sözleşmesi bu hafta dondurulur. Amaç 
 
 | Çapa | Bu haftanın odağı | Haftanın ürün karşılığı |
 | --- | --- | --- |
-| **Ç4** | Doğrusal ve olasılıksal modeller | Düzenlileştirilmiş logistic/linear model, olasılık ve calibration başlangıcı |
-| **Ç5** | Ağaçlar, çekirdek yöntemleri ve ensemble'lar | Sınırlı doğrusal olmayan alternatif ve sabit protokolde karşılaştırma |
+| **Ç4** | Doğrusal, olasılıksal ve komşuluk modelleri | Düzenlileştirilmiş logistic/linear model; Naive Bayes ve k-NN mekanizma laboratuvarı; calibration başlangıcı |
+| **Ç5** | Ağaçlar, çekirdek yöntemleri ve ensemble'lar | Entropy/Gini bölmesi, sınırlı doğrusal olmayan alternatif ve sabit protokolde karşılaştırma |
 | **Ç6** | Değerlendirme, belirsizlik, açıklama ve hata analizi | Birincil metrik, eşik, CV özeti, hata dilimleri ve model seçim kaydı |
 
 Ç7–Ç10'un mekanizmaları bu hafta ayrıntılı işlenmez. Sinir ağı, modern temsil, feedback loop ve üretim yaşam döngüsü W4'te ilk sistematik turunu tamamlar.
@@ -30,9 +30,11 @@ W2'de belirlenen problem, veri ve split sözleşmesi bu hafta dondurulur. Amaç 
 - doğrusal regresyonda tahmin, residual ve squared loss ilişkisini açıklar;
 - logistic fonksiyon, log-odds, olasılık skoru ve karar eşiğini ayırır;
 - likelihood ile loss arasındaki bağlantıyı sezgisel olarak kurar;
+- Bayes teoremiyle küçük bir posterior hesabı yapar; Naive Bayes'in koşullu bağımsızlık varsayımını, likelihood türlerini ve smoothing ihtiyacını açıklar;
+- k-NN'de uzaklık, ölçekleme, `k` ve yüksek boyutun komşuluğa etkisini küçük örnek üzerinde gösterir;
 - L1 ve L2 regularization'ın kapasite, katsayılar ve genelleme üzerindeki etkisini yorumlar;
 - katsayı veya feature importance değerini nedensel etki diye sunmaz;
-- karar ağacında split, impurity, derinlik ve overfitting ilişkisini gösterir;
+- karar ağacında entropy, information gain ve Gini impurity hesabını yapar; split, derinlik ve overfitting ilişkisini gösterir;
 - bagging/random forest ile boosting'in temel hata azaltma fikirlerini ayırır;
 - SVM'de margin ve kernel fikrini çalışma düzeyinde konumlandırır;
 - model ailelerini aynı feature, split ve değerlendirme protokolünde karşılaştırır;
@@ -52,12 +54,15 @@ W2'de belirlenen problem, veri ve split sözleşmesi bu hafta dondurulur. Amaç 
   1. W2 dummy/kural baseline,
   2. scaling/encoding içeren regularized logistic regression,
   3. sınırlı derinlikte decision tree veya random forest.
+- Ayrı bir küçük mekanizma laboratuvarında Gaussian/Multinomial/Bernoulli Naive Bayes seçimini, Laplace smoothing'i ve ölçekli/ölçeksiz k-NN kararını göster; bunları öğrencinin proje modeline zorunlu aday yapma.
+- Dört–sekiz gözlemli sınıf etiketi üzerinde entropy, iki aday split için information gain ve Gini hesabını elle doğrulayacak cevap anahtarı hazırla.
 - SVM ve gradient boosting'i küçük instructor-demo yapılandırması olarak hazırla; her öğrenciden bütün aileleri tune etmesini bekleme.
 - Bütün modellerin aynı fold/split kimliğini kullandığını otomatik kontrol eden test ekle.
 
 ### Görsel ve karşı örnekler
 
-- 2B sentetik veride doğrusal decision boundary ve ağaç bölmeleri.
+- 2B sentetik veride doğrusal decision boundary, k-NN komşulukları ve ağaç bölmeleri.
+- Aynı gözlem için prior veya likelihood değişince Naive Bayes posterior sıralamasının değiştiği örnek.
 - Aşırı derin ağacın train/development farkı.
 - Aynı ROC-AUC fakat farklı calibration/eşik davranışı üreten iki model.
 - Aynı accuracy fakat farklı pozitif sınıf recall'ına sahip iki confusion matrix.
@@ -76,7 +81,7 @@ W2'de belirlenen problem, veri ve split sözleşmesi bu hafta dondurulur. Amaç 
 ## Ders öncesi öğrenci hazırlığı — 35–45 dakika
 
 1. W2 problem card, split contract ve baseline geri bildirimlerini kapat.
-2. Şu kavramları notasız birer cümleyle açıkla: linear score, probability, threshold, regularization, tree depth, cross-validation, calibration.
+2. Şu kavramları notasız birer cümleyle açıkla: linear score, probability, threshold, prior, likelihood, conditional independence, entropy, distance, regularization, tree depth, cross-validation, calibration.
 3. Baseline çıktından confusion matrix'i elle yeniden hesapla.
 4. Şu iki tahmini yaz:
    - Regularization çok güçlenirse train ve validation performansı hangi yönde değişebilir?
@@ -91,7 +96,7 @@ Sabit problem + sabit veri + sabit split
                    ↓
 Baseline
                    ↓
-Doğrusal/olasılıksal model  ↔  ağaç/ensemble/kernel
+Doğrusal/lojistik ↔ Naive Bayes ↔ k-NN ↔ ağaç/ensemble ↔ SVM/kernel
                    ↓
 Development içi model ve hiperparametre seçimi
                    ↓
@@ -109,14 +114,14 @@ Belgelenmiş model seçim kararı
 | Süre | İçerik ve öğretmen hamlesi | Öğrenci işi / toplanan kanıt |
 | --- | --- | --- |
 | 00–08 | W2 retrieval: problem, split ve baseline sözleşmesini kısa vaka üzerinden yokla. | Bireysel sözleşme kontrolü |
-| 08–18 | **Ç4:** Doğrusal tahmin, residual, squared loss ve regularization. | Üç nokta için tahmin/residual hesabı |
-| 18–26 | Logistic score, sigmoid, log-odds, likelihood/loss sezgisi. | Skor–olasılık–etiket ayrımı |
-| 26–30 | L1/L2 ve katsayı yorumunun sınırı. | Regularization tahmini |
+| 08–15 | **Ç4:** Doğrusal tahmin, residual, squared loss ve regularization. | Üç nokta için tahmin/residual hesabı |
+| 15–22 | Logistic score, sigmoid, log-odds, likelihood/loss sezgisi. | Skor–olasılık–etiket ayrımı |
+| 22–30 | Bayes teoremi, koşullu bağımsızlık, Naive Bayes likelihood türü ve smoothing. | Küçük posterior ve sıfır-frekans hesabı |
 | 30–40 | **Ara** | |
-| 40–50 | Logistic pipeline'ı çalıştır; coefficient, validation metriği ve calibration başlangıcı. | Çalıştırma kaydı + bir sınırlı yorum |
-| 50–60 | **Ç5:** Decision tree; split, impurity, depth ve aşırı öğrenme. | Train/development eğrisi yorumu |
-| 60–66 | Bagging/random forest ve boosting farkı; variance/bias bağlantısı. | İki mekanizma karşılaştırması |
-| 66–70 | SVM margin ve kernel panoraması; hangi ölçekte neden düşünülebileceği. | Bir kullanım koşulu + maliyet |
+| 40–47 | k-NN; uzaklık, ölçek, komşu sayısı ve boyut etkisi. | Ölçekli/ölçeksiz komşuluk karşılaştırması |
+| 47–57 | **Ç5:** Decision tree; entropy, information gain, Gini, depth ve aşırı öğrenme. | İki aday split hesabı + eğri yorumu |
+| 57–64 | Bagging/random forest ile AdaBoost/gradient boosting farkı; variance/bias bağlantısı. | Üç mekanizma karşılaştırması |
+| 64–70 | SVM margin, hinge loss ve kernel panoraması; hangi ölçekte neden düşünülebileceği. | Bir kullanım koşulu + maliyet |
 | 70–80 | **Ara** | |
 | 80–90 | **Ç6:** Confusion matrix; accuracy, precision, recall, specificity ve F1. | Verilen matristen metrik hesabı |
 | 90–98 | ROC/PR, sınıf oranı ve karar bağlamı; birincil metriğin önceden seçimi. | Problem için metrik gerekçesi |
@@ -132,8 +137,8 @@ Belgelenmiş model seçim kararı
 
 | Çapa | Bu hafta ayrıntılı işle | Sonraki derinleşmeye bırak |
 | --- | --- | --- |
-| Ç4 | Linear/logistic model, loss/likelihood sezgisi, L1/L2, probability ve threshold | Ayrıntılı türetimler, Bayesian modelleme ve ileri kalibrasyon yöntemleri |
-| Ç5 | Tree split/depth, bagging/random forest, boosting ve SVM/kernel ana fikri | Her algoritmanın tam implementasyonu ve geniş hiperparametre araması |
+| Ç4 | Linear/logistic model, loss/likelihood sezgisi, L1/L2, probability/threshold; Naive Bayes posterioru ve k-NN komşuluğu | Ayrıntılı türetimler, LDA/QDA, ileri Bayesçi modelleme ve kalibrasyon yöntemleri |
+| Ç5 | Entropy/Gini ile tree split/depth; bagging/random forest, AdaBoost/gradient boosting ve SVM/kernel ana fikri | Her algoritmanın tam implementasyonu ve geniş hiperparametre araması |
 | Ç6 | Metrik seçimi, CV protokolü, calibration, threshold, belirsizlik başlangıcı ve hata dilimleri | Nested CV ayrıntıları, ileri uncertainty, açıklama yöntemleri ve çoklu karşılaştırma düzeltmeleri |
 
 ## Stüdyo görevi: aynı protokolde üç seviye
@@ -143,6 +148,8 @@ Belgelenmiş model seçim kararı
 1. **Seviye 0 — baseline:** Dummy veya onaylı basit kural.
 2. **Seviye 1 — basit model:** Regularized logistic regression; regresyon probleminde regularized linear model.
 3. **Seviye 2 — doğrusal olmayan model:** Sınırlı karar ağacı veya random forest.
+
+Bunlardan önce bütün öğrenciler ortak küçük veri üzerinde iki kısa **mekanizma kontrolü** tamamlar: Naive Bayes posterior/smoothing hesabı ve ölçekli–ölçeksiz k-NN karşılaştırması. Bu kontroller ailelerin öğrenildiğini gösterir; proje için beş modelin birden tune edilmesini gerektirmez.
 
 ### Deney sözleşmesi
 
@@ -185,6 +192,8 @@ Checkpoint holdout açılmadan önce kalan risk:
 
 - W2 problem, veri ve split sözleşmesi değiştirilmemiş veya değişiklik açıkça sürümlenmiştir.
 - Baseline, doğrusal/olasılıksal model ve ağaç tabanlı model aynı protokolde çalışır.
+- Naive Bayes posterior/smoothing ve k-NN uzaklık/ölçek mekanizma kontrolleri doğrudur.
+- En az bir aday bölme için entropy, information gain ve Gini hesabı doğrulanmıştır.
 - Preprocessing her fold'un yalnız training bölümünde fit edilir.
 - Hiperparametre seçimi development verisi içinde kalır.
 - W4 checkpoint ve W14 final blind holdout'a erişilmez.
@@ -197,7 +206,8 @@ Checkpoint holdout açılmadan önce kalan risk:
 
 ## Stretch
 
-- SVM veya gradient boosting'i aynı bütçe/protokolde ekle; Core modelleri kaldırma.
+- Naive Bayes veya k-NN'i proje verisinde aynı bütçe/protokolde ekle; veri türü ve scaling kararını gerekçelendir.
+- LDA/QDA, SVM veya gradient boosting'i aynı bütçe/protokolde ekle; Core modelleri kaldırma.
 - Calibration curve ve Brier score ekle; calibration yöntemini yalnız development içinde fit et.
 - Development verisi içinde nested CV örneği çalıştır ve sıradan CV ile rol farkını açıkla.
 - Bootstrap ile metrik değişkenliği üret; bağımsız gözlem varsayımını ihlal eden grup/zaman yapısını tartış.
@@ -205,6 +215,9 @@ Checkpoint holdout açılmadan önce kalan risk:
 ## Kritik sorular ve beklenen yön
 
 - **Logistic regression neden “regression” adını taşır?** Sınıf için doğrusal skor/log-odds modelleyip olasılığa dönüştürür; sürekli sınıf etiketi üretmez.
+- **Naive Bayes'teki “naive” neyi anlatır?** Özelliklerin sınıf verildiğinde koşullu bağımsız kabul edilmesini; posterior hesabının Bayes kuralı olmasını değil.
+- **Entropy ve cross-entropy aynı yerde mi kullanılır?** İlişkilidir fakat rolleri farklıdır: ağaç entropy azalmasıyla split seçebilir; olasılıksal sınıflandırıcı cross-entropy/NLL ile tahmini hedef dağılıma yaklaştırır.
+- **k-NN neden çoğu sayısal problemde ölçekleme ister?** Uzaklığa büyük sayısal aralıklı değişkenlerin hükmetmesini önlemek için; uygun uzaklık ve dönüşüm yine veri anlamına bağlıdır.
 - **Katsayı büyükse feature önemli midir?** Ölçek, korelasyon, regularization ve model varsayımı etkiler; önem ve nedensellik ayrı iddialardır.
 - **Ağaç scaling istemiyorsa pipeline gereksiz midir?** Hayır; imputation, encoding, feature sözleşmesi ve sızıntı kontrolü yine pipeline gerektirir.
 - **Random forest her zaman tek ağaçtan iyi midir?** Genellikle variance azaltabilir; fakat maliyet, veri, ayar ve karar bağlamına bağlıdır.
@@ -238,6 +251,7 @@ week03/
 ├── artifacts/threshold_report.csv
 ├── artifacts/calibration_summary.json
 ├── artifacts/error_slices.csv
+├── algorithm_mechanisms.md
 ├── model_selection.md
 ├── decision_log.md
 └── AI_ASSISTANCE.md
@@ -246,18 +260,21 @@ week03/
 Teknik açıklama en fazla 500 kelimedir ve şu soruları yanıtlar:
 
 1. Hangi model hangi varsayım ve mekanizma nedeniyle farklı davrandı?
-2. Birincil metriğin karar problemiyle ilişkisi nedir?
-3. Eşik değişimi kimin açısından hangi bedeli değiştirdi?
-4. Hangi hata dilimi en önemli, fakat kanıt neden hâlâ sınırlı?
-5. Holdout'lar açılmadan önce neden seçilen modelin gerçek performansını bildiğimizi söyleyemeyiz?
+2. Naive Bayes, k-NN ve decision tree mekanizma kontrollerinde hangi varsayım veya geometri görünür oldu?
+3. Birincil metriğin karar problemiyle ilişkisi nedir?
+4. Eşik değişimi kimin açısından hangi bedeli değiştirdi?
+5. Hangi hata dilimi en önemli, fakat kanıt neden hâlâ sınırlı?
+6. Holdout'lar açılmadan önce neden seçilen modelin gerçek performansını bildiğimizi söyleyemeyiz?
 
 ## Exit ticket
 
 1. Probability score ile karar eşiği arasındaki fark nedir?
-2. Bu hafta model seçerken iki holdout'u neden kullanmadın?
-3. Aynı accuracy'ye sahip iki model hangi nedenle farklı karar kalitesi üretebilir?
-4. Seçtiğin modelin baseline'a göre sağladığı en güçlü kanıt nedir?
-5. Ç7–Ç10'dan hangisi model seçim kararını W4'te en çok değiştirebilir?
+2. Naive Bayes'in koşullu bağımsızlık varsayımı posterior hesabını nasıl sadeleştirir?
+3. Entropy azalması ağaçta neyi seçer; cross-entropy sınıflandırmada neyi cezalandırır?
+4. Bu hafta model seçerken iki holdout'u neden kullanmadın?
+5. Aynı accuracy'ye sahip iki model hangi nedenle farklı karar kalitesi üretebilir?
+6. Seçtiğin modelin baseline'a göre sağladığı en güçlü kanıt nedir?
+7. Ç7–Ç10'dan hangisi model seçim kararını W4'te en çok değiştirebilir?
 
 ## 4. haftaya köprü
 
