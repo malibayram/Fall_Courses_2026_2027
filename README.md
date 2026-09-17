@@ -6,8 +6,8 @@ Bu depo, 2026–2027 Güz döneminde yürütülecek dört bilgisayar bilimi ders
 
 | Ders | Üniversite ve düzey | Dönem ürünü | Öğretim modeli | Ana başlangıç belgesi |
 | --- | --- | --- | --- | --- |
-| **CEN 302 — Operating Systems** | İstanbul Bilgi Üniversitesi · Lisans | Mini Systems Workbench | 14 hafta · `1 + 3 + 10` | [Proje ve ders planı](CEN_302/PROJE.md) |
-| **SE 237 — Object Oriented Programming** | İstanbul Bilgi Üniversitesi · Lisans | Factory ERP — nesne modeli ve iş davranışları | 14 hafta · `1 + 3 + 10` | [ERP öğrenci rehberi](SE_237/ERP_OGRENCI_REHBERI.md) |
+| **CEN 302 — Operating Systems** | Maltepe Üniversitesi · Lisans | Mini Systems Workbench | 14 hafta · `1 + 3 + 10` | [Proje ve ders planı](CEN_302/PROJE.md) |
+| **SE 237 — Object Oriented Programming** | Maltepe Üniversitesi · Lisans | Factory ERP — nesne modeli ve iş davranışları | 14 hafta · `1 + 3 + 10` | [ERP öğrenci rehberi](SE_237/ERP_OGRENCI_REHBERI.md) |
 | **CMPE 351 — Database Systems** | İstanbul Bilgi Üniversitesi · Lisans | Factory ERP — ilişkisel veri omurgası | 12 hafta · `1 + 3 + 8` | [Ders modeli](CMPE_351/README.md) |
 | **BİL 536 01 — Makine Öğrenmesi** | Maltepe Üniversitesi · Lisansüstü | ML Evidence Lab — yeniden üretilebilir ML çalışması | 14 hafta · `1 + 3 + 10` | [Ders modeli](BIL_536/README.md) |
 

@@ -1,5 +1,6 @@
 # SE 237 — Tek Derslik Prototipten Gelişen Kayıt Uygulamasına
 
+**Üniversite:** Maltepe Üniversitesi  
 > Önceki proje örneğidir. Öğrencilere verilecek güncel kapsam ve teslim sözleşmesi: [Sandalye Fabrikası ERP — SE 237 rehberi](ERP_OGRENCI_REHBERI.md). Bu dosya önceki tasarımın referansı olarak korunmuştur.
 
 **Dönem:** 14 hafta, `1 + 3 + 10`  

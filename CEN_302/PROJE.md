@@ -1,5 +1,6 @@
 # CEN 302 — Küçük Prototipten Gerçek Çekirdek İncelemesine
 
+**Üniversite:** Maltepe Üniversitesi  
 **Dönem:** 14 hafta, `1 + 3 + 10`
 **Ürün:** Mini Systems Workbench — xv6 incelemesi ve sistem deneyleri
 **Belgeler:** [Ders sistemi](../README.md) · [Güncel kapsam](GUNCEL_KAPSAM.md) · [İlk hafta akışı](HAFTA01.md) · [Kaynakça](KAYNAKCA.md)
